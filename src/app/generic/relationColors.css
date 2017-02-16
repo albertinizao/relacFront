@@ -1,0 +1,65 @@
+@CHARSET "UTF-8";
+
+.background-relation-working {
+    background-color: black;
+}
+
+.panel-relation-working {
+    border-color: black;
+}
+.background-relation-confidential {
+    background-color: black;
+}
+
+.panel-relation-confidential {
+    border-color: black;
+}
+
+
+.panel-heading {
+    color: #fff;
+}
+
+.background-relation-loyalty {
+    background-color: black;
+}
+
+.panel-relation-loyalty {
+    border-color: black;
+}
+
+
+.background-relation-trust{
+    background-color: black;
+}
+
+.panel-relation-trust {
+    border-color: black;
+}
+
+
+.background-relation-respect {
+    background-color: black;
+}
+
+.panel-relation-respect {
+    border-color: black;
+}
+
+
+.background-relation-funny {
+    background-color: black;
+}
+
+.panel-relation-funny {
+    border-color: black;
+}
+
+
+.background-relation-affection {
+    background-color: black;
+}
+
+.panel-relation-affection {
+    border-color: black;
+}

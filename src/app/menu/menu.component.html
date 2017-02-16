@@ -1,0 +1,23 @@
+
+<div class="sidebar-nav">
+	<div class="navbar navbar-default black-background" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target=".sidebar-navbar-collapse">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<span class="visible-xs navbar-brand">Own characters</span>
+		</div>
+		<div class="navbar-collapse collapse sidebar-navbar-collapse">
+			<ul class="nav navbar-nav" id="sidenav01">
+				<li *ngFor="let character of ownCharacters" class="brillo"><a
+					[routerLink]="['character', character]" routerLinkActive="active"
+					class="menu-element" [class.selected]="character === getSelectedCharacter()"><span
+						class="glyphicon glyphicon-user"></span> {{character}}</a></li>
+			</ul>
+		</div>
+		<!--/.nav-collapse-->
+	</div>
+</div>

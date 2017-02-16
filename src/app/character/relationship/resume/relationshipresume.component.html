@@ -1,0 +1,25 @@
+
+
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<div class="row">
+			<div class="col-md-8 brillo">
+				<h3 *ngIf="name" class="panel-title">
+					<a [routerLink]="['relationship', name]"
+						routerLinkActive="active" class="menu-element"><span
+						class="fa fa-address-card"></span> {{name}}</a>
+
+				</h3>
+			</div>
+			<div class="col-md-4 text-right">{{relation.date
+				| date:'medium'}}</div>
+		</div>
+
+	</div>
+	<div class="panel-body">
+		<div class="row row-centered">
+			<app-relation [relation]="relation"></app-relation>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,20 @@
+<app-title [title]="'USER'" [subtitle]="'New character'"></app-title>
+
+<div class="col-md-12">
+	<div class="pull-right">
+		<app-button [button]="buttonHome"></app-button>
+  	<app-button [button]="buttonCancel"></app-button>
+  <a
+  	class='btn btn-primary black-background white'  [routerLink]="buildRouterLink()"
+  	[ngClass]="buttonSave.getStyle()" (click)="save()" > {{buttonSave.message}}</a>
+	</div>
+</div>
+
+<div class="col-md-3">
+</div>
+<div class="col-md-6">
+  <h2 class="text-center">New character</h2>
+  <h2><input class="nameBox"  [(ngModel)]="character" type="text" autofocus="on" required="on"></h2>
+</div>
+<div class="col-md-3">
+</div>

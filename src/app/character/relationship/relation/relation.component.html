@@ -1,0 +1,22 @@
+<div class="row row-center">
+	<app-relation-single [value]="(relation?.working)" [name]="'working'"></app-relation-single>
+	<app-relation-single [value]="(relation?.confidential)"
+		[name]="'confidential'"></app-relation-single>
+	<app-relation-single [value]="(relation?.loyalty)" [name]="'loyalty'"></app-relation-single>
+	<app-relation-single [value]="(relation?.trust)" [name]="'trust'"></app-relation-single>
+	<app-relation-single [value]="(relation?.respect)" [name]="'respect'"></app-relation-single>
+	<app-relation-single [value]="(relation?.funny)" [name]="'funny'"></app-relation-single>
+	<app-relation-single [value]="(relation?.affection)" [name]="'affection'"></app-relation-single>
+</div>
+
+<div
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-center"
+	style="padding-left: 10%; padding-right: 10%;">
+	<app-relation-bar [value]="(relation?.working)" [name]="'working'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.confidential)" [name]="'confidential'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.loyalty)" [name]="'loyalty'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.trust)" [name]="'trust'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.respect)" [name]="'respect'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.funny)" [name]="'funny'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.affection)" [name]="'affection'"></app-relation-bar>
+</div>

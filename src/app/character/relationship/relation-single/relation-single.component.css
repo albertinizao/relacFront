@@ -1,0 +1,10 @@
+
+
+.col-center {
+	display: inline-block;
+	float: none;
+}
+.without-align {
+	margin: 0px;
+	padding: 0px;
+}

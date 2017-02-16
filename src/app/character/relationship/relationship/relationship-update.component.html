@@ -1,0 +1,17 @@
+<app-title [title]="'New '+otherName+'\'s relation'" [subtitle]="ownerName"></app-title>
+
+<div class="col-md-12">
+	<div class="pull-right">
+		<app-button [button]="buttonHome"></app-button>
+  	<app-button [button]="buttonCharacter"></app-button>
+  	<app-button [button]="buttonCancel"></app-button>
+  <a
+  	class='btn btn-primary black-background white'  [routerLink]="buttonSave.routerLink"
+  	[ngClass]="buttonSave.getStyle()" (click)="save($event)" > {{buttonSave.message}}</a>
+	</div>
+</div>
+<div class="col-xs-0 col-sm-0 col-md-3 col-lg-3"></div>
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 toppad">
+	<app-relationship-resume-update [relation]="relation" [name]=""></app-relationship-resume-update>
+</div>
+<div class="col-xs-0 col-sm-0 col-md-3 col-lg-3"></div>

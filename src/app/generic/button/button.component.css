@@ -1,0 +1,19 @@
+.btn {
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
+.black-background {
+	background-color: #000000;
+}
+
+.white {
+	color: #ffffff;
+}
+
+
+
+.black-background:HOVER {
+	background-color: #2e3436;
+	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+}

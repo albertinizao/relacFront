@@ -1,0 +1,79 @@
+.panel-primary>.panel-heading {
+    color: #fff;
+    background-color: #2e3436;
+    border-color: #2e3436;
+}
+
+.panel-primary {
+    border-color: #2e3436;
+}
+
+
+a:hover {
+    text-decoration: none;
+}
+
+/* make sidebar nav vertical */
+@media ( min-width : 768px) {
+	.sidebar-nav {
+		position: fixed;
+		width: 100%;
+	}
+	.sidebar-nav .navbar .navbar-collapse {
+		padding: 0;
+		max-height: none;
+	}
+	.sidebar-nav .navbar {
+		background-color: black;
+		border-radius: 0;
+		margin-bottom: 0;
+		border: 0;
+		height: 100%;
+	}
+	.sidebar-nav .navbar ul {
+		float: none;
+		display: block;
+	}
+	.sidebar-nav .navbar li {
+		float: none;
+		display: block;
+	}
+	.sidebar-nav .navbar li a {
+		padding-top: 12px;
+		padding-bottom: 12px;
+	}
+}
+
+@media ( min-width : 1220px) {
+	.navbar-nav {
+		margin: 0;
+	}
+	.navbar-collapse {
+		padding: 0;
+	}
+	.sidebar-nav .navbar li a>.caret {
+		margin-top: 8px;
+	}
+}
+
+.brillo a:hover {
+	color: white;
+	text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+}
+
+.brillo .selected {
+	color: #e0e0e0;
+	text-shadow: 0 0 10px #666, 0 0 20px #666, 0 0 30px #666;
+}
+
+.menu-element {
+	font-size: large;
+}
+
+.sidebar-nav {
+	height: 100%;
+}
+
+.black-background  {
+	background-color: black;
+}

@@ -1,0 +1,23 @@
+
+<div class="row row-center">
+	<app-relation-single-update [value]="(relation?.working)" [name]="'working'" (notify)="change($event,'working')"></app-relation-single-update>
+	<app-relation-single-update [value]="(relation?.confidential)"
+		[name]="'confidential'" (notify)="change($event,'confidential')"></app-relation-single-update>
+	<app-relation-single-update [value]="(relation?.loyalty)" [name]="'loyalty'" (notify)="change($event,'loyalty')"></app-relation-single-update>
+	<app-relation-single-update [value]="(relation?.trust)" [name]="'trust'" (notify)="change($event,'trust')"></app-relation-single-update>
+	<app-relation-single-update [value]="(relation?.respect)" [name]="'respect'" (notify)="change($event,'respect')"></app-relation-single-update>
+	<app-relation-single-update [value]="(relation?.funny)" [name]="'funny'" (notify)="change($event,'funny')"></app-relation-single-update>
+	<app-relation-single-update [value]="(relation?.affection)" [name]="'affection'" (notify)="change($event,'affection')"></app-relation-single-update>
+</div>
+
+<div
+	class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-center"
+	style="padding-left: 10%; padding-right: 10%;">
+	<app-relation-bar [value]="(relation?.working)" [name]="'working'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.confidential)" [name]="'confidential'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.loyalty)" [name]="'loyalty'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.trust)" [name]="'trust'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.respect)" [name]="'respect'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.funny)" [name]="'funny'"></app-relation-bar>
+	<app-relation-bar [value]="(relation?.affection)" [name]="'affection'"></app-relation-bar>
+</div>
