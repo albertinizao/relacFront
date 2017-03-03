@@ -17,6 +17,7 @@ import { CharacterService } from '../services/character.service';
 })
 export class MainCharacterComponent implements OnInit {
   public character: GenericCharacter;
+  public loaded=false;
 
   public buttonHome: Button = new Button('Home', 'home', null, ['../../'], null);
   public buttonNew: Button = new Button('New', 'plus', null, ['new'], null);
@@ -37,13 +38,14 @@ export class MainCharacterComponent implements OnInit {
 
   getCharacter() {
     this.characterService.getCharacter(this.characterSelectedService.characterSelected)
-      .then(character => {
+      .subscribe(character => {
         this.character = character;
         this.character.relationships.forEach((item,indez)=>{
           if (!item.relation){
             item.relation = [new Relation()];
           }
-        })
+        });
+        this.loaded=true;
       });
   }
 }

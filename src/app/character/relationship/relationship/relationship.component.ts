@@ -20,6 +20,7 @@ export class RelationshipComponent implements OnInit {
   public ownerName: string;
   public otherName: string;
   public relations: Relation[];
+  public loaded=false;
 
   public buttonHome: Button = new Button('Home', 'home', null, ['../../../../'], null);
   public buttonCharacter: Button = new Button('Character', 'user', null, ['../../'], null);
@@ -33,9 +34,13 @@ export class RelationshipComponent implements OnInit {
       {data: [], label: 'Trust'},
       {data: [], label: 'Respect'},
       {data: [], label: 'Funny'},
-      {data: [], label: 'Affection'}
+      {data: [], label: 'Affection'},
+      {data: [], label: 'Confidential'}
     ];
     public lineChartLabels:Array<String> = [];
+    public lineChartsReady:boolean = false;
+    public nowLoaded:number=0;
+    public toLoad:number=0;
 
 
   constructor(
@@ -51,10 +56,12 @@ export class RelationshipComponent implements OnInit {
       this.ownerName = this.characterSelectedService.characterSelected;
       this.buttonCharacter = new Button(this.ownerName, 'user', null, ['../../'], null);
       this.otherName = param['other'];
-      this.relationService.getRelationList(this.ownerName, this.otherName).then(relIds => {
+      this.nowLoaded=0;
+      this.relationService.getRelationList(this.ownerName, this.otherName).subscribe(relIds => {
         this.relations = [];
+        this.toLoad=relIds.length;
         relIds.sort((n1, n2) => n2 - n1).forEach((item, index) => {
-          this.relationService.getRelation(this.ownerName, this.otherName, item).then(relation => {
+          this.relationService.getRelation(this.ownerName, this.otherName, item).subscribe(relation => {
             if (relation) {
                 this.relations.push(relation);
                 this.lineChartLabels[relIds.length-index-1]=this.datePipe.transform(relation.date.toString(), 'dd-MM-yyyy HH:mm:ss');
@@ -64,9 +71,12 @@ export class RelationshipComponent implements OnInit {
                 this.lineChartData.filter(f=>'Respect'===f.label)[0].data[relIds.length-index-1]=relation.respect;
                 this.lineChartData.filter(f=>'Funny'===f.label)[0].data[relIds.length-index-1]=relation.funny;
                 this.lineChartData.filter(f=>'Affection'===f.label)[0].data[relIds.length-index-1]=relation.affection;
+                this.lineChartData.filter(f=>'Confidential'===f.label)[0].data[relIds.length-index-1]=relation.confidential;
+                this.nowLoaded++;
             }
           });
         });
+        this.loaded=true;
       });
     });
   }

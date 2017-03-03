@@ -1,3 +1,4 @@
+<app-loading [loaded]="loaded && (nowLoaded===0 || nowLoaded===toLoad)"></app-loading>
 <app-title [title]="otherName+'\'s relation'" [subtitle]="ownerName"></app-title>
 
 <div class="col-md-12">
@@ -8,7 +9,9 @@
 	</div>
 </div>
 
-<app-chart *ngIf="lineChartLabels.length>1" [lineChartData]="lineChartData" [lineChartLabels]="lineChartLabels"></app-chart>
+<div style="margin-top:30px;">
+  <app-chart *ngIf="nowLoaded>0 && nowLoaded===toLoad" [lineChartData]="lineChartData" [lineChartLabels]="lineChartLabels"></app-chart>
+</div>
 
 <div
 	class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 toppad"

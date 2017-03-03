@@ -48,8 +48,8 @@ export class RelationshipUpdateComponent implements OnInit {
         this.characterSelectedService.characterSelected = param['characterName'];
         this.ownerName = this.characterSelectedService.characterSelected;
         this.otherName = param['other'];
-        this.relationService.getRelationList(this.ownerName, this.otherName).then(relIds => {
-            this.relationService.getRelation(this.ownerName, this.otherName, relIds[0]).then(relation => {
+        this.relationService.getRelationList(this.ownerName, this.otherName).subscribe(relIds => {
+            this.relationService.getRelation(this.ownerName, this.otherName, relIds[0]).subscribe(relation => {
               if (relation) {
                 this.relation.working=relation.working;
                 this.relation.confidential=relation.confidential;

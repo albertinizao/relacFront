@@ -2,47 +2,59 @@
 import { GenericCharacter } from '../data/genericcharacter';
 import { Relation } from '../data/relation'
 import { Injectable } from '@angular/core';
+import { Http, Response, Headers }          from '@angular/http';
+import { RequestOptions } from "@angular/http/src/base_request_options";
+import { AppSettings }          from '../../app.component';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/map';
 
 
 @Injectable()
 export class RelationService {
-  getRelationList(owner: String, other: String): Promise<number[]> {
-    const relationList: number[] = [1486634299626, 1486984453104, 1486634300626];
-    return Promise.resolve(relationList);
+
+  constructor (private http: Http) {}
+
+
+  getRelationList(owner: String, other: String): Observable<number[]> {
+    let authToken = localStorage.getItem('token');
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      headers.append('X-AUTH-TOKEN',  localStorage.getItem("token"));
+
+      let options = new RequestOptions({ headers: headers });
+      return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+owner+"/"+AppSettings.API_RELATIONSHIP+"/"+other+"/"+AppSettings.API_RELATION, options)
+                      .map(this.extractDates)
+                      .catch(this.handleError);
   }
-  getRelation(owner: String, other: String, relationId: number): Promise<Relation> {
-    const relation: Relation[] = [
-      {
-        'date': 1486634299626,
-        'working': 5,
-        'confidential': 6,
-        'loyalty': 8,
-        'trust': 5,
-        'respect': 6,
-        'funny': 0,
-        'affection': 10
-      },
-      {
-        'date': 1486984453104,
-        'working': 6,
-        'confidential': 0,
-        'loyalty': 7,
-        'trust': 10,
-        'respect': 5,
-        'funny': 5,
-        'affection': 5
-      },
-        {
-          'date': 1486634300626,
-          'working': 4,
-          'confidential': 5,
-          'loyalty': 7,
-          'trust': 4,
-          'respect': 5,
-          'funny': 2,
-          'affection': 5
-        }
-    ];
-    return Promise.resolve(relation.filter(r => r.date === relationId)[0]);
+  private extractDates(res: Response) {
+    return res.json();
+  }
+  private handleError (error: Response | any) {
+    alert("error characters: ")
+    // In a real world app, we might use a remote logging infrastructure
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(errMsg);
+    return Observable.throw(errMsg);
+  }
+  getRelation(owner: String, other: String, relationId: number): Observable<Relation> {
+
+      let authToken = localStorage.getItem('token');
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        headers.append('X-AUTH-TOKEN',  localStorage.getItem("token"));
+
+        let options = new RequestOptions({ headers: headers });
+        return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+owner+"/"+AppSettings.API_RELATIONSHIP+"/"+other+"/"+AppSettings.API_RELATION+"/"+relationId, options)
+                        .map(this.extractRelation)
+                        .catch(this.handleError);
+  }
+  private extractRelation(res: Response) {
+    return res.json();
   }
 }

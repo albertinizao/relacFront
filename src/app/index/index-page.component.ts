@@ -11,21 +11,19 @@ import { CharacterService } from '../character/services/character.service';
   styleUrls: ['./index-page.component.css']
 })
 export class IndexPageComponent implements OnInit {
-  characters: String[] = [
-    'Federico', 'Juancho', 'Paquito', 'Mariano', 'Alberto', 'Fernando', 'Enrique', 'Antonio', 'María', 'Maria', 'María Mercedes', 'Björn', 'Lars', 'Erick', 'Gunnar', 'Ingeborg', 'Skyler'
-  ];
-  // public character: GenericCharacter;
-  //
-  // public buttonHome: Button = new Button('Home', 'home', null, ['../../'], null);
-  // public buttonNew: Button = new Button('New', 'plus', null, ['new'], null);
-  //
+  characters: String[];
+  errorMessage: string;
+  loaded: boolean=false;
+
   constructor(
     private characterService: CharacterService
-  //   private route: ActivatedRoute,
-  //   private location: Location
   ) { }
 
   ngOnInit(): void {
+    this.loaded=false;
+    this.characterService.getCharacters(null).subscribe(
+                     characters => {this.characters = characters;this.loaded=true;},
+                     error =>  {this.errorMessage = <any>error;this.loaded=true;});
   }
 
   public toColor(str):String {

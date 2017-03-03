@@ -23,7 +23,8 @@ import { RelationshipResumeComponent } from './character/relationship/resume/rel
 import { RelationshipResumeUpdateComponent } from './character/relationship/resume/relationshipresume-update.component';
 import { RelationshipComponent } from './character/relationship/relationship/relationship.component';
 import { RelationshipUpdateComponent } from './character/relationship/relationship/relationship-update.component';
-import { ButtonComponent } from './generic/button/button.component'
+import { ButtonComponent } from './generic/button/button.component';
+import { LoadingComponent } from './generic/loading/loading.component';
 import { CharacterRelationComponent } from "./character/main/character-relation/character-relation.component";
 import { CharacterUpdateComponent } from "./character/main/character-update.component";
 import { IndexPageComponent } from "./index/index-page.component";
@@ -33,11 +34,11 @@ import { LoginComponent } from './login/login.component';
 import { CharacterSelectedService } from './character/services/character-selected.service';
 import { CharacterService } from './character/services/character.service';
 import { RelationService } from './character/services/relation.service';
+import { LoginService } from './login/login.service';
 
 const appRoutes: Routes = [
   // { path: '', redirectTo: '/index'},
-  { path: '', component: IndexPageComponent , canActivate : [CanActivateViaOAuthGuard] },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: IndexPageComponent },
   { path: 'new', component: CharacterUpdateComponent , canActivate : [CanActivateViaOAuthGuard]  },
   { path: 'character/:characterName', component: MainCharacterComponent , canActivate : [CanActivateViaOAuthGuard]  },
   { path: 'character/:characterName/new', component: CharacterRelationComponent , canActivate : [CanActivateViaOAuthGuard]  },
@@ -66,7 +67,8 @@ const appRoutes: Routes = [
     CharacterRelationComponent,
     CharacterUpdateComponent,
     IndexPageComponent,
-    LoginComponent
+    LoginComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +79,7 @@ const appRoutes: Routes = [
     ChartsModule
 
   ],
-  providers: [CharacterSelectedService, CharacterService, RelationService, DatePipe, CanActivateViaOAuthGuard],
+  providers: [CharacterSelectedService, CharacterService, RelationService, LoginService, DatePipe, CanActivateViaOAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
