@@ -12,5 +12,10 @@
       "es2016",
       "dom"
     ]
-  }
+  },
+  "files": [
+    "typings.d.ts",
+    "main"
+  ],
+  "exclude": [ "test.ts" ]
 }
