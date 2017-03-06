@@ -1,12 +1,8 @@
-import {platformBrowserDynamic} from "@angular/platform-browser-dynamic";
-import {enableProdMode} from "@angular/core";
-import {environment} from "./environments/environment";
-import {HelixAppModule} from "./app/";
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-if (environment.production) {
-  enableProdMode();
-}
+import { MainModule } from './browser.module';
 
-platformBrowserDynamic()
-  .bootstrapModule(HelixAppModule)
-  .catch(err => console.error(err));
+enableProdMode();
+
+platformBrowserDynamic().bootstrapModule(MainModule);
