@@ -31,6 +31,7 @@
     "@angular/platform-server": "2.4.3",
     "@angular/router": "3.4.3",
     "@ng-bootstrap/ng-bootstrap": "1.0.0-alpha.18",
+    "@ngtools/webpack": "1.2.12",
     "@types/express": "4.0.34",
     "@types/glob": "5.0.30",
     "@types/gulp": "3.8.32",
