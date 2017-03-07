@@ -2,7 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
-  moduleId: module.id,
   selector: 'app-relation-single',
   templateUrl: './relation-single.component.html',
   styleUrls: ['./relation-single.component.css', '../../../generic/relationColors.css']

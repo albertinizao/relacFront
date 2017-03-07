@@ -10,7 +10,6 @@ import { DatePipe } from '@angular/common';
 
 
 @Component({
-  moduleId: module.id,
   selector: 'app-relationship-update',
   templateUrl: './relationship-update.component.html',
   styleUrls: ['./relationship.component.css', '../../../generic/button/button.component.css']

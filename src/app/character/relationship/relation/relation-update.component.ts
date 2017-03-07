@@ -3,7 +3,6 @@ import { Component, Input } from '@angular/core';
 
 
 @Component({
-  moduleId: module.id,
   selector: 'app-relation-update',
   templateUrl: './relation-update.component.html',
   styleUrls: ['./relation.component.css']

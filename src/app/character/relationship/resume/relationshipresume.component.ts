@@ -3,7 +3,6 @@ import { Component, Input } from '@angular/core';
 
 
 @Component({
-  moduleId: module.id,
   selector: 'app-relationship-resume',
   templateUrl: './relationshipresume.component.html',
   styleUrls: ['./relationshipresume.component.css']

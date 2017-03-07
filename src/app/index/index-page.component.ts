@@ -5,7 +5,6 @@ import { Location } from '@angular/common';
 import { CharacterService } from '../character/services/character.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-index-page',
   templateUrl: './index-page.component.html',
   styleUrls: ['./index-page.component.css']

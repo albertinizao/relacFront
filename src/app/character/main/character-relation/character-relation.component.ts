@@ -5,7 +5,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-character-relation',
   templateUrl: './character-relation.component.html',
   styleUrls: ['./character-relation.component.css', '../../../generic/button/button.component.css']

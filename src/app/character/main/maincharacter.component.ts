@@ -10,10 +10,9 @@ import { CharacterSelectedService } from '../services/character-selected.service
 import { CharacterService } from '../services/character.service';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-maincharacter',
-  templateUrl: './maincharacter.component.html',
-  styleUrls: ['./maincharacter.component.css']
+  templateUrl: 'maincharacter.component.html',
+  styleUrls: ['maincharacter.component.css']
 })
 export class MainCharacterComponent implements OnInit {
   public character: GenericCharacter;

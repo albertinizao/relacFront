@@ -5,7 +5,6 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
-  moduleId: module.id,
   selector: 'app-character-update',
   templateUrl: './character-update.component.html',
   styleUrls: ['./character-update.component.css', '../../generic/button/button.component.css']

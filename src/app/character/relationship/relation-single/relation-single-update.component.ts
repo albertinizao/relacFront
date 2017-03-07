@@ -2,7 +2,6 @@ import { Component, Output, Input, OnInit, EventEmitter } from '@angular/core';
 
 
 @Component({
-  moduleId: module.id,
   selector: 'app-relation-single-update',
   templateUrl: './relation-single-update.component.html',
   styleUrls: ['./relation-single.component.css', '../../../generic/relationColors.css']

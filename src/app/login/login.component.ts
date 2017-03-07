@@ -5,7 +5,6 @@ import { Observable } from 'rxjs/Rx';
 import { Login } from './login';
 
 @Component({
-  moduleId: module.id,
   selector: 'my-login',
   templateUrl: './login.html',
   styleUrls:  ['./login.css']

@@ -1,6 +1,0 @@
-{
-  "/proxy": {
-    "target": "*",
-    "secure": false
-  }
-}

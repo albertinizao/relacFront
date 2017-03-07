@@ -2,7 +2,6 @@ import { Component, Input, state, trigger, transition, style, animate } from '@a
 
 
 @Component({
-  moduleId: module.id,
   selector: 'app-relation-bar',
   templateUrl: './relation-bar.component.html',
   styleUrls: ['./relation-bar.component.css', '../../../generic/relationColors.css'],
