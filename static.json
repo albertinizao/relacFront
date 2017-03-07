@@ -1,5 +1,9 @@
 {
   "root": "dist/index.html",
     "encoding": "US-ASCII",
-  "clean_urls": true
+  "clean_urls": true,
+  "routes": {
+    "/assets/*": "/assets/",
+    "/**": "index.html"
+  }
 }
