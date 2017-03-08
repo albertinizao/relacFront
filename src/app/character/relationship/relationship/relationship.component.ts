@@ -21,7 +21,7 @@ export class RelationshipComponent implements OnInit {
   public relations: Relation[];
   public loaded=false;
 
-  public buttonHome: Button = new Button('Home', 'home', null, ['../../../../'], null);
+  public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
   public buttonCharacter: Button = new Button('Character', 'user', null, ['../../'], null);
   public buttonNew: Button = new Button('New', 'plus', null, ['new'], null);
 

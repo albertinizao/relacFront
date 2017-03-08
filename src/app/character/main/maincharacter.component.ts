@@ -18,7 +18,7 @@ export class MainCharacterComponent implements OnInit {
   public character: GenericCharacter;
   public loaded=false;
 
-  public buttonHome: Button = new Button('Home', 'home', null, ['../../'], null);
+  public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
   public buttonNew: Button = new Button('New', 'plus', null, ['new'], null);
 
   constructor(

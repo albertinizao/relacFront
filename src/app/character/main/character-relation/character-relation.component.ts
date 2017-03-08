@@ -13,7 +13,7 @@ export class CharacterRelationComponent implements OnInit {
   public ownerName: String;
   public newName: String;
 
-  public buttonHome: Button = new Button('Home', 'home', null, ['../../../'], null);
+  public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
   public buttonCancel: Button = new Button('Cancel', 'remove', null, ['../'], null);
   public buttonSave: Button = new Button('Save', 'save', null, null, this.save);
 

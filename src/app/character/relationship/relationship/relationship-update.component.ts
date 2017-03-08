@@ -20,7 +20,7 @@ export class RelationshipUpdateComponent implements OnInit {
   public otherName: string;
   public relation: Relation = new Relation();
 
-  public buttonHome: Button = new Button('Home', 'home', null, ['../../../../../'], null);
+  public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
   public buttonCancel: Button = new Button('Cancel', 'remove', null, ['../'], null);
   public buttonCharacter: Button = new Button('Character', 'user', null, ['../../../'], null);
   public buttonSave: Button = new Button('Save', 'save', null, ['../'], this.save);

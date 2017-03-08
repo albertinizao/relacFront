@@ -37,7 +37,6 @@ import { RelationService } from './character/services/relation.service';
 import { LoginService } from './login/login.service';
 
 const appRoutes: Routes = [
-  // { path: '', redirectTo: '/index'},
   { path: '', component: IndexPageComponent },
   { path: 'new', component: CharacterUpdateComponent , canActivate : [CanActivateViaOAuthGuard]  },
   { path: 'character/:characterName', component: MainCharacterComponent , canActivate : [CanActivateViaOAuthGuard]  },
