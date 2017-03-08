@@ -49,7 +49,7 @@ AppSettings.API_LOGIN = 'login';
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http_src_base_request_options__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_http_src_base_request_options__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
@@ -155,7 +155,7 @@ module.exports = module.exports.toString();
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(129);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http_src_base_request_options__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http_src_base_request_options__ = __webpack_require__(85);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(136);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_Observable__);
@@ -466,7 +466,7 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__character_main_character_update_component__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__index_index_page_component__ = __webpack_require__(483);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__login_login_component__ = __webpack_require__(484);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__character_services_character_selected_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__character_services_character_selected_service__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__character_services_character_service__ = __webpack_require__(137);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__character_services_relation_service__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__login_login_service__ = __webpack_require__(316);
@@ -511,7 +511,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var appRoutes = [
-    // { path: '', redirectTo: '/index'},
     { path: '', component: __WEBPACK_IMPORTED_MODULE_27__index_index_page_component__["a" /* IndexPageComponent */] },
     { path: 'new', component: __WEBPACK_IMPORTED_MODULE_26__character_main_character_update_component__["a" /* CharacterUpdateComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__oAuth_canActivateGuard__["a" /* CanActivateViaOAuthGuard */]] },
     { path: 'character/:characterName', component: __WEBPACK_IMPORTED_MODULE_12__character_main_maincharacter_component__["a" /* MainCharacterComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__oAuth_canActivateGuard__["a" /* CanActivateViaOAuthGuard */]] },
@@ -569,7 +568,7 @@ AppModule = __decorate([
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generic_button_button__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generic_button_button__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
@@ -591,7 +590,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CharacterRelationComponent = (function () {
     function CharacterRelationComponent(route) {
         this.route = route;
-        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Home', 'home', null, ['../../../'], null);
+        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Home', 'home', null, ['/'], null);
         this.buttonCancel = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Cancel', 'remove', null, ['../'], null);
         this.buttonSave = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Save', 'save', null, null, this.save);
     }
@@ -632,7 +631,7 @@ var _a;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generic_button_button__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generic_button_button__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
@@ -648,7 +647,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var CharacterUpdateComponent = (function () {
     function CharacterUpdateComponent() {
-        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Home', 'home', null, ['../'], null);
+        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Home', 'home', null, ['/'], null);
         this.buttonCancel = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Cancel', 'remove', null, ['../'], null);
         this.buttonSave = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Save', 'save', null, null, this.save);
     }
@@ -682,13 +681,13 @@ CharacterUpdateComponent = __decorate([
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__data_relation__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generic_button_button__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__generic_button_button__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap__ = __webpack_require__(145);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_character_selected_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_character_selected_service__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_character_service__ = __webpack_require__(137);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MainCharacterComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -715,7 +714,7 @@ var MainCharacterComponent = (function () {
         this.route = route;
         this.location = location;
         this.loaded = false;
-        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_1__generic_button_button__["a" /* Button */]('Home', 'home', null, ['../../'], null);
+        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_1__generic_button_button__["a" /* Button */]('Home', 'home', null, ['/'], null);
         this.buttonNew = new __WEBPACK_IMPORTED_MODULE_1__generic_button_button__["a" /* Button */]('New', 'plus', null, ['new'], null);
     }
     MainCharacterComponent.prototype.ngOnInit = function () {
@@ -1020,11 +1019,11 @@ var _a;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generic_button_button__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generic_button_button__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_relation__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_character_selected_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_character_selected_service__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_relation_service__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(29);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RelationshipUpdateComponent; });
@@ -1051,7 +1050,7 @@ var RelationshipUpdateComponent = (function () {
         this.route = route;
         this.datePipe = datePipe;
         this.relation = new __WEBPACK_IMPORTED_MODULE_1__data_relation__["a" /* Relation */]();
-        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Home', 'home', null, ['../../../../../'], null);
+        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Home', 'home', null, ['/'], null);
         this.buttonCancel = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Cancel', 'remove', null, ['../'], null);
         this.buttonCharacter = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Character', 'user', null, ['../../../'], null);
         this.buttonSave = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Save', 'save', null, ['../'], this.save);
@@ -1102,10 +1101,10 @@ var _a, _b, _c, _d;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generic_button_button__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generic_button_button__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_character_selected_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_character_selected_service__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_relation_service__ = __webpack_require__(201);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__(29);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RelationshipComponent; });
@@ -1131,7 +1130,7 @@ var RelationshipComponent = (function () {
         this.route = route;
         this.datePipe = datePipe;
         this.loaded = false;
-        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Home', 'home', null, ['../../../../'], null);
+        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Home', 'home', null, ['/'], null);
         this.buttonCharacter = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('Character', 'user', null, ['../../'], null);
         this.buttonNew = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('New', 'plus', null, ['new'], null);
         // lineChart
@@ -1289,7 +1288,7 @@ var _a;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__button__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__button__ = __webpack_require__(65);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ButtonComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1516,6 +1515,7 @@ TitleComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_rxjs_add_operator_switchMap__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__character_services_character_service__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__character_services_character_selected_service__ = __webpack_require__(64);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return IndexPageComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1529,13 +1529,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var IndexPageComponent = (function () {
-    function IndexPageComponent(characterService) {
+    function IndexPageComponent(characterSelectedService, characterService) {
+        this.characterSelectedService = characterSelectedService;
         this.characterService = characterService;
         this.loaded = false;
     }
     IndexPageComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.characterSelectedService.characterSelected = null;
+        this.characterSelectedService.relationshipSelected = null;
+        this.characterSelectedService.relationSelected = null;
         this.loaded = false;
         this.characterService.getCharacters(null).subscribe(function (characters) { _this.characters = characters; _this.loaded = true; }, function (error) { _this.errorMessage = error; _this.loaded = true; });
     };
@@ -1559,10 +1564,10 @@ IndexPageComponent = __decorate([
         template: __webpack_require__(580),
         styles: [__webpack_require__(553)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__character_services_character_service__["a" /* CharacterService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__character_services_character_service__["a" /* CharacterService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__character_services_character_selected_service__["a" /* CharacterSelectedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__character_services_character_selected_service__["a" /* CharacterSelectedService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__character_services_character_service__["a" /* CharacterService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__character_services_character_service__["a" /* CharacterService */]) === "function" && _b || Object])
 ], IndexPageComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=/home/acebrian/workspace2/relacfrontgithub/relacFront/src/index-page.component.js.map
 
 /***/ }),
@@ -1674,7 +1679,7 @@ var Login = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__character_services_character_selected_service__ = __webpack_require__(89);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__character_services_character_selected_service__ = __webpack_require__(64);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__character_services_character_service__ = __webpack_require__(137);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MenuComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -2033,7 +2038,7 @@ module.exports = "\n\n<div class=\"panel panel-primary\">\n\t<div class=\"panel-
 /***/ 576:
 /***/ (function(module, exports) {
 
-module.exports = "<a *ngIf=\"button?.routerLink\" href=\"#\" [routerLink]=\"button?.routerLink\"\n\tclass='btn btn-primary black-background white'\n\t[ngClass]=\"button?.getStyle()\" (click)=\"click.emit($event)\" > {{button?.message}}</a>\n"
+module.exports = "<a *ngIf=\"button?.routerLink\" href=\"#\" [routerLink]=\"button?.routerLink\"\n\tclass='btn btn-primary black-background white'\n\t[ngClass]=\"button?.getStyle()\" > {{button?.message}}</a>\n"
 
 /***/ }),
 
@@ -2121,6 +2126,32 @@ var Relation = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CharacterSelectedService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var CharacterSelectedService = (function () {
+    function CharacterSelectedService() {
+    }
+    return CharacterSelectedService;
+}());
+CharacterSelectedService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
+], CharacterSelectedService);
+
+//# sourceMappingURL=/home/acebrian/workspace2/relacfrontgithub/relacFront/src/character-selected.service.js.map
+
+/***/ }),
+
+/***/ 65:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Button; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -2167,32 +2198,6 @@ __decorate([
 ], Button.prototype, "click", void 0);
 var _a;
 //# sourceMappingURL=/home/acebrian/workspace2/relacfrontgithub/relacFront/src/button.js.map
-
-/***/ }),
-
-/***/ 89:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CharacterSelectedService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-var CharacterSelectedService = (function () {
-    function CharacterSelectedService() {
-    }
-    return CharacterSelectedService;
-}());
-CharacterSelectedService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])()
-], CharacterSelectedService);
-
-//# sourceMappingURL=/home/acebrian/workspace2/relacfrontgithub/relacFront/src/character-selected.service.js.map
 
 /***/ })
 
