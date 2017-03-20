@@ -9,7 +9,7 @@ import { CharacterSelectedService } from '../character/services/character-select
 @Component({
   selector: 'my-login',
   templateUrl: './login.html',
-  styleUrls:  ['./login.css']
+  styleUrls:  ['./login.css','../generic/button/button.component.css']
 })
 export class LoginComponent {
 

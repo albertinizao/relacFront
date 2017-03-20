@@ -29,19 +29,22 @@ import { CharacterRelationComponent } from "./character/main/character-relation/
 import { CharacterUpdateComponent } from "./character/main/character-update.component";
 import { IndexPageComponent } from "./index/index-page.component";
 import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
 
 
 import { CharacterSelectedService } from './character/services/character-selected.service';
 import { CharacterService } from './character/services/character.service';
 import { RelationService } from './character/services/relation.service';
 import { LoginService } from './login/login.service';
+import { UserService } from './user/user.service';
 
 const appRoutes: Routes = [
   { path: '', component: IndexPageComponent },
+  { path: 'user', component: UserComponent },
   { path: 'new', component: CharacterUpdateComponent , canActivate : [CanActivateViaOAuthGuard]  },
-  { path: 'character/:characterName', component: MainCharacterComponent , canActivate : [CanActivateViaOAuthGuard]  },
+  { path: 'character/:characterName', component: MainCharacterComponent },
   { path: 'character/:characterName/new', component: CharacterRelationComponent , canActivate : [CanActivateViaOAuthGuard]  },
-  { path: 'character/:characterName/relationship/:other', component: RelationshipComponent , canActivate : [CanActivateViaOAuthGuard]  },
+  { path: 'character/:characterName/relationship/:other', component: RelationshipComponent  },
   { path: 'character/:characterName/relationship/:other/new', component: RelationshipUpdateComponent , canActivate : [CanActivateViaOAuthGuard]  }
 ];
 
@@ -67,7 +70,8 @@ const appRoutes: Routes = [
     CharacterUpdateComponent,
     IndexPageComponent,
     LoginComponent,
-    LoadingComponent
+    LoadingComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -78,7 +82,7 @@ const appRoutes: Routes = [
     ChartsModule
 
   ],
-  providers: [CharacterSelectedService, CharacterService, RelationService, LoginService, DatePipe, CanActivateViaOAuthGuard],
+  providers: [CharacterSelectedService, CharacterService, RelationService, LoginService, UserService, DatePipe, CanActivateViaOAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

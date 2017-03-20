@@ -59,10 +59,10 @@ export class RelationshipComponent implements OnInit {
       this.relationService.getRelationList(this.ownerName, this.otherName).subscribe(relIds => {
         this.relations = [];
         this.toLoad=relIds.length;
-        relIds.sort((n1, n2) => n2 - n1).forEach((item, index) => {
+        relIds.forEach((item, index) => {
           this.relationService.getRelation(this.ownerName, this.otherName, item).subscribe(relation => {
             if (relation) {
-                this.relations.push(relation);
+                this.relations[index]=relation;
                 this.lineChartLabels[relIds.length-index-1]=this.datePipe.transform(relation.date.toString(), 'dd-MM-yyyy HH:mm:ss');
                 this.lineChartData.filter(f=>'Working'===f.label)[0].data[relIds.length-index-1]=relation.working;
                 this.lineChartData.filter(f=>'Loyalty'===f.label)[0].data[relIds.length-index-1]=relation.loyalty;
@@ -71,12 +71,11 @@ export class RelationshipComponent implements OnInit {
                 this.lineChartData.filter(f=>'Funny'===f.label)[0].data[relIds.length-index-1]=relation.funny;
                 this.lineChartData.filter(f=>'Affection'===f.label)[0].data[relIds.length-index-1]=relation.affection;
                 this.lineChartData.filter(f=>'Confidential'===f.label)[0].data[relIds.length-index-1]=relation.confidential;
-                this.nowLoaded++;
             }
-          });
+          }, null, ()=>this.nowLoaded++);
         });
         this.loaded=true;
-      });
+      })
     });
   }
 }

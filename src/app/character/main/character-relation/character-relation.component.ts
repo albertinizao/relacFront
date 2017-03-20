@@ -32,7 +32,7 @@ export class CharacterRelationComponent implements OnInit {
 
   save(): void{
     this.relationService.createRelationWith(this.ownerName,this.newName)
-          .subscribe(response => {if (response){this.router.navigate(['character/'+this.ownerName+'/relationship/'+this.newName]);}});
+          .subscribe(response => {if (response){this.router.navigateByUrl('character/'+this.ownerName+'/relationship/'+this.newName);}});
   }
 
   buildRouterLink(): Array<String>{

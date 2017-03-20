@@ -9,7 +9,10 @@
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" name="password"  [(ngModel)]="password"  id="pwd" disabled="{{loginDisabled}}">
     </div>
-    <button type="submit" class="btn btn-default" (click)="login()"  *ngIf="!loginDisabled" >Sign in</button>
+    <a href="#"  (click)="login()"  *ngIf="!loginDisabled"
+    	class='btn btn-primary black-background white' style="top-margin=50px;margin-top: 12px;" > Login</a>
+    <a href="user"  *ngIf="!loginDisabled"
+    	class='btn btn-primary black-background white' style="top-margin=50px;margin-top: 12px;" > Register</a>
   </form>
-      <button *ngIf="isLogged()"  class="btn btn-default" (click)="logout()" >Sign Out</button>
+      <button *ngIf="isLogged()"  class="btn btn-primary black-background white" style="top-margin=50px;margin-top: 12px;" (click)="logout()" >Sign Out</button>
 </div>

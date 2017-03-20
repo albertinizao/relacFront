@@ -40,6 +40,10 @@ export class IndexPageComponent implements OnInit {
       }
   }
 
+  public isLogged():boolean{
+    return (localStorage.getItem("token") === null) ? false : true;
+  }
+
   public toColor(str):String {
     var hash = 0;
     for (var i = 0; i < str.length; i++) {

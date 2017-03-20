@@ -8,4 +8,8 @@ export class CharacterSelectedService {
   relationshipSelected: string;
   relationSelected: string;
   ownCharacters: String[];
+
+  public characterIsOwn():boolean{
+    return this.ownCharacters && this.ownCharacters.indexOf(this.characterSelected)>-1;
+  }
 }

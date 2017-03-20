@@ -19,4 +19,5 @@ export class AppSettings {
    public static API_RELATIONSHIP='relationship';
    public static API_RELATION='relation';
    public static API_LOGIN='login';
+   public static API_USER='user';
 }

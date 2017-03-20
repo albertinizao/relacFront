@@ -18,9 +18,12 @@ export class CharacterService {
     let authToken = localStorage.getItem('token');
       let headers = new Headers({ 'Content-Type': 'application/json' });
       headers.append('X-AUTH-TOKEN',  localStorage.getItem("token"));
-
+      let realOwner = "";
+      if (owner){
+        realOwner="?owner="+owner;
+      }
       let options = new RequestOptions({ headers: headers });
-      return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER, options)
+      return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+realOwner, options)
                       .map(this.extractNames)
                       .catch(this.handleError);
   }
