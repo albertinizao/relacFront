@@ -7,4 +7,5 @@ export class CharacterSelectedService {
   characterSelected: string;
   relationshipSelected: string;
   relationSelected: string;
+  ownCharacters: String[];
 }

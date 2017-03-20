@@ -24,6 +24,17 @@ export class CharacterService {
                       .map(this.extractNames)
                       .catch(this.handleError);
   }
+
+  create(name: String): Observable<Boolean> {
+    let authToken = localStorage.getItem('token');
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      headers.append('X-AUTH-TOKEN',  localStorage.getItem("token"));
+
+      let options = new RequestOptions({ headers: headers });
+      return this.http.post(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+name, null, options)
+                      .map(()=>true)
+                      .catch(this.handleError);
+  }
   private extractNames(res: Response) {
     return res.json();
   }

@@ -10,7 +10,6 @@ import { CharacterService }  from '../character/services/character.service';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  ownCharacters: String[];
   errorMessage: string;
 
 
@@ -25,7 +24,7 @@ export class MenuComponent implements OnInit {
     let user = localStorage.getItem("username");
     if (user){
       this.characterService.getCharacters(user).subscribe(
-                       characters => this.ownCharacters = characters,
+                       characters => this.characterSelectedService.ownCharacters = characters,
                        error =>  this.errorMessage = <any>error);
      }
   }

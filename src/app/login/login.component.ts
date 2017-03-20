@@ -3,6 +3,8 @@ import { Component, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { Login } from './login';
+import { CharacterService } from '../character/services/character.service';
+import { CharacterSelectedService } from '../character/services/character-selected.service';
 
 @Component({
   selector: 'my-login',
@@ -16,10 +18,14 @@ export class LoginComponent {
   public loginDisabled = false;
   router: Router;
   loginService: LoginService;
+  characterSelectedService: CharacterSelectedService;
+  private characterService: CharacterService;
 
 
-  constructor(router: Router, loginService: LoginService) {
-    this.router=router;
+  constructor(router: Router, loginService: LoginService, characterSelectedService: CharacterSelectedService, characterService: CharacterService) {
+    this.characterSelectedService=characterSelectedService,
+    this.characterService=characterService;
+    this.router=router,
     this.loginService=loginService;
   }
 
@@ -41,6 +47,7 @@ export class LoginComponent {
          //Store the token in the db
          localStorage.setItem("token",token);
          localStorage.setItem("username",this.user);
+         this.reload();
      } else {
        this.logout();
      }
@@ -64,6 +71,18 @@ export class LoginComponent {
  public logout():void{
    localStorage.removeItem("username");
    localStorage.removeItem("token");
+   this.reload();
   //  location.reload();
+ }
+
+ public reload():void{
+   let user = localStorage.getItem("username");
+   if (user){
+     this.characterService.getCharacters(user).subscribe(
+                      characters => this.characterSelectedService.ownCharacters = characters);
+    }else{
+      this.characterSelectedService.ownCharacters = null;
+    }
+   this.router.navigate(['']);
  }
 }

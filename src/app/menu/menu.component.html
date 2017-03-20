@@ -12,7 +12,7 @@
 		</div>
 		<div class="navbar-collapse collapse sidebar-navbar-collapse">
 			<ul class="nav navbar-nav" id="sidenav01">
-				<li *ngFor="let character of ownCharacters" class="brillo"><a
+				<li *ngFor="let character of characterSelectedService.ownCharacters" class="brillo"><a
 					[routerLink]="['character', character]" routerLinkActive="active"
 					class="menu-element" [class.selected]="character === getSelectedCharacter()"><span
 						class="glyphicon glyphicon-user"></span> {{character}}</a></li>

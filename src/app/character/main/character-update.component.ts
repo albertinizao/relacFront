@@ -1,7 +1,8 @@
+import { CharacterService } from "../services/character.service";
 import { Button } from "../../generic/button/button";
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 @Component({
@@ -17,9 +18,13 @@ export class CharacterUpdateComponent {
   public buttonCancel: Button = new Button('Cancel', 'remove', null, ['../'], null);
   public buttonSave: Button = new Button('Save', 'save', null, null, this.save);
 
+    constructor(
+      private characterService: CharacterService,
+      private router:Router
+    ) { }
 
   save(): void{
-    alert(JSON.stringify(this.character));
+    this.characterService.create(this.character).subscribe(response => {if (response){this.router.navigate(['']);}});
   }
 
   buildRouterLink(): Array<String>{

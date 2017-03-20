@@ -2,6 +2,7 @@ import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
+import { Button } from '../generic/button/button';
 import { CharacterService } from '../character/services/character.service';
 import { CharacterSelectedService } from '../character/services/character-selected.service';
 
@@ -14,6 +15,8 @@ export class IndexPageComponent implements OnInit {
   characters: String[];
   errorMessage: string;
   loaded: boolean=false;
+
+  public buttonNew: Button = new Button('New', 'plus', null, ['new'], null);
 
   constructor(
     public characterSelectedService: CharacterSelectedService,
@@ -28,6 +31,13 @@ export class IndexPageComponent implements OnInit {
     this.characterService.getCharacters(null).subscribe(
                      characters => {this.characters = characters;this.loaded=true;},
                      error =>  {this.errorMessage = <any>error;this.loaded=true;});
+
+     let user = localStorage.getItem("username");
+     if (user){
+       this.characterService.getCharacters(user).subscribe(
+                        characters => this.characterSelectedService.ownCharacters = characters,
+                        error =>  this.errorMessage = <any>error);
+      }
   }
 
   public toColor(str):String {

@@ -1,7 +1,7 @@
 import { Button } from '../../../generic/button/button'
 import { Relation } from '../../data/relation'
 import { Relationship } from '../../data/relationship';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { CharacterSelectedService } from '../../services/character-selected.service';
 import { RelationService } from '../../services/relation.service';
@@ -30,13 +30,15 @@ export class RelationshipUpdateComponent implements OnInit {
     public characterSelectedService: CharacterSelectedService,
     public relationService: RelationService,
     private route: ActivatedRoute,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private router:Router
   ) { }
 
 
   public save(event):void{
     this.relation.date=new Date().getTime();
-    alert(JSON.stringify(this.relation));
+    this.relationService.saveRelation(this.ownerName, this.otherName, this.relation)
+    .subscribe(response => {if (response){this.router.navigate(['character/'+this.ownerName+'/relationship/'+this.otherName]);}});
   }
 
 
@@ -48,17 +50,19 @@ export class RelationshipUpdateComponent implements OnInit {
         this.ownerName = this.characterSelectedService.characterSelected;
         this.otherName = param['other'];
         this.relationService.getRelationList(this.ownerName, this.otherName).subscribe(relIds => {
-            this.relationService.getRelation(this.ownerName, this.otherName, relIds[0]).subscribe(relation => {
-              if (relation) {
-                this.relation.working=relation.working;
-                this.relation.confidential=relation.confidential;
-                this.relation.loyalty=relation.loyalty;
-                this.relation.trust=relation.trust;
-                this.relation.respect=relation.respect;
-                this.relation.funny=relation.funny;
-                this.relation.affection=relation.affection;
-              }
-          });
+          if(relIds[0]){
+              this.relationService.getRelation(this.ownerName, this.otherName, relIds[0]).subscribe(relation => {
+                if (relation) {
+                  this.relation.working=relation.working;
+                  this.relation.confidential=relation.confidential;
+                  this.relation.loyalty=relation.loyalty;
+                  this.relation.trust=relation.trust;
+                  this.relation.respect=relation.respect;
+                  this.relation.funny=relation.funny;
+                  this.relation.affection=relation.affection;
+                }
+              });
+            }
         });
       });
     }

@@ -15,6 +15,27 @@ export class RelationService {
 
   constructor (private http: Http) {}
 
+  createRelationWith(owner: String, other: String): Observable<Boolean> {
+      let authToken = localStorage.getItem('token');
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      headers.append('X-AUTH-TOKEN',  localStorage.getItem("token"));
+
+      let options = new RequestOptions({ headers: headers });
+      return this.http.post(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+owner+"/"+AppSettings.API_RELATIONSHIP+"/"+other, null, options)
+                      .map(()=>true)
+                      .catch(this.handleError);
+  }
+
+  saveRelation(owner: String, other: String, relation: Relation): Observable<Boolean> {
+      let authToken = localStorage.getItem('token');
+      let headers = new Headers({ 'Content-Type': 'application/json' });
+      headers.append('X-AUTH-TOKEN',  localStorage.getItem("token"));
+
+      let options = new RequestOptions({ headers: headers });
+      return this.http.put(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+owner+"/"+AppSettings.API_RELATIONSHIP+"/"+other+"/"+AppSettings.API_RELATION+"/"+relation.date, relation, options)
+                      .map(()=>true)
+                      .catch(this.handleError);
+  }
 
   getRelationList(owner: String, other: String): Observable<number[]> {
     let authToken = localStorage.getItem('token');

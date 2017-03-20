@@ -1,8 +1,9 @@
 import { Button } from "../../../generic/button/button";
 import 'rxjs/add/operator/switchMap';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
+import { RelationService } from '../../services/relation.service';
 
 @Component({
   selector: 'app-character-relation',
@@ -18,7 +19,9 @@ export class CharacterRelationComponent implements OnInit {
   public buttonSave: Button = new Button('Save', 'save', null, null, this.save);
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private relationService: RelationService,
+    private router:Router
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +31,8 @@ export class CharacterRelationComponent implements OnInit {
   }
 
   save(): void{
-    alert(JSON.stringify(this.newName));
+    this.relationService.createRelationWith(this.ownerName,this.newName)
+          .subscribe(response => {if (response){this.router.navigate(['character/'+this.ownerName+'/relationship/'+this.newName]);}});
   }
 
   buildRouterLink(): Array<String>{
