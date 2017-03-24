@@ -6,6 +6,7 @@
 <div class="col-md-12">
 	<div class="pull-right">
 		<app-button *ngIf="isLogged()" [button]="buttonNew"></app-button>
+		<app-button *ngIf="!isLogged()" [button]="buttonNewNotLogged"></app-button>
 	</div>
 </div>
 

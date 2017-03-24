@@ -23,7 +23,8 @@ export class RelationshipComponent implements OnInit {
 
   public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
   public buttonCharacter: Button = new Button('Character', 'user', null, ['../../'], null);
-  public buttonNew: Button = new Button('New', 'plus', null, ['new'], null);
+  public buttonNew: Button = new Button('New', 'plus', null, ['new'], null, true);
+  public buttonNewNotOwner: Button = new Button('New', 'plus', null, ['new'], null, false);
 
 
     // lineChart

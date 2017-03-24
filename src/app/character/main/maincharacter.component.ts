@@ -19,7 +19,8 @@ export class MainCharacterComponent implements OnInit {
   public loaded=false;
 
   public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
-  public buttonNew: Button = new Button('New', 'plus', null, ['new'], null);
+  public buttonNew: Button = new Button('New', 'plus', null, ['new'], null, true);
+  public buttonNewNotOwner: Button = new Button('New', 'plus', null, ['new'], null, false);
 
   constructor(
     public characterSelectedService: CharacterSelectedService,

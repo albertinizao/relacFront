@@ -11,7 +11,14 @@
 	color: #ffffff;
 }
 
-
+.black-background-disable {
+	background-color: #979797;
+}
+.black-background-disable:HOVER {
+	background-color: #979797;
+  cursor:default;
+	text-shadow: 0 0 10px #333, 0 0 20px #333, 0 0 30px #333;
+}
 
 .black-background:HOVER {
 	background-color: #2e3436;

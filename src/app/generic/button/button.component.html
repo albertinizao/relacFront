@@ -1,3 +1,7 @@
-<a *ngIf="button?.routerLink" href="#" [routerLink]="button?.routerLink"
+<a *ngIf="button?.routerLink && button?.access" href="#" [routerLink]="button?.routerLink"
 	class='btn btn-primary black-background white'
-	[ngClass]="button?.getStyle()" > {{button?.message}}</a>
+	[ngClass]="button?.getStyle()"> {{button?.message}}</a>
+
+<a *ngIf="!button?.access"
+	class='btn btn-primary black-background-disable white'
+	[ngClass]="button?.getStyle()" title="You don't have permission to do this"> {{button?.message}}</a>

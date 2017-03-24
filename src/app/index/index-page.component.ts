@@ -16,7 +16,8 @@ export class IndexPageComponent implements OnInit {
   errorMessage: string;
   loaded: boolean=false;
 
-  public buttonNew: Button = new Button('New', 'plus', null, ['new'], null);
+  public buttonNew: Button = new Button('New', 'plus', null, ['new'], null, true);
+  public buttonNewNotLogged: Button = new Button('New', 'plus', null, ['new'], null, false);
 
   constructor(
     public characterSelectedService: CharacterSelectedService,
