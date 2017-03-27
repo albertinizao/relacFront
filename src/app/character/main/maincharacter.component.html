@@ -16,3 +16,8 @@
 	<app-relationship-resume [relation]="relationship?.relation[0]"
 		[name]="relationship?.characterName"></app-relationship-resume>
 </div>
+
+<app-help-box *ngIf="loaded"  [title]="'Some information about the character'"
+  [paragraphs]="['This is the page about a character. You can show the other characters with which the character has a relatioship.'
+    ,'You can click in the top of a relationship to view the details. You can also create a new relationship if you are the character\'s owner.']"></app-help-box>
+<app-relation-help></app-relation-help>

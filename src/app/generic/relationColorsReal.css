@@ -7,12 +7,21 @@
 .panel-relation-working {
     border-color: grey;
 }
+
+.color-working {
+    color: grey;
+}
+
 .background-relation-confidential {
     background-color: blue;
 }
 
 .panel-relation-confidential {
     border-color: blue;
+}
+
+.color-confidential {
+    color: blue;
 }
 
 
@@ -28,6 +37,10 @@
     border-color: maroon;
 }
 
+.color-loyalty {
+    color: maroon;
+}
+
 
 .background-relation-trust{
     background-color: green;
@@ -35,6 +48,10 @@
 
 .panel-relation-trust {
     border-color: green;
+}
+
+.color-trust {
+    color: green;
 }
 
 
@@ -46,6 +63,10 @@
     border-color: purple;
 }
 
+.color-respect {
+    color: purple;
+}
+
 
 .background-relation-funny {
     background-color: #DAA520;
@@ -55,6 +76,10 @@
     border-color: #DAA520;
 }
 
+.color-funny {
+    color: #DAA520;
+}
+
 
 .background-relation-affection {
     background-color: red;
@@ -62,4 +87,8 @@
 
 .panel-relation-affection {
     border-color: red;
+}
+
+.color-affection {
+    color: red;
 }

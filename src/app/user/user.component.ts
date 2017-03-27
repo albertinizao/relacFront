@@ -18,6 +18,7 @@ export class UserComponent {
   password: string;
 
   public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
+  public buttonCancel: Button = new Button('Cancel', 'remove', null, ['/'], null);
   public buttonSave: Button = new Button('Save', 'save', null, ['/'], this.save);
 
   constructor(

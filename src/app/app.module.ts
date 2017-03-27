@@ -22,8 +22,10 @@ import { TitleComponent } from './generic/title/title.component';
 import { RelationshipResumeComponent } from './character/relationship/resume/relationshipresume.component';
 import { RelationshipResumeUpdateComponent } from './character/relationship/resume/relationshipresume-update.component';
 import { RelationshipComponent } from './character/relationship/relationship/relationship.component';
+import { RelationHelpComponent } from './character/relationship/relationHelp/relationHelp.component';
 import { RelationshipUpdateComponent } from './character/relationship/relationship/relationship-update.component';
 import { ButtonComponent } from './generic/button/button.component';
+import { HelpBoxComponent } from './generic/helpBox/helpBox.component';
 import { LoadingComponent } from './generic/loading/loading.component';
 import { CharacterRelationComponent } from "./character/main/character-relation/character-relation.component";
 import { CharacterUpdateComponent } from "./character/main/character-update.component";
@@ -71,6 +73,7 @@ const appRoutes: Routes = [
     RelationshipComponent,
     RelationshipUpdateComponent,
     ButtonComponent,
+    HelpBoxComponent,
     LineChartComponent,
     RelationUpdateComponent,
     RelationSingleUpdateComponent,
@@ -82,7 +85,8 @@ const appRoutes: Routes = [
     LoadingComponent,
     UserComponent,
     IndexPageComponent,
-    WithoutgameComponent
+    WithoutgameComponent,
+    RelationHelpComponent
   ],
   imports: [
     BrowserModule,

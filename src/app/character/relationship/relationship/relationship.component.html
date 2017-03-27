@@ -20,3 +20,7 @@
 	*ngFor="let relation of relations">
 	<app-relationship-resume [relation]="relation" [name]=""></app-relationship-resume>
 </div>
+
+<app-help-box [title]="'Some information about the relationships'"
+  [paragraphs]="['This is the page about the relationship from two characters. The graphic shows the evolution of the relationship in time, and the boxes allow you to show all the states of the relationships']"></app-help-box>
+<app-relation-help></app-relation-help>
