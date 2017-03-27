@@ -3,9 +3,10 @@
 <div class="col-md-12">
 	<div class="pull-right">
 		<app-button [button]="buttonHome"></app-button>
+		<app-button *ngIf="buttonGame" [button]="buttonGame"></app-button>
   	<app-button [button]="buttonCancel"></app-button>
-  <a
-  	class='btn btn-primary black-background white'  [routerLink]="buildRouterLink()"
+  <a *ngIf="buttonSave"
+  	class='btn btn-primary black-background white'
   	[ngClass]="buttonSave.getStyle()" (click)="save()" > {{buttonSave.message}}</a>
 	</div>
 </div>

@@ -8,6 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { CharacterSelectedService } from '../services/character-selected.service';
 import { CharacterService } from '../services/character.service';
+import { AppSettings }          from '../../app.component';
 
 @Component({
   selector: 'app-maincharacter',
@@ -17,10 +18,12 @@ import { CharacterService } from '../services/character.service';
 export class MainCharacterComponent implements OnInit {
   public character: GenericCharacter;
   public loaded=false;
+  game:String;
 
   public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
   public buttonNew: Button = new Button('New', 'plus', null, ['new'], null, true);
   public buttonNewNotOwner: Button = new Button('New', 'plus', null, ['new'], null, false);
+  public buttonGame: Button;
 
   constructor(
     public characterSelectedService: CharacterSelectedService,
@@ -32,6 +35,10 @@ export class MainCharacterComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(param => {
       this.characterSelectedService.characterSelected = param['characterName'];
+      this.game = param['game'];
+      if (this.game && this.game!="null"){
+        this.buttonGame = new Button(''+this.game, 'book', null, ['/'+AppSettings.API_GAME+'/'+this.game], null)
+      }
       this.getCharacter();
     });
   }

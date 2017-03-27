@@ -4,6 +4,7 @@
 <div class="col-md-12">
 	<div class="pull-right">
 		<app-button [button]="buttonHome"></app-button>
+		<app-button *ngIf="game && game!='null'" [button]="buttonGame"></app-button>
 		<app-button *ngIf="characterSelectedService.characterIsOwn()" [button]="buttonNew"></app-button>
 		<app-button *ngIf="!characterSelectedService.characterIsOwn()" [button]="buttonNewNotOwner"></app-button>
 	</div>

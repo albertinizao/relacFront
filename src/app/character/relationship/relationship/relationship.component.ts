@@ -7,6 +7,7 @@ import { CharacterSelectedService } from '../../services/character-selected.serv
 import { RelationService } from '../../services/relation.service';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { DatePipe } from '@angular/common';
+import { AppSettings }          from '../../../app.component';
 
 
 @Component({
@@ -18,24 +19,26 @@ export class RelationshipComponent implements OnInit {
 
   public ownerName: string;
   public otherName: string;
+  public game: string;
   public relations: Relation[];
   public loaded=false;
 
   public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
-  public buttonCharacter: Button = new Button('Character', 'user', null, ['../../'], null);
+  public buttonCharacter;
   public buttonNew: Button = new Button('New', 'plus', null, ['new'], null, true);
   public buttonNewNotOwner: Button = new Button('New', 'plus', null, ['new'], null, false);
+  public buttonGame;
 
 
     // lineChart
     public lineChartData:Array<any>= [
       {data: [], label: 'Working'},
+      {data: [], label: 'Confidential'},
       {data: [], label: 'Loyalty'},
       {data: [], label: 'Trust'},
       {data: [], label: 'Respect'},
       {data: [], label: 'Funny'},
-      {data: [], label: 'Affection'},
-      {data: [], label: 'Confidential'}
+      {data: [], label: 'Affection'}
     ];
     public lineChartLabels:Array<String> = [];
     public lineChartsReady:boolean = false;
@@ -53,8 +56,12 @@ export class RelationshipComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe(param => {
       this.characterSelectedService.characterSelected = param['characterName'];
+      this.game = param['game'];
       this.ownerName = this.characterSelectedService.characterSelected;
-      this.buttonCharacter = new Button(this.ownerName, 'user', null, ['../../'], null);
+      this.buttonCharacter = new Button(this.ownerName, 'user', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/character/'+this.ownerName], null);
+      if (this.game && this.game!='null'){
+        this.buttonGame = new Button(''+this.game, 'book', null, ['/'+AppSettings.API_GAME+'/'+this.game], null);
+      }
       this.otherName = param['other'];
       this.nowLoaded=0;
       this.relationService.getRelationList(this.ownerName, this.otherName).subscribe(relIds => {

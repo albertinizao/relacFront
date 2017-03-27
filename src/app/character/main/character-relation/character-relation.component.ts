@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { RelationService } from '../../services/relation.service';
+import { AppSettings }          from '../../../app.component';
 
 @Component({
   selector: 'app-character-relation',
@@ -13,10 +14,12 @@ import { RelationService } from '../../services/relation.service';
 export class CharacterRelationComponent implements OnInit {
   public ownerName: String;
   public newName: String;
+  public game: String;
 
-  public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
-  public buttonCancel: Button = new Button('Cancel', 'remove', null, ['../'], null);
-  public buttonSave: Button = new Button('Save', 'save', null, null, this.save);
+  public buttonHome: Button;
+  public buttonGame: Button;
+  public buttonCancel: Button;
+  public buttonSave: Button;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,12 +30,19 @@ export class CharacterRelationComponent implements OnInit {
   ngOnInit(): void {
 
       this.route.params.subscribe(param => {
-        this.ownerName = param['characterName'];});
+        this.ownerName = param['characterName'];
+        this.game = param['game'];});
+        this.buttonHome = new Button('Home', 'home', null, ['/'], null);
+        if (this.game && this.game!='null'){
+          this.buttonGame= new Button(''+this.game, 'book', null, ['/'+AppSettings.API_GAME+'/'+this.game], null);
+        }
+        this.buttonCancel = new Button('Cancel', 'remove', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName], null);
+        this.buttonSave = new Button('Save', 'save', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP], this.save);
   }
 
   save(): void{
     this.relationService.createRelationWith(this.ownerName,this.newName)
-          .subscribe(response => {if (response){this.router.navigateByUrl('character/'+this.ownerName+'/relationship/'+this.newName);}});
+          .subscribe(response => {if (response){this.router.navigateByUrl(this.buttonSave.routerLink[0]+'/'+this.newName);}});
   }
 
   buildRouterLink(): Array<String>{

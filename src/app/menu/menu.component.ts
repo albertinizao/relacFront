@@ -23,7 +23,7 @@ export class MenuComponent implements OnInit {
   ngOnInit(): void {
     let user = localStorage.getItem("username");
     if (user){
-      this.characterService.getCharacters(user).subscribe(
+      this.characterService.getCharacters(user, null).subscribe(
                        characters => this.characterSelectedService.ownCharacters = characters,
                        error =>  this.errorMessage = <any>error);
      }

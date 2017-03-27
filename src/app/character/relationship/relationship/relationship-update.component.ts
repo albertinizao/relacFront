@@ -7,6 +7,7 @@ import { CharacterSelectedService } from '../../services/character-selected.serv
 import { RelationService } from '../../services/relation.service';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { DatePipe } from '@angular/common';
+import { AppSettings }          from '../../../app.component';
 
 
 @Component({
@@ -16,14 +17,16 @@ import { DatePipe } from '@angular/common';
 })
 export class RelationshipUpdateComponent implements OnInit {
 
+  public game: string;
   public ownerName: string;
   public otherName: string;
   public relation: Relation = new Relation();
 
   public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
-  public buttonCancel: Button = new Button('Cancel', 'remove', null, ['../'], null);
-  public buttonCharacter: Button = new Button('Character', 'user', null, ['../../../'], null);
-  public buttonSave: Button = new Button('Save', 'save', null, ['../'], this.save);
+  public buttonGame: Button;
+  public buttonCancel: Button;
+  public buttonCharacter: Button;
+  public buttonSave: Button = new Button('Save', 'save', null, null, this.save);
 
 
   constructor(
@@ -35,10 +38,10 @@ export class RelationshipUpdateComponent implements OnInit {
   ) { }
 
 
-  public save(event):void{
+  public save():void{
     this.relation.date=new Date().getTime();
     this.relationService.saveRelation(this.ownerName, this.otherName, this.relation)
-    .subscribe(response => {if (response){this.router.navigate(['character/'+this.ownerName+'/relationship/'+this.otherName]);}});
+    .subscribe(response => {if (response){this.router.navigateByUrl('/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP+'/'+this.otherName);}});
   }
 
 
@@ -48,7 +51,13 @@ export class RelationshipUpdateComponent implements OnInit {
       this.route.params.subscribe(param => {
         this.characterSelectedService.characterSelected = param['characterName'];
         this.ownerName = this.characterSelectedService.characterSelected;
+        this.game = param['game'];
         this.otherName = param['other'];
+        if (this.game && this.game!='null'){
+          this.buttonGame = new Button(''+this.game, 'book', null, ['/'+AppSettings.API_GAME+'/'+this.game], null);
+        }
+        this.buttonCancel = new Button('Cancel', 'remove', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP+'/'+this.otherName], null);
+        this.buttonCharacter = new Button(this.ownerName, 'user', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName], null);
         this.relationService.getRelationList(this.ownerName, this.otherName).subscribe(relIds => {
           if(relIds[0]){
               this.relationService.getRelation(this.ownerName, this.otherName, relIds[0]).subscribe(relation => {

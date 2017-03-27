@@ -67,14 +67,14 @@ export class LineChartComponent  {
     {
       fill: false,
       backgroundColor: 'rgba(	218,165,32,0)',
-      borderColor: 'rgba(	128,0,0,1)',
+      borderColor: 'rgba(	218,165,32,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
     },
     {
       fill: false,
       backgroundColor: 'rgba(	255,0,0,0)',
-      borderColor: 'rgba(	128,0,0,1)',
+      borderColor: 'rgba(	255,0,0,1)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
     },

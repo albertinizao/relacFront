@@ -27,25 +27,34 @@ import { ButtonComponent } from './generic/button/button.component';
 import { LoadingComponent } from './generic/loading/loading.component';
 import { CharacterRelationComponent } from "./character/main/character-relation/character-relation.component";
 import { CharacterUpdateComponent } from "./character/main/character-update.component";
+import { ListPageComponent } from "./character/list/list-page.component";
 import { IndexPageComponent } from "./index/index-page.component";
 import { LoginComponent } from './login/login.component';
+import { WithoutgameComponent } from "./character/withoutgame/withoutgame.component";
 import { UserComponent } from './user/user.component';
 
 
 import { CharacterSelectedService } from './character/services/character-selected.service';
 import { CharacterService } from './character/services/character.service';
 import { RelationService } from './character/services/relation.service';
+import { GameService } from './character/services/game.service';
 import { LoginService } from './login/login.service';
 import { UserService } from './user/user.service';
+
+import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 
 const appRoutes: Routes = [
   { path: '', component: IndexPageComponent },
   { path: 'user', component: UserComponent },
   { path: 'new', component: CharacterUpdateComponent , canActivate : [CanActivateViaOAuthGuard]  },
-  { path: 'character/:characterName', component: MainCharacterComponent },
-  { path: 'character/:characterName/new', component: CharacterRelationComponent , canActivate : [CanActivateViaOAuthGuard]  },
-  { path: 'character/:characterName/relationship/:other', component: RelationshipComponent  },
-  { path: 'character/:characterName/relationship/:other/new', component: RelationshipUpdateComponent , canActivate : [CanActivateViaOAuthGuard]  }
+  { path: 'character', component: ListPageComponent },
+  { path: 'character/:characterName', component: WithoutgameComponent },
+  { path: 'game/:game', component: ListPageComponent },
+  { path: 'game/:game/new', component: CharacterUpdateComponent , canActivate : [CanActivateViaOAuthGuard]  },
+  { path: 'game/:game/character/:characterName', component: MainCharacterComponent },
+  { path: 'game/:game/character/:characterName/new', component: CharacterRelationComponent , canActivate : [CanActivateViaOAuthGuard]  },
+  { path: 'game/:game/character/:characterName/relationship/:other', component: RelationshipComponent  },
+  { path: 'game/:game/character/:characterName/relationship/:other/new', component: RelationshipUpdateComponent , canActivate : [CanActivateViaOAuthGuard]  }
 ];
 
 
@@ -68,10 +77,12 @@ const appRoutes: Routes = [
     RelationshipResumeUpdateComponent,
     CharacterRelationComponent,
     CharacterUpdateComponent,
-    IndexPageComponent,
+    ListPageComponent,
     LoginComponent,
     LoadingComponent,
-    UserComponent
+    UserComponent,
+    IndexPageComponent,
+    WithoutgameComponent
   ],
   imports: [
     BrowserModule,
@@ -79,10 +90,11 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     Angular2FontawesomeModule,
-    ChartsModule
+    ChartsModule,
+    Ng2AutoCompleteModule
 
   ],
-  providers: [CharacterSelectedService, CharacterService, RelationService, LoginService, UserService, DatePipe, CanActivateViaOAuthGuard],
+  providers: [CharacterSelectedService, CharacterService, RelationService, LoginService, UserService, GameService, DatePipe, CanActivateViaOAuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

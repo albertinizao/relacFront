@@ -14,27 +14,36 @@ export class CharacterService {
 
   constructor (private http: Http) {}
 
-  getCharacters(owner: String): Observable<String[]> {
+  getCharacters(owner: String, game: String): Observable<String[]> {
     let authToken = localStorage.getItem('token');
       let headers = new Headers({ 'Content-Type': 'application/json' });
       headers.append('X-AUTH-TOKEN',  localStorage.getItem("token"));
-      let realOwner = "";
-      if (owner){
-        realOwner="?owner="+owner;
+      let parameters = "";
+      if (owner || game){
+        parameters="?";
+        if (owner){
+          parameters=parameters+"owner="+owner;
+          if (game){
+            parameters=parameters+"&";
+          }
+        }
+        if (game){
+          parameters=parameters+"game="+game;
+        }
       }
       let options = new RequestOptions({ headers: headers });
-      return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+realOwner, options)
+      return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+parameters, options)
                       .map(this.extractNames)
                       .catch(this.handleError);
   }
 
-  create(name: String): Observable<Boolean> {
+  create(name: String, character: GenericCharacter = null): Observable<Boolean> {
     let authToken = localStorage.getItem('token');
       let headers = new Headers({ 'Content-Type': 'application/json' });
       headers.append('X-AUTH-TOKEN',  localStorage.getItem("token"));
 
       let options = new RequestOptions({ headers: headers });
-      return this.http.post(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+name, null, options)
+      return this.http.post(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+name, JSON.stringify(character), options)
                       .map(()=>true)
                       .catch(this.handleError);
   }
