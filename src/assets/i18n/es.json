@@ -4,9 +4,9 @@
     "CANCEL": "Cancelar",
     "SAVE": "Guardar",
     "NEW": "Nuevo",
-    "LOGIN": "Login",
-    "LOGOUT": "Logout",
-    "REGISTER": "Registerarse"
+    "LOGIN": "Iniciar sesión",
+    "LOGOUT": "Cerrar sesión",
+    "REGISTER": "Registrarse"
   },
   "GENERIC":{
     "GAME":"Partida"
