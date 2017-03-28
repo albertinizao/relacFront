@@ -2,7 +2,7 @@ import { LineChartComponent } from './generic/chart/line-chart.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
@@ -44,6 +44,8 @@ import { LoginService } from './login/login.service';
 import { UserService } from './user/user.service';
 
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 const appRoutes: Routes = [
   { path: '', component: IndexPageComponent },
@@ -59,6 +61,11 @@ const appRoutes: Routes = [
   { path: 'game/:game/character/:characterName/relationship/:other/new', component: RelationshipUpdateComponent , canActivate : [CanActivateViaOAuthGuard]  }
 ];
 
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: Http) {
+    return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -95,7 +102,14 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     Angular2FontawesomeModule,
     ChartsModule,
-    Ng2AutoCompleteModule
+    Ng2AutoCompleteModule,
+    TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [Http]
+            }
+        })
 
   ],
   providers: [CharacterSelectedService, CharacterService, RelationService, LoginService, UserService, GameService, DatePipe, CanActivateViaOAuthGuard],
