@@ -5,6 +5,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { RelationService } from '../../services/relation.service';
 import { AppSettings }          from '../../../app.component';
+import {TranslateService} from '@ngx-translate/core';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-character-relation',
@@ -15,6 +17,7 @@ export class CharacterRelationComponent implements OnInit {
   public ownerName: String;
   public newName: String;
   public game: String;
+  public titleMessage: string;
 
   public buttonHome: Button;
   public buttonGame: Button;
@@ -24,7 +27,8 @@ export class CharacterRelationComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private relationService: RelationService,
-    private router:Router
+    private router:Router,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +42,7 @@ export class CharacterRelationComponent implements OnInit {
         }
         this.buttonCancel = new Button('BUTTON.CANCEL', 'remove', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName], null);
         this.buttonSave = new Button('BUTTON.SAVE', 'save', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP], this.save);
+        this.translateService.get('HEADER.NEWRELATION.TITLE',{character:this.ownerName}).subscribe(m=>this.titleMessage=m);
   }
 
   save(): void{

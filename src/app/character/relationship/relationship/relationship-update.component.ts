@@ -21,6 +21,10 @@ export class RelationshipUpdateComponent implements OnInit {
   public ownerName: string;
   public otherName: string;
   public relation: Relation = new Relation();
+  public titleParam;
+  public subtitleParam;
+
+  //ownerName
 
   public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
   public buttonGame: Button;
@@ -53,6 +57,8 @@ export class RelationshipUpdateComponent implements OnInit {
         this.ownerName = this.characterSelectedService.characterSelected;
         this.game = param['game'];
         this.otherName = param['other'];
+        this.titleParam={character: this.otherName};
+        this.subtitleParam={owner: this.ownerName, character: this.otherName};
         if (this.game && this.game!='null'){
           this.buttonGame = new Button(''+this.game, 'book', null, ['/'+AppSettings.API_GAME+'/'+this.game], null);
         }

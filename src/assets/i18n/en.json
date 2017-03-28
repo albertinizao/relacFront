@@ -59,6 +59,10 @@
     }
   },
   "HEADER": {
+    "INDEX":{
+      "TITLE": "Games list",
+      "SUBTITLE": "List of all the games created"
+    },
     "LIST": {
       "TITLE": {
         "WITHGAME": "{{game}} character list",
@@ -68,6 +72,26 @@
         "WITHGAME": "All the characters from {{game}}",
         "WITHOUTGAME": "All the characters in the application"
       }
+    },
+    "RELATIONSHIP": {
+      "TITLE": "{{character}}'s relation",
+      "SUBTITLE": "Relation between {{owner}} and {{character}}"
+    },
+    "NEWRELATION":{
+      "TITLE": "New relation from {{character}}",
+      "SUBTITLE": "Create a new relation from {{character}}"
+    },
+    "USER":{
+      "TITLE": "New user",
+      "SUBTITLE": "Create a new user"
+    },
+    "NEWCHARACTER":{
+      "TITLE": "New character",
+      "SUBTITLE": "Create a new character"
+    },
+    "NEWRELATIONSHIP":{
+      "TITLE": "New relation with {{character}}",
+      "SUBTITLE": "New relationship from {{owner}} with {{character}}"
     }
   },
   "HELP": {
@@ -76,9 +100,17 @@
       "MESSAGE1": "You are creating your own user. The user is created in order to create your own character and relationships.",
       "MESSAGE2": "Don't worry, we cipher your password and the application never know it."
     },
+    "GAME": {
+      "TITLE": "About the games lists",
+      "MESSAGE": "This list shows all the games created actually. You can click in one to view the character list from this game."
+    },
     "LIST": {
       "TITLE": "About characters list",
       "MESSAGE": "This list shows all the characters or all the characters from this game. If you click to one, you'll see the character information."
+    },
+    "RELATIONSHIP": {
+      "TITLE": "Some information about the relationships",
+      "MESSAGE": "This is the page about the relationship from two characters. The graphic shows the evolution of the relationship in time, and the boxes allow you to show all the states of the relationships."
     },
     "NEWRELATION": {
       "TITLE": "Some information about the new relationship",
@@ -87,6 +119,10 @@
     "NEWCHARACTER": {
       "TITLE": "Some information about the character creation",
       "MESSAGE": "You are creating your own character. You must write the character name and it's recommended to write the game in with it plays too. If the game box is disabled is because you are selected a game previously."
+    },
+    "NEWRELATIONSHIP": {
+      "TITLE": "Some information about the new state of the relationship",
+      "MESSAGE": "This is the page to create a new state of the relatioshp between two characters. The loaded values are the previous values or the initial relationship (all at 0)."
     },
     "CHARACTER": {
       "TITLE": "Some information about the character",

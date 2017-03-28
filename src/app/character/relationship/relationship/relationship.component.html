@@ -1,6 +1,5 @@
 <app-loading [loaded]="loaded && (nowLoaded===0 || nowLoaded===toLoad)"></app-loading>
-<app-title [title]="otherName+'\'s relation'" [subtitle]="ownerName"></app-title>
-
+<app-title [title]="titleMessage" [subtitle]="subtitleMessage"></app-title>
 <div class="col-md-12">
 	<div class="pull-right">
 		<app-button [button]="buttonHome"></app-button>
@@ -21,6 +20,6 @@
 	<app-relationship-resume [relation]="relation" [name]=""></app-relationship-resume>
 </div>
 
-<app-help-box [title]="'Some information about the relationships'"
-  [paragraphs]="['This is the page about the relationship from two characters. The graphic shows the evolution of the relationship in time, and the boxes allow you to show all the states of the relationships']"></app-help-box>
+<app-help-box [title]="'RELATIONSHIP.TITLE'"
+  [paragraphs]="['RELATIONSHIP.MESSAGE']"></app-help-box>
 <app-relation-help></app-relation-help>

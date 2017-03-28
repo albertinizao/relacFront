@@ -24,6 +24,8 @@ export class RelationshipComponent implements OnInit {
   public game: string;
   public relations: Relation[];
   public loaded=false;
+  public titleMessage: string;
+  public subtitleMessage: string;
 
   public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
   public buttonCharacter;
@@ -69,6 +71,8 @@ export class RelationshipComponent implements OnInit {
         this.buttonGame = new Button(''+this.game, 'book', null, ['/'+AppSettings.API_GAME+'/'+this.game], null);
       }
       this.otherName = param['other'];
+      this.translateService.get('HEADER.RELATIONSHIP.TITLE',{character:this.otherName}).subscribe(m=>this.titleMessage=m);
+      this.translateService.get('HEADER.RELATIONSHIP.SUBTITLE',{owner: this.ownerName, character:this.otherName}).subscribe(m=>this.subtitleMessage=m);
       this.nowLoaded=0;
       this.relationService.getRelationList(this.ownerName, this.otherName).subscribe(relIds => {
         this.relations = [];

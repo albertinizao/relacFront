@@ -19,6 +19,7 @@ export class MainCharacterComponent implements OnInit {
   public character: GenericCharacter;
   public loaded=false;
   game:String;
+  public subtitleParam;
 
   public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
   public buttonNew: Button = new Button('BUTTON.NEW', 'plus', null, ['new'], null, true);
@@ -53,6 +54,7 @@ export class MainCharacterComponent implements OnInit {
           }
         });
         this.loaded=true;
+        this.subtitleParam= {value: this.character.user};
       });
   }
 }

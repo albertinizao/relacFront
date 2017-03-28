@@ -1,13 +1,13 @@
 <app-loading [loaded]=loaded></app-loading>
-<app-title [title]="'Game\'s list'" [subtitle]="'All the games created'"></app-title>
+<app-title [title]="'HEADER.INDEX.TITLE' | translate" [subtitle]="'HEADER.INDEX.SUBTITLE' | translate"></app-title>
 
 <div *ngIf="loaded" class="text-center" style="widht:100%; display: block;margin: auto;">
   <div *ngFor="let game of games" class="col-md-3 col-xs-6 character-padded">
     <a [style.background]="toColor(game)" class="col-md-12 character-title character-link" href="#" [routerLink]="['game', game]"  routerLinkActive="active">{{game}}</a>
   </div>
 </div>
-<app-help-box *ngIf="loaded"  [title]="'About the game\'s lists'"
-  [paragraphs]="['This list shows all the games created actually. You can click in one to view the character list from this game.']"></app-help-box>
+<app-help-box *ngIf="loaded"  [title]="'GAME.TITLE'"
+  [paragraphs]="['GAME.MESSAGE']"></app-help-box>
 
 <div *ngIf="loaded"  class="col-md-12" style="height:10%;"></div>
 

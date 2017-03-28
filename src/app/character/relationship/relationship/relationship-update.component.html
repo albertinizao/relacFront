@@ -1,4 +1,4 @@
-<app-title [title]="'New '+otherName+'\'s relation'" [subtitle]="ownerName"></app-title>
+  <app-title [title]="'HEADER.NEWRELATIONSHIP.TITLE' | translate:titleParam" [subtitle]="'HEADER.NEWRELATIONSHIP.SUBTITLE' | translate:subtitleParam"></app-title>
 
 <div class="col-md-12">
 	<div class="pull-right">
@@ -8,7 +8,7 @@
   	<app-button [button]="buttonCancel"></app-button>
   <a
   	class='btn btn-primary black-background white'
-  	[ngClass]="buttonSave.getStyle()" (click)="save($event)" > {{buttonSave.message}}</a>
+  	[ngClass]="buttonSave.getStyle()" (click)="save($event)" > {{buttonSave.message | translate}}</a>
 	</div>
 </div>
 <div class="col-xs-0 col-sm-0 col-md-3 col-lg-3"></div>
@@ -17,7 +17,7 @@
 </div>
 <div class="col-xs-0 col-sm-0 col-md-3 col-lg-3"></div>
 
-<app-help-box [title]="'Some information about the new state of the relationship'"
-  [paragraphs]="['This is the page to create a new state of the relatioshp between two characters. The loaded values are the previous values or the initial relationship (all at 0).']"></app-help-box>
+<app-help-box [title]="'NEWRELATIONSHIP.TITLE'"
+  [paragraphs]="['NEWRELATIONSHIP.MESSAGE']"></app-help-box>
 
   <app-relation-help></app-relation-help>
