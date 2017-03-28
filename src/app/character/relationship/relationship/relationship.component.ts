@@ -8,6 +8,8 @@ import { RelationService } from '../../services/relation.service';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { DatePipe } from '@angular/common';
 import { AppSettings }          from '../../../app.component';
+import {TranslateService} from '@ngx-translate/core';
+import { Observable } from 'rxjs/Observable';
 
 
 @Component({
@@ -23,22 +25,22 @@ export class RelationshipComponent implements OnInit {
   public relations: Relation[];
   public loaded=false;
 
-  public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
+  public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
   public buttonCharacter;
-  public buttonNew: Button = new Button('New', 'plus', null, ['new'], null, true);
-  public buttonNewNotOwner: Button = new Button('New', 'plus', null, ['new'], null, false);
+  public buttonNew: Button = new Button('BUTTON.NEW', 'plus', null, ['new'], null, true);
+  public buttonNewNotOwner: Button = new Button('BUTTON.NEW', 'plus', null, ['new'], null, false);
   public buttonGame;
 
 
     // lineChart
     public lineChartData:Array<any>= [
-      {data: [], label: 'Working'},
-      {data: [], label: 'Confidential'},
-      {data: [], label: 'Loyalty'},
-      {data: [], label: 'Trust'},
-      {data: [], label: 'Respect'},
-      {data: [], label: 'Funny'},
-      {data: [], label: 'Affection'}
+      {data: [], name: 'working', },
+      {data: [], name: 'confidential'},
+      {data: [], name: 'loyalty'},
+      {data: [], name: 'trust'},
+      {data: [], name: 'respect'},
+      {data: [], name: 'funny'},
+      {data: [], name: 'affection'}
     ];
     public lineChartLabels:Array<String> = [];
     public lineChartsReady:boolean = false;
@@ -50,10 +52,14 @@ export class RelationshipComponent implements OnInit {
     public characterSelectedService: CharacterSelectedService,
     public relationService: RelationService,
     private route: ActivatedRoute,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
+    this.lineChartData.forEach(line=>{
+      this.translateService.get('RELATIONS.'+line.name+'.NAME').subscribe(m=>line.label=m.charAt(0).toUpperCase() + m.substr(1).toLowerCase());
+    });
     this.route.params.subscribe(param => {
       this.characterSelectedService.characterSelected = param['characterName'];
       this.game = param['game'];
@@ -72,13 +78,13 @@ export class RelationshipComponent implements OnInit {
             if (relation) {
                 this.relations[index]=relation;
                 this.lineChartLabels[relIds.length-index-1]=this.datePipe.transform(relation.date.toString(), 'dd-MM-yyyy HH:mm:ss');
-                this.lineChartData.filter(f=>'Working'===f.label)[0].data[relIds.length-index-1]=relation.working;
-                this.lineChartData.filter(f=>'Loyalty'===f.label)[0].data[relIds.length-index-1]=relation.loyalty;
-                this.lineChartData.filter(f=>'Trust'===f.label)[0].data[relIds.length-index-1]=relation.trust;
-                this.lineChartData.filter(f=>'Respect'===f.label)[0].data[relIds.length-index-1]=relation.respect;
-                this.lineChartData.filter(f=>'Funny'===f.label)[0].data[relIds.length-index-1]=relation.funny;
-                this.lineChartData.filter(f=>'Affection'===f.label)[0].data[relIds.length-index-1]=relation.affection;
-                this.lineChartData.filter(f=>'Confidential'===f.label)[0].data[relIds.length-index-1]=relation.confidential;
+                this.lineChartData.filter(f=>'working'===f.name)[0].data[relIds.length-index-1]=relation.working;
+                this.lineChartData.filter(f=>'loyalty'===f.name)[0].data[relIds.length-index-1]=relation.loyalty;
+                this.lineChartData.filter(f=>'trust'===f.name)[0].data[relIds.length-index-1]=relation.trust;
+                this.lineChartData.filter(f=>'respect'===f.name)[0].data[relIds.length-index-1]=relation.respect;
+                this.lineChartData.filter(f=>'funny'===f.name)[0].data[relIds.length-index-1]=relation.funny;
+                this.lineChartData.filter(f=>'affection'===f.name)[0].data[relIds.length-index-1]=relation.affection;
+                this.lineChartData.filter(f=>'confidential'===f.name)[0].data[relIds.length-index-1]=relation.confidential;
             }
           }, null, ()=>this.nowLoaded++);
         });

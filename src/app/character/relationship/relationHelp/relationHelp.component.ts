@@ -1,18 +1,40 @@
 import { HelpBox } from './helpBox'
-import { Component, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {TranslateService} from '@ngx-translate/core';
+import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-relation-help',
   templateUrl: './relationHelp.component.html',
   styleUrls: ['./relationHelp.component.css', '../../../generic/relationColors.css']
 })
-export class RelationHelpComponent {
+export class RelationHelpComponent implements OnInit {
   public messages:string[][] = [
-    ["working","It represents how do you like to work with this person. You don't need to be friend to work well together."],
-    ["confidential","It represents how do you like to say your confidences to this person. How much vulnerable do you show with it without problem."],
-    ["loyalty","It represents how do you accept the danger for this person. For wich you return to search for."],
-    ["trust","It represents how do you think the person how may do a thing for you if you only question it."],
-    ["respect","It represents how do you think about the advices of the other person. If you think he know the things he does."],
-    ["funny","It represents how do you think about the free time with this person. If you laugth talking with him or playing any game."],
-    ["affection","It represents how do you think about the other person in love sense, like if is your son of your partner."]
+    ["working","",""],
+    ["confidential","",""],
+    ["loyalty","",""],
+    ["trust","",""],
+    ["respect","",""],
+    ["funny","",""],
+    ["affection","",""]
   ];
+
+
+  constructor(
+    private translateService: TranslateService
+  ) { }
+
+  ngOnInit(): void {
+    for (let i=0;i<this.messages.length;i++){
+      this.load(this.messages[i][0],i,1);
+      this.load(this.messages[i][0],i,2);
+    }
+  }
+
+  load(name:string, i:number, j:number){
+    if (j==1){
+      this.translateService.get('RELATIONS.'+name+'.NAME').subscribe(m=>this.messages[i][j]=m);
+    }else if (j==2){
+      this.translateService.get('RELATIONS.'+name+'.DESCRIPTION').subscribe(m=>this.messages[i][j]=m);
+    }
+  }
 }

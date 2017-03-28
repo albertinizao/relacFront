@@ -20,7 +20,7 @@ export class CharacterUpdateComponent implements OnInit  {
   public gameGiven:boolean = false;
   public suggestedGames: String[];
 
-  public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
+  public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
   public buttonCancel;
   public buttonSave;
 
@@ -41,8 +41,8 @@ export class CharacterUpdateComponent implements OnInit  {
       this.character = new GenericCharacter();
       this.character.game = param['game'];
       this.gameGiven = this.character.game!=null;
-      this.buttonCancel = new Button('Cancel', 'remove', null, [this.buildCharacterLink()], null);
-      this.buttonSave = new Button('Save', 'save', null, [this.buildCharacterLink()], null);
+      this.buttonCancel = new Button('BUTTON.CANCEL', 'remove', null, [this.buildCharacterLink()], null);
+      this.buttonSave = new Button('BUTTON.SAVE', 'save', null, [this.buildCharacterLink()], null);
     });
     this.gameService.getGames().subscribe(games => {
       this.suggestedGames=games;

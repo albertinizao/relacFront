@@ -22,11 +22,11 @@ export class RelationshipUpdateComponent implements OnInit {
   public otherName: string;
   public relation: Relation = new Relation();
 
-  public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
+  public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
   public buttonGame: Button;
   public buttonCancel: Button;
   public buttonCharacter: Button;
-  public buttonSave: Button = new Button('Save', 'save', null, null, this.save);
+  public buttonSave: Button = new Button('BUTTON.SAVE', 'save', null, null, this.save);
 
 
   constructor(
@@ -56,7 +56,7 @@ export class RelationshipUpdateComponent implements OnInit {
         if (this.game && this.game!='null'){
           this.buttonGame = new Button(''+this.game, 'book', null, ['/'+AppSettings.API_GAME+'/'+this.game], null);
         }
-        this.buttonCancel = new Button('Cancel', 'remove', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP+'/'+this.otherName], null);
+        this.buttonCancel = new Button('BUTTON.CANCEL', 'remove', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP+'/'+this.otherName], null);
         this.buttonCharacter = new Button(this.ownerName, 'user', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName], null);
         this.relationService.getRelationList(this.ownerName, this.otherName).subscribe(relIds => {
           if(relIds[0]){

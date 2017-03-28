@@ -32,12 +32,12 @@ export class CharacterRelationComponent implements OnInit {
       this.route.params.subscribe(param => {
         this.ownerName = param['characterName'];
         this.game = param['game'];});
-        this.buttonHome = new Button('Home', 'home', null, ['/'], null);
+        this.buttonHome = new Button('BUTTON.HOME', 'home', null, ['/'], null);
         if (this.game && this.game!='null'){
           this.buttonGame= new Button(''+this.game, 'book', null, ['/'+AppSettings.API_GAME+'/'+this.game], null);
         }
-        this.buttonCancel = new Button('Cancel', 'remove', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName], null);
-        this.buttonSave = new Button('Save', 'save', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP], this.save);
+        this.buttonCancel = new Button('BUTTON.CANCEL', 'remove', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName], null);
+        this.buttonSave = new Button('BUTTON.SAVE', 'save', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP], this.save);
   }
 
   save(): void{

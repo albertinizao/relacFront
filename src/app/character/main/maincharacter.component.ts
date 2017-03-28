@@ -20,9 +20,9 @@ export class MainCharacterComponent implements OnInit {
   public loaded=false;
   game:String;
 
-  public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
-  public buttonNew: Button = new Button('New', 'plus', null, ['new'], null, true);
-  public buttonNewNotOwner: Button = new Button('New', 'plus', null, ['new'], null, false);
+  public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
+  public buttonNew: Button = new Button('BUTTON.NEW', 'plus', null, ['new'], null, true);
+  public buttonNewNotOwner: Button = new Button('BUTTON.NEW', 'plus', null, ['new'], null, false);
   public buttonGame: Button;
 
   constructor(

@@ -1,6 +1,97 @@
 {
+  "BUTTON": {
+    "HOME": "Home",
+    "CANCEL": "Cancel",
+    "SAVE": "Save",
+    "NEW": "New",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "REGISTER": "Register"
+  },
+  "GENERIC":{
+    "GAME":"Game"
+  },
   "HOME": {
-    "TITLE": "Hello {{value}} with ngx-translate!",
-    "SELECT": "Change language"
+    "TITLE": "Title with a long character"
+  },
+  "MENU": {
+    "TOGGLE": "Toggle navigation",
+    "OWN": "Own characters"
+  },
+  "USER": {
+    "USERNAME": "Username",
+    "PASSWORD": "Password"
+  },
+  "NEWRELATION": {
+    "NEW": "New relation with"
+  },
+  "NEWCHARACTER": {
+    "NEW": "New character"
+  },
+  "RELATIONS": {
+    "working": {
+      "NAME": "working",
+      "DESCRIPTION": "It represents how do you like to work with this person. You don't need to be friend to work well together."
+    },
+    "confidential": {
+      "NAME": "confidential",
+      "DESCRIPTION": "It represents how do you like to say your confidences to this person. How much vulnerable do you show with it without problem."
+    },
+    "loyalty": {
+      "NAME": "loyalty",
+      "DESCRIPTION": "It represents how do you accept the danger for this person. For wich you return to search for."
+    },
+    "trust": {
+      "NAME": "trust",
+      "DESCRIPTION": "It represents how do you think the person how may do a thing for you if you only question it."
+    },
+    "respect": {
+      "NAME": "respect",
+      "DESCRIPTION": "It represents how do you think about the advices of the other person. If you think he know the things he does."
+    },
+    "funny": {
+      "NAME": "funny",
+      "DESCRIPTION": "It represents how do you think about the free time with this person. If you laugth talking with him or playing any game."
+    },
+    "affection": {
+      "NAME": "affection",
+      "DESCRIPTION": "It represents how do you think about the other person in love sense, like if is your son of your partner."
+    }
+  },
+  "HEADER": {
+    "LIST": {
+      "TITLE": {
+        "WITHGAME": "{{game}} character list",
+        "WITHOUTGAME": "Character list"
+      },
+      "SUBTITLE": {
+        "WITHGAME": "All the characters from {{game}}",
+        "WITHOUTGAME": "All the characters in the application"
+      }
+    }
+  },
+  "HELP": {
+    "USER": {
+      "TITLE": "Some information about the page",
+      "MESSAGE1": "You are creating your own user. The user is created in order to create your own character and relationships.",
+      "MESSAGE2": "Don't worry, we cipher your password and the application never know it."
+    },
+    "LIST": {
+      "TITLE": "About characters list",
+      "MESSAGE": "This list shows all the characters or all the characters from this game. If you click to one, you'll see the character information."
+    },
+    "NEWRELATION": {
+      "TITLE": "Some information about the new relationship",
+      "MESSAGE": "This is the page to create a new relationship with other character. You have to write the name of the character with which you want the relationship."
+    },
+    "NEWCHARACTER": {
+      "TITLE": "Some information about the character creation",
+      "MESSAGE": "You are creating your own character. You must write the character name and it's recommended to write the game in with it plays too. If the game box is disabled is because you are selected a game previously."
+    },
+    "CHARACTER": {
+      "TITLE": "Some information about the character",
+      "MESSAGE1": "This is the page about a character. You can show the other characters with which the character has a relatioship.",
+      "MESSAGE2": "You can click in the top of a relationship to view the details. You can also create a new relationship if you are the character's owner."
+    }
   }
 }

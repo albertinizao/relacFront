@@ -5,6 +5,9 @@ import { Location } from '@angular/common';
 import { Button } from '../../generic/button/button';
 import { CharacterService } from '../services/character.service';
 import { CharacterSelectedService } from '../services/character-selected.service';
+import {TranslateService} from '@ngx-translate/core';
+import { Observable } from 'rxjs/Observable';
+
 
 @Component({
   selector: 'app-list-page',
@@ -16,14 +19,15 @@ export class ListPageComponent implements OnInit {
   game:String;
   errorMessage: string;
 
-  public buttonNew: Button = new Button('New', 'plus', null, ['new'], null, true);
-  public buttonNewNotLogged: Button = new Button('New', 'plus', null, ['new'], null, false);
-  public buttonHome: Button = new Button('Home', 'home', null, ['/'], null);
+  public buttonNew: Button = new Button('BUTTON.NEW', 'plus', null, ['new'], null, true);
+  public buttonNewNotLogged: Button = new Button('BUTTON.NEW', 'plus', null, ['new'], null, false);
+  public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
 
   constructor(
     private route: ActivatedRoute,
     public characterSelectedService: CharacterSelectedService,
     private characterService: CharacterService,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -46,23 +50,27 @@ export class ListPageComponent implements OnInit {
   }
 
   public getTittle():string{
-    let message = "";
+    let obs:Observable<string>;
     if (this.game){
-      message = this.game + ' ';
+      obs = this.translateService.get('HEADER.LIST.TITLE.WITHGAME', {game: this.game.charAt(0).toUpperCase() + this.game.substr(1).toLowerCase()});
     }else{
-      message = 'All ';
+      obs = this.translateService.get('HEADER.LIST.TITLE.WITHOUTGAME');
     }
-    message = message + " character's list.";
-    return message.charAt(0).toUpperCase() + message.substr(1).toLowerCase();
+    var result;
+    obs.subscribe(m=>result=m);
+    return result;
   }
 
   public getSubtittle():string{
-    let message = "All the characters";
+    let obs:Observable<string>;
     if (this.game){
-      message = message + " from "+this.game;
+      obs = this.translateService.get('HEADER.LIST.SUBTITLE.WITHGAME', {game: this.game.charAt(0).toUpperCase() + this.game.substr(1).toLowerCase()});
+    }else{
+      obs = this.translateService.get('HEADER.LIST.SUBTITLE.WITHOUTGAME');
     }
-    message = message + '.';
-    return message;
+    var result;
+    obs.subscribe(m=>result=m);
+    return result;
   }
 
   public isLogged():boolean{

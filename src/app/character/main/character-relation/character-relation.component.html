@@ -7,18 +7,18 @@
   	<app-button [button]="buttonCancel"></app-button>
   <a *ngIf="buttonSave"
   	class='btn btn-primary black-background white'
-  	[ngClass]="buttonSave.getStyle()" (click)="save()" > {{buttonSave.message}}</a>
+  	[ngClass]="buttonSave.getStyle()" (click)="save()" >{{buttonSave?.message | translate}}</a>
 	</div>
 </div>
 
 <div class="col-md-3">
 </div>
 <div class="col-md-6">
-  <h2 class="text-center">New relation with</h2>
+  <h2 class="text-center">{{'NEWRELATION.NEW' | translate}}</h2>
   <h2><input class="nameBox"  [(ngModel)]="newName" type="text" autofocus="on" required="on"></h2>
 </div>
 <div class="col-md-3">
 </div>
 
-<app-help-box [title]="'Some information about the new relationship'"
-  [paragraphs]="['This is the page to create a new relationship with other character. You have to write the name of the character with which you want the relationship.']"></app-help-box>
+<app-help-box [title]="'NEWRELATION.TITLE'"
+  [paragraphs]="['NEWRELATION.MESSAGE']"></app-help-box>
