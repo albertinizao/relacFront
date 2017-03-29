@@ -19,6 +19,7 @@ export class CharacterUpdateComponent implements OnInit  {
   public character:GenericCharacter;
   public gameGiven:boolean = false;
   public suggestedGames: String[];
+  public validated:boolean=false;
 
   public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
   public buttonCancel;
@@ -32,8 +33,12 @@ export class CharacterUpdateComponent implements OnInit  {
     ) { }
 
   save(): void{
-    this.character.relationships=null;
-    this.characterService.create(this.character.name, this.character).subscribe(response => {if (response){this.router.navigateByUrl(this.buildCharacterLink()+'/'+AppSettings.API_CHARACTER+'/'+this.character.name);}});
+    this.validated=false;
+    if (this.character.name){
+      this.character.relationships=null;
+      this.characterService.create(this.character.name, this.character).subscribe(response => {if (response){this.router.navigateByUrl(this.buildCharacterLink()+'/'+AppSettings.API_CHARACTER+'/'+this.character.name);}});
+    }
+    this.validated=true;
   }
 
   ngOnInit(): void {

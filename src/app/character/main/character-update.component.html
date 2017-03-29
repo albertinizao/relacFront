@@ -15,7 +15,10 @@
     </div>
     <div class="col-md-6">
       <h2 class="text-center">{{'NEWCHARACTER.NEW' | translate}}</h2>
-      <h2><input class="nameBox"  [(ngModel)]="character.name" type="text" autofocus="on" required="on" aria-describedby="nameHelpBlock" title="The name of the character you are creating."></h2>
+      <h2><input class="nameBox"  [(ngModel)]="character.name" type="text" autofocus="on" required="on"></h2>
+      <div *ngIf="!character.name && validated"  class="alert alert-dismissible alert-danger">
+        {{'FIELD.MANDATORY' | translate}}
+      </div>
     </div>
     <div class="col-md-3">
     </div>
@@ -25,7 +28,10 @@
     </div>
     <div class="col-md-6">
         <h2 class="text-center">{{'GENERIC.GAME' | translate}}</h2>
-        <h2><input auto-complete [source]="suggestedGames" class="nameBox"  [(ngModel)]="character.game" type="text" required="pff" [disabled]="gameGiven" aria-describedby="gameHelpBlock" title="The name of the game in witch the character exists. We suggest some game that actually exists, but you can create your own game."></h2>
+        <h2><input auto-complete [source]="suggestedGames" class="nameBox"  [(ngModel)]="character.game" type="text" required="pff" [disabled]="gameGiven"></h2>
+        <div *ngIf="character.game=='null' && validated"  class="alert alert-dismissible alert-danger">
+          {{'FIELD.INVALID' | translate}}
+        </div>
     </div>
     <div class="col-md-3">
     </div>

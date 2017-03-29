@@ -1,4 +1,9 @@
 {
+  "FIELD": {
+    "MANDATORY": "The field is mandatory.",
+    "INVALID": "The value is invalid.",
+    "LENGTH": "The value is too short. Length minimum of {{length}} characters."
+  },
   "BUTTON": {
     "HOME": "Home",
     "CANCEL": "Cancel",

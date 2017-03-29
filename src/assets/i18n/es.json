@@ -1,4 +1,9 @@
 {
+  "FIELD": {
+    "MANDATORY": "El campo es obligatorio.",
+    "INVALID": "El valor introducido es inválido.",
+    "LENGTH": "El valor introducido es demasiado corto. Longitud mínima de {{length}} carácteres."
+  },
   "BUTTON": {
     "HOME": "Principal",
     "CANCEL": "Cancelar",

@@ -7,6 +7,7 @@ import { RelationService } from '../../services/relation.service';
 import { AppSettings }          from '../../../app.component';
 import {TranslateService} from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-character-relation',
@@ -18,6 +19,8 @@ export class CharacterRelationComponent implements OnInit {
   public newName: String;
   public game: String;
   public titleMessage: string;
+  public subtitleMessage;
+  public validated:boolean=false;
 
   public buttonHome: Button;
   public buttonGame: Button;
@@ -43,11 +46,15 @@ export class CharacterRelationComponent implements OnInit {
         this.buttonCancel = new Button('BUTTON.CANCEL', 'remove', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName], null);
         this.buttonSave = new Button('BUTTON.SAVE', 'save', null, ['/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP], this.save);
         this.translateService.get('HEADER.NEWRELATION.TITLE',{character:this.ownerName}).subscribe(m=>this.titleMessage=m);
+        this.subtitleMessage = {character:this.ownerName};
   }
 
   save(): void{
-    this.relationService.createRelationWith(this.ownerName,this.newName)
+    if (this.newName){
+      this.relationService.createRelationWith(this.ownerName,this.newName)
           .subscribe(response => {if (response){this.router.navigateByUrl(this.buttonSave.routerLink[0]+'/'+this.newName);}});
+    }
+    this.validated=true;
   }
 
   buildRouterLink(): Array<String>{

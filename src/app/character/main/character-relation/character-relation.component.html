@@ -1,5 +1,4 @@
-<app-title [title]="titleMessage" [subtitle]="'HEADER.NEWRELATION.SUBTITLE | translate'"></app-title>
-
+<app-title [title]="titleMessage" [subtitle]="'HEADER.NEWRELATION.SUBTITLE' | translate:subtitleMessage"></app-title>
 <div class="col-md-12">
 	<div class="pull-right">
 		<app-button [button]="buttonHome"></app-button>
@@ -16,6 +15,9 @@
 <div class="col-md-6">
   <h2 class="text-center">{{'NEWRELATION.NEW' | translate}}</h2>
   <h2><input class="nameBox"  [(ngModel)]="newName" type="text" autofocus="on" required="on"></h2>
+  <div *ngIf="!newName && validated"  class="alert alert-dismissible alert-danger">
+    {{'FIELD.MANDATORY' | translate}}
+  </div>
 </div>
 <div class="col-md-3">
 </div>

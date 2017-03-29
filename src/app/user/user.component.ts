@@ -16,6 +16,8 @@ export class UserComponent {
   user: User;
   username: string;
   password: string;
+  validated: boolean = false;
+  minLength = {length:'5'};
 
   public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
   public buttonCancel: Button = new Button('BUTTON.CANCEL', 'remove', null, ['/'], null);
@@ -29,11 +31,14 @@ export class UserComponent {
 
 
   save(): void{
-    this.user = new User();
-    this.user.username=this.username;
-    this.user.password=this.password;
-    this.userService.createUser(this.user)
-          .subscribe(response => {if (response){this.router.navigate(['']);}});
+    if (this.username && this.password && this.password.length>4){
+      this.user = new User();
+      this.user.username=this.username;
+      this.user.password=this.password;
+      this.userService.createUser(this.user)
+            .subscribe(response => {if (response){this.router.navigate(['']);}});
+    }
+    this.validated=true;
   }
 
 }
