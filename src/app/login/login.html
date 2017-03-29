@@ -10,9 +10,9 @@
       <input type="password" class="form-control" name="password"  [(ngModel)]="password"  id="pwd" disabled="{{loginDisabled}}">
     </div>
     <a (click)="login()"  *ngIf="!loginDisabled"
-    	class='btn btn-primary black-background white' style="top-margin=50px;margin-top: 12px;" >{{ 'BUTTON.LOGIN' | translate}}</a>
-    <a *ngIf="!loginDisabled"
-    	class='btn btn-primary black-background white' style="top-margin=50px;margin-top: 12px;" >{{ 'BUTTON.REGISTER' | translate}}</a>
+    	class='btn btn-primary black-background white' style="top-margin=50px;margin-top: 12px;" ><i class="fa fa-sign-in" aria-hidden="true"></i> {{ 'BUTTON.LOGIN' | translate}}</a>
+    <a *ngIf="!loginDisabled" href="/user"
+    	class='btn btn-primary black-background white' style="top-margin=50px;margin-top: 12px;" ><i class="fa fa-user-plus" aria-hidden="true"></i> {{ 'BUTTON.REGISTER' | translate}}</a>
   </form>
-      <button *ngIf="isLogged()"  class="btn btn-primary black-background white" style="top-margin=50px;margin-top: 12px;" (click)="logout()" >{{ 'BUTTON.LOGOUT' | translate}}</button>
+      <button *ngIf="isLogged()"  class="btn btn-primary black-background white" style="top-margin=50px;margin-top: 12px;" (click)="logout()" ><i class="fa fa-sign-out" aria-hidden="true"></i> {{ 'BUTTON.LOGOUT' | translate}}</button>
 </div>

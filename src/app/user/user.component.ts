@@ -6,6 +6,9 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { User } from './user';
 import { UserService } from './user.service';
+import { AppSettings }          from '../app.component';
+import {TranslateService} from '@ngx-translate/core';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-user',
@@ -25,7 +28,9 @@ export class UserComponent {
 
   constructor(
     public router: Router,
-    public userService: UserService
+    public userService: UserService,
+    private translateService: TranslateService,
+    private flashMessagesService: FlashMessagesService
   ) { }
 
 
@@ -36,9 +41,22 @@ export class UserComponent {
       this.user.username=this.username;
       this.user.password=this.password;
       this.userService.createUser(this.user)
-            .subscribe(response => {if (response){this.router.navigate(['']);}});
+            .subscribe(this.onSuccess, this.onFailure);
     }
     this.validated=true;
+  }
+ onSuccess = (response) => {
+    let message;
+    if (response){
+      this.translateService.get('MESSAGES.SAVE.CORRECT').subscribe(m=>message=m);
+      this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
+      this.router.navigate(['']);
+    }
+  }
+ onFailure = (error) => {
+    let message;
+    this.translateService.get('MESSAGES.SAVE.INCORRECT').subscribe(m=>message=m);
+    this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
   }
 
 }

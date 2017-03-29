@@ -134,5 +134,16 @@
       "MESSAGE1": "This is the page about a character. You can show the other characters with which the character has a relatioship.",
       "MESSAGE2": "You can click in the top of a relationship to view the details. You can also create a new relationship if you are the character's owner."
     }
+  },
+  "MESSAGES":{
+    "LOGIN": {
+      "INVALID": "Unable to login. Invalid user or password.",
+      "CORRECT": "Welcome {{username}}.",
+      "LOGOUT": "Sucess disconected."
+    },
+    "SAVE": {
+      "CORRECT": "Operation success!",
+      "INCCORRECT": "An error occurred in the operation. Try again."
+    }
   }
 }

@@ -8,6 +8,8 @@ import { RelationService } from '../../services/relation.service';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { DatePipe } from '@angular/common';
 import { AppSettings }          from '../../../app.component';
+import {TranslateService} from '@ngx-translate/core';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 
 @Component({
@@ -38,14 +40,29 @@ export class RelationshipUpdateComponent implements OnInit {
     public relationService: RelationService,
     private route: ActivatedRoute,
     private datePipe: DatePipe,
-    private router:Router
+    private router:Router,
+    private translateService: TranslateService,
+    private flashMessagesService: FlashMessagesService
   ) { }
 
 
   public save():void{
     this.relation.date=new Date().getTime();
     this.relationService.saveRelation(this.ownerName, this.otherName, this.relation)
-    .subscribe(response => {if (response){this.router.navigateByUrl('/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP+'/'+this.otherName);}});
+      .subscribe(this.onSuccess, this.onFailure);
+  }
+ onSuccess = (response) => {
+    let message;
+    if (response){
+      this.translateService.get('MESSAGES.SAVE.CORRECT').subscribe(m=>message=m);
+      this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
+      this.router.navigateByUrl('/'+AppSettings.API_GAME+'/'+this.game+'/'+AppSettings.API_CHARACTER+'/'+this.ownerName+'/'+AppSettings.API_RELATIONSHIP+'/'+this.otherName);
+    }
+  }
+ onFailure = (error) => {
+    let message;
+    this.translateService.get('MESSAGES.SAVE.INCORRECT').subscribe(m=>message=m);
+    this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
   }
 
 

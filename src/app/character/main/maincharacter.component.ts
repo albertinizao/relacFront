@@ -20,6 +20,8 @@ export class MainCharacterComponent implements OnInit {
   public loaded=false;
   game:String;
   public subtitleParam;
+  public owner:string;
+  public isOwner:boolean;
 
   public buttonHome: Button = new Button('BUTTON.HOME', 'home', null, ['/'], null);
   public buttonNew: Button = new Button('BUTTON.NEW', 'plus', null, ['new'], null, true);
@@ -55,6 +57,8 @@ export class MainCharacterComponent implements OnInit {
         });
         this.loaded=true;
         this.subtitleParam= {value: this.character.user};
+        this.owner=this.character.user;
+        this.isOwner=this.characterSelectedService.characterIsOwn();
       });
   }
 }

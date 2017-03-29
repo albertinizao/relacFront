@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { GenericCharacter } from '../data/genericcharacter'
+import { CharacterSelectedService } from '../services/character-selected.service';
 import { AutoCompleteModule } from 'primeng/primeng';
 import { AppSettings }          from '../../app.component';
+import {TranslateService} from '@ngx-translate/core';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-character-update',
@@ -29,16 +32,40 @@ export class CharacterUpdateComponent implements OnInit  {
       private route: ActivatedRoute,
       private gameService: GameService,
       private characterService: CharacterService,
-      private router:Router
+      private router:Router,
+      private translateService: TranslateService,
+      private flashMessagesService: FlashMessagesService,
+        public characterSelectedService: CharacterSelectedService,
     ) { }
 
   save(): void{
     this.validated=false;
     if (this.character.name){
       this.character.relationships=null;
-      this.characterService.create(this.character.name, this.character).subscribe(response => {if (response){this.router.navigateByUrl(this.buildCharacterLink()+'/'+AppSettings.API_CHARACTER+'/'+this.character.name);}});
+      this.characterService.create(this.character.name, this.character).subscribe(this.onSuccess, this.onFailure);
     }
     this.validated=true;
+  }
+ onSuccess = (response) => {
+    let message;
+    if (response){
+
+      let user = localStorage.getItem("username");
+      if (user){
+        this.characterService.getCharacters(user, null).subscribe(
+                         characters => {
+                           this.characterSelectedService.ownCharacters = characters;
+                           this.translateService.get('MESSAGES.SAVE.CORRECT').subscribe(m=>message=m);
+                           this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
+                           this.router.navigateByUrl(this.buildCharacterLink()+'/'+AppSettings.API_CHARACTER+'/'+this.character.name);
+                         });
+      }
+    }
+  }
+ onFailure = (error) => {
+    let message;
+    this.translateService.get('MESSAGES.SAVE.INCORRECT').subscribe(m=>message=m);
+    this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
   }
 
   ngOnInit(): void {

@@ -5,9 +5,9 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { RelationService } from '../../services/relation.service';
 import { AppSettings }          from '../../../app.component';
-import {TranslateService} from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
-import { FormControl, FormGroup } from '@angular/forms';
+import {TranslateService} from '@ngx-translate/core';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
   selector: 'app-character-relation',
@@ -31,7 +31,8 @@ export class CharacterRelationComponent implements OnInit {
     private route: ActivatedRoute,
     private relationService: RelationService,
     private router:Router,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private flashMessagesService: FlashMessagesService,
   ) { }
 
   ngOnInit(): void {
@@ -52,9 +53,22 @@ export class CharacterRelationComponent implements OnInit {
   save(): void{
     if (this.newName){
       this.relationService.createRelationWith(this.ownerName,this.newName)
-          .subscribe(response => {if (response){this.router.navigateByUrl(this.buttonSave.routerLink[0]+'/'+this.newName);}});
+          .subscribe(this.onSuccess,this.onFailure);
     }
     this.validated=true;
+  }
+ onSuccess = (response) => {
+    let message;
+    if (response){
+      this.translateService.get('MESSAGES.SAVE.CORRECT').subscribe(m=>message=m);
+      this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
+      this.router.navigateByUrl(this.buttonSave.routerLink[0]+'/'+this.newName);
+    }
+  }
+ onFailure = (error) => {
+    let message;
+    this.translateService.get('MESSAGES.SAVE.INCORRECT').subscribe(m=>message=m);
+    this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
   }
 
   buildRouterLink(): Array<String>{

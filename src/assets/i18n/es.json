@@ -137,5 +137,16 @@
       "MESSAGE1": "Esta págima muestra la información del personaje seleccionado. Puede verse el resto de personajes con los que tiene relación y el estado actual de las mismas.",
       "MESSAGE2": "Si se hace click en el nombre del personaje de una relación, se accede al detalle. También pueden crearse nuevas relaciones si se es el propietario del personaje."
     }
+  },
+  "MESSAGES":{
+    "LOGIN": {
+      "INVALID": "Imposible iniciar sesión. Usuario o contraseña inválidos.",
+      "CORRECT": "Bienvenido, {{username}}.",
+      "LOGOUT": "Desconexión exitosa"
+    },
+    "SAVE": {
+      "CORRECT": "Operación realizada con éxito.",
+      "INCCORRECT": "Ocurrió un error durante la operación. Inténtelo de nuevo más tarde."
+    }
   }
 }

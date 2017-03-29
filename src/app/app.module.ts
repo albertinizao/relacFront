@@ -46,6 +46,7 @@ import { UserService } from './user/user.service';
 import { Ng2AutoCompleteModule } from 'ng2-auto-complete';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 const appRoutes: Routes = [
   { path: '', component: IndexPageComponent },
@@ -103,6 +104,7 @@ export function HttpLoaderFactory(http: Http) {
     Angular2FontawesomeModule,
     ChartsModule,
     Ng2AutoCompleteModule,
+    FlashMessagesModule,
     TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

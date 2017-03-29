@@ -16,8 +16,7 @@ export class LoginService {
 
   login(login:Login): Observable<String> {
       return this.http.post(AppSettings.API_ENDPOINT+AppSettings.API_LOGIN, JSON.stringify(login))
-                      .map(this.handleSuccess)
-                      .catch(this.handleError);
+                      .map(this.handleSuccess);
   }
   private extractToken(res: Response) {
     let body = res.json();
@@ -27,16 +26,6 @@ export class LoginService {
     return response.headers.get("X-Auth-Token");
   }
   private handleError (error: Response | any) {
-    // In a real world app, we might use a remote logging infrastructure
-    let errMsg: string;
-    if (error instanceof Response) {
-      const body = error.json() || '';
-      const err = body.error || JSON.stringify(body);
-      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-    } else {
-      errMsg = error.message ? error.message : error.toString();
-    }
-    console.error(errMsg);
-    return Observable.throw(errMsg);
+    return new Observable(observe =>{observe.next(error.json().error);observe.complete();});
   }
 }
