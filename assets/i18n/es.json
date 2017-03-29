@@ -1,0 +1,155 @@
+{
+  "FIELD": {
+    "MANDATORY": "El campo es obligatorio.",
+    "INVALID": "El valor introducido es inválido.",
+    "LENGTH": "El valor introducido es demasiado corto. Longitud mínima de {{length}} carácteres."
+  },
+  "BUTTON": {
+    "HOME": "Principal",
+    "CANCEL": "Cancelar",
+    "SAVE": "Guardar",
+    "NEW": "Nuevo",
+    "LOGIN": "Iniciar sesión",
+    "LOGOUT": "Cerrar sesión",
+    "REGISTER": "Registrarse"
+  },
+  "GENERIC":{
+    "GAME":"Partida"
+  },
+  "HOME": {
+    "TITLE": "Recurso Rolero de Relaciones"
+  },
+  "MENU": {
+    "TOGGLE": "Cambiar navegación",
+    "OWN": "Personajes propios"
+  },
+  "USER": {
+    "USERNAME": "Usuario",
+    "PASSWORD": "Contraseña",
+    "WELCOME": "Bienvenido, {{user}}"
+  },
+  "NEWRELATION": {
+    "NEW": "Nueva relación con"
+  },
+  "NEWCHARACTER": {
+    "NEW": "Nuevo personaje"
+  },
+  "RELATIONS": {
+    "working": {
+      "NAME": "Laboral",
+      "DESCRIPTION": "Todos nos entendemos mejor con alguien a la hora de trabajar, siempre nos compenetramos con unos más que otros independientemente de que nos caigamos bien o no. En el juego esto representaría con quién prefieres efectuar una tarea, ya sea recoger leña como internarte en una cueva oscura."
+    },
+    "confidential": {
+      "NAME": "Confidencialidad",
+      "DESCRIPTION": "Siempre tenemos una persona que consideramos nuestro confidente, al que le contamos las cosas que nos preocupan simplemente para sentirnos escuchados. Con esta persona nos mostramos más vulnerables. En el juego esto representaría cuando tenemos un problema personal, a quién se lo contaríamos para desahogarnos, delante de quién no nos importaría llorar."
+    },
+    "loyalty": {
+      "NAME": "Lealtad",
+      "DESCRIPTION": "Algunas personas daríamos la cara pese a cualquier infortunio por algunas personas, esto es lo leales que les seríamos. En el juego representaría si este personaje ha quedado atrás, si volveríamos a buscarlo a pesar de que fuese una misión suicida."
+    },
+    "trust": {
+      "NAME": "Confianza",
+      "DESCRIPTION": "De igual forma, todo el mundo confía más o menos en sus conocidos. No hay que confundir esta confianza con confidencialidad, esta confianza es a quién encargarías una tarea que es vital para ti. En el juego representaría a quién le darías una carta para que se la entregase a tu pareja una vez hayas muerto explicándole todo lo que sucedió realmente."
+    },
+    "respect": {
+      "NAME": "Respeto",
+      "DESCRIPTION": "Con respeto no me refiero a si insultarías a ese personaje o no, me refiero a si aceptarías un consejo que te de. Básicamente es el concepto que tienes de él."
+    },
+    "funny": {
+      "NAME": "Festivo",
+      "DESCRIPTION": "Todos tenemos un amigo con el que lo pasamos de perlas independientemente de la situación, alguien con quien simplemente pasas un rato divertido, independientemente de que le confiases un secreto o no."
+    },
+    "affection": {
+      "NAME": "Afecto",
+      "DESCRIPTION": "Tanto el amor por una pareja como el cariño por un amigo de toda la vida son representados en este campo."
+    }
+  },
+  "HEADER": {
+    "INDEX":{
+      "TITLE": "Lista de partidas",
+      "SUBTITLE": "Todas las partidas creadas en la aplicación"
+    },
+    "LIST": {
+      "TITLE": {
+        "WITHGAME": "Lista de personajes de {{game}}",
+        "WITHOUTGAME": "Lista de personajes"
+      },
+      "SUBTITLE": {
+        "WITHGAME": "Todos los personajes de la partida {{game}}",
+        "WITHOUTGAME": "Todos los personajes de la aplicación"
+      }
+    },
+    "RELATIONSHIP": {
+      "TITLE": "Relación con {{character}}",
+      "SUBTITLE": "Lo que piensa {{owner}} de {{character}}"
+    },
+    "NEWRELATION":{
+      "TITLE": "Nueva relación de {{character}}",
+      "SUBTITLE": "Crea una nueva relación de {{character}}"
+    },
+    "USER":{
+      "TITLE": "Nuevo usuario",
+      "SUBTITLE": "Creación de un nuevo usuario"
+    },
+    "NEWCHARACTER":{
+      "TITLE": "Nuevo personaje",
+      "SUBTITLE": "Creación de un nuevo personaje"
+    },
+    "CHARACTER":{
+      "SUBTITLE": "Del usuario {{value}}"
+    },
+    "NEWRELATIONSHIP":{
+      "TITLE": "Nuevo estado de relación con {{character}}",
+      "SUBTITLE": "Lo que piensa {{owner}} actualmente de {{character}}"
+    }
+  },
+  "HELP": {
+    "USER": {
+      "TITLE": "Información sobre creación de usuario",
+      "MESSAGE1": "Esta página permite la creación de nuevos usuarios. Los usuarios pueden crear sus propios personajes y asociarles relaciones.",
+      "MESSAGE2": "En ningún momento la aplicación conoce ni guarda la contraseña sin cifrar."
+    },
+    "GAME": {
+      "TITLE": "Información sobre la lista de partidas",
+      "MESSAGE": "Esta página muestra la lista de todas las partidas a las que pertenece al menos un personaje de la aplicación. Si se hace click en una, se accede a la lista de personajes de dicha partida."
+    },
+    "LIST": {
+      "TITLE": "Información sobre la lista de personajes",
+      "MESSAGE": "Esta página muestra la lista de todos los personajes de una misma partida. Si se hace click en uno, se accede a la información de dicho personaje."
+    },
+    "RELATIONSHIP": {
+      "TITLE": "Información sobre las relaciones",
+      "MESSAGE": "Esta página muestra las relaciones entre dos personajes. El gráfico muestra la evolución de la relación en el tiempo, y las cajas de más abajo permiten ver el estado de la relación en cada momento."
+    },
+    "NEWRELATION": {
+      "TITLE": "Información sobre la creación de una relación",
+      "MESSAGE": "Esta página permite la creación de una nueva relación con otro personaje. Es obligatorio escribir el nombre del personaje con quien se desea iniciar una relación."
+    },
+    "NEWCHARACTER": {
+      "TITLE": "Información sobre la creación de un personaje",
+      "MESSAGE": "Esta página permite crear un personaje asociándolo al usuario que lo hace. Es obligatorio escribir el nombre del personaje, y recomendado el de la partida a la que está asociado. Si el campo para el nombre de la partida está deshabilitado es porque se ha seleccionado una partida previamente."
+    },
+    "NEWRELATIONSHIP": {
+      "TITLE": "Información sobre la creación de un nuevo estado en la relación",
+      "MESSAGE": "Esta página permite crear un nuevo estado de la relación entre dos personajes. Los valores precargados son el último estado de la relación entre ambos personajes o todo a 0 si no existiese ninguno."
+    },
+    "CHARACTER": {
+      "TITLE": "Información sobre el personaje",
+      "MESSAGE1": "Esta págima muestra la información del personaje seleccionado. Puede verse el resto de personajes con los que tiene relación y el estado actual de las mismas.",
+      "MESSAGE2": "Si se hace click en el nombre del personaje de una relación, se accede al detalle. También pueden crearse nuevas relaciones si se es el propietario del personaje."
+    }
+  },
+  "MESSAGES":{
+    "LOGIN": {
+      "INVALID": "Imposible iniciar sesión. Usuario o contraseña inválidos.",
+      "CORRECT": "Bienvenido, {{username}}.",
+      "LOGOUT": "Desconexión exitosa"
+    },
+    "SAVE": {
+      "CORRECT": "Operación realizada con éxito.",
+      "INCORRECT": "Ocurrió un error durante la operación. Inténtelo de nuevo más tarde."
+    },
+    "400": "Ocurrió un error. Inténtelo de nuevo más tarde.",
+    "409": "El elemento ya existe."
+  }
+}
