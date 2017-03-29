@@ -14,5 +14,9 @@
     <a *ngIf="!loginDisabled" href="/user"
     	class='btn btn-primary black-background white' style="top-margin=50px;margin-top: 12px;" ><i class="fa fa-user-plus" aria-hidden="true"></i> {{ 'BUTTON.REGISTER' | translate}}</a>
   </form>
+  <div *ngIf="isLogged()" class="top-margin-2 pull-right">
+    <p class="lead" *ngIf="isLogged()">{{ 'USER.WELCOME' | translate:welcome}}
       <button *ngIf="isLogged()"  class="btn btn-primary black-background white" style="top-margin=50px;margin-top: 12px;" (click)="logout()" ><i class="fa fa-sign-out" aria-hidden="true"></i> {{ 'BUTTON.LOGOUT' | translate}}</button>
+    </p>
+  </div>
 </div>

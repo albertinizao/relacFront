@@ -22,8 +22,7 @@ export class RelationService {
 
       let options = new RequestOptions({ headers: headers });
       return this.http.post(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+owner+"/"+AppSettings.API_RELATIONSHIP+"/"+other, null, options)
-                      .map(()=>true)
-                      .catch(this.handleError);
+                      .map(()=>true);
   }
 
   saveRelation(owner: String, other: String, relation: Relation): Observable<Boolean> {
@@ -33,8 +32,7 @@ export class RelationService {
 
       let options = new RequestOptions({ headers: headers });
       return this.http.put(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+owner+"/"+AppSettings.API_RELATIONSHIP+"/"+other+"/"+AppSettings.API_RELATION+"/"+relation.date, relation, options)
-                      .map(()=>true)
-                      .catch(this.handleError);
+                      .map(()=>true);
   }
 
   getRelationList(owner: String, other: String): Observable<number[]> {
@@ -44,8 +42,7 @@ export class RelationService {
 
       let options = new RequestOptions({ headers: headers });
       return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+owner+"/"+AppSettings.API_RELATIONSHIP+"/"+other+"/"+AppSettings.API_RELATION, options)
-                      .map(this.extractDates)
-                      .catch(this.handleError);
+                      .map(this.extractDates);
   }
   private extractDates(res: Response) {
     return res.json();
@@ -72,8 +69,7 @@ export class RelationService {
 
         let options = new RequestOptions({ headers: headers });
         return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+owner+"/"+AppSettings.API_RELATIONSHIP+"/"+other+"/"+AppSettings.API_RELATION+"/"+relationId, options)
-                        .map(this.extractRelation)
-                        .catch(this.handleError);
+                        .map(this.extractRelation);
   }
   private extractRelation(res: Response) {
     return res.json();

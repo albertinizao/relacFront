@@ -61,8 +61,12 @@ export class RelationshipUpdateComponent implements OnInit {
   }
  onFailure = (error) => {
     let message;
-    this.translateService.get('MESSAGES.SAVE.INCORRECT').subscribe(m=>message=m);
-    this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
+    try{
+      this.translateService.get('MESSAGES.'+error.status).subscribe(m=>message=m);
+    }catch(errorNew){
+      this.translateService.get('MESSAGES.SAVE.INCORRECT').subscribe(m=>message=m);
+    }
+    this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-danger', timeout: 10000  } );
   }
 
 

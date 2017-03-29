@@ -33,8 +33,7 @@ export class CharacterService {
       }
       let options = new RequestOptions({ headers: headers });
       return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+parameters, options)
-                      .map(this.extractNames)
-                      .catch(this.handleError);
+                      .map(this.extractNames);
   }
 
   create(name: String, character: GenericCharacter = null): Observable<Boolean> {
@@ -44,8 +43,7 @@ export class CharacterService {
 
       let options = new RequestOptions({ headers: headers });
       return this.http.post(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+name, JSON.stringify(character), options)
-                      .map(()=>true)
-                      .catch(this.handleError);
+                      .map(()=>true);
   }
   private extractNames(res: Response) {
     return res.json();
@@ -71,8 +69,7 @@ export class CharacterService {
 
     let options = new RequestOptions({ headers: headers });
     return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_CHARACTER+"/"+characterName, options)
-                    .map(this.extractCharacter)
-                    .catch(this.handleError);
+                    .map(this.extractCharacter);
     }
 
     private extractCharacter(res: Response): Promise<GenericCharacter> {

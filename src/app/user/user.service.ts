@@ -18,8 +18,7 @@ export class UserService {
       let headers = new Headers({ 'Content-Type': 'application/json' });
       let options = new RequestOptions({ headers: headers });
       return this.http.post(AppSettings.API_ENDPOINT+AppSettings.API_USER, JSON.stringify(user), options)
-                      .map(()=>true)
-                      .catch(this.handleError);
+                      .map(()=>true);
   }
   private handleError (error: Response | any) {
     // In a real world app, we might use a remote logging infrastructure

@@ -17,15 +17,16 @@
     "GAME":"Partida"
   },
   "HOME": {
-    "TITLE": "Título bien larguito para t"
+    "TITLE": "Recurso Rolero de Relaciones"
   },
   "MENU": {
     "TOGGLE": "Cambiar navegación",
     "OWN": "Personajes propios"
   },
   "USER": {
-    "USERNAME": "Nombre de usuario",
-    "PASSWORD": "Contraseña"
+    "USERNAME": "Usuario",
+    "PASSWORD": "Contraseña",
+    "WELCOME": "Bienvenido, {{user}}"
   },
   "NEWRELATION": {
     "NEW": "Nueva relación con"
@@ -146,7 +147,9 @@
     },
     "SAVE": {
       "CORRECT": "Operación realizada con éxito.",
-      "INCCORRECT": "Ocurrió un error durante la operación. Inténtelo de nuevo más tarde."
-    }
+      "INCORRECT": "Ocurrió un error durante la operación. Inténtelo de nuevo más tarde."
+    },
+    "400": "Ocurrió un error. Inténtelo de nuevo más tarde.",
+    "409": "El elemento ya existe."
   }
 }

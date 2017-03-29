@@ -24,6 +24,7 @@ export class LoginComponent {
   private characterService: CharacterService;
   private flashMessagesService: FlashMessagesService;
   private translateService:TranslateService;
+  public welcome={user:localStorage.getItem("username")};
 
 
   constructor(router: Router, loginService: LoginService, characterSelectedService: CharacterSelectedService,
@@ -58,6 +59,7 @@ export class LoginComponent {
          let message;
          this.translateService.get('MESSAGES.LOGIN.CORRECT',{username:this.user}).subscribe(m=>message=m);
          this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
+         this.welcome={user:localStorage.getItem("username")};
          this.reload();
      } else {
        this.logout();

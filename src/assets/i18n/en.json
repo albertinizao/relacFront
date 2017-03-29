@@ -17,7 +17,7 @@
     "GAME":"Game"
   },
   "HOME": {
-    "TITLE": "Title with a long character"
+    "TITLE": "Roleplay Relationship Resource"
   },
   "MENU": {
     "TOGGLE": "Toggle navigation",
@@ -25,7 +25,8 @@
   },
   "USER": {
     "USERNAME": "Username",
-    "PASSWORD": "Password"
+    "PASSWORD": "Password",
+    "WELCOME": "Welcome, {{user}}"
   },
   "NEWRELATION": {
     "NEW": "New relation with"
@@ -143,7 +144,7 @@
     },
     "SAVE": {
       "CORRECT": "Operation success!",
-      "INCCORRECT": "An error occurred in the operation. Try again."
+      "INCORRECT": "An error occurred in the operation. Try again."
     }
   }
 }

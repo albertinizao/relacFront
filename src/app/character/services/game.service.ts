@@ -20,8 +20,7 @@ export class GameService {
       headers.append('X-AUTH-TOKEN',  localStorage.getItem("token"));
       let options = new RequestOptions({ headers: headers });
       return this.http.get(AppSettings.API_ENDPOINT+AppSettings.API_GAME, options)
-                      .map(this.extractNames)
-                      .catch(this.handleError);
+                      .map(this.extractNames);
   }
   private extractNames(res: Response) {
     return res.json();
