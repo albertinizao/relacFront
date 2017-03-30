@@ -1,26 +1,27 @@
 @CHARSET "UTF-8";
 
 .background-relation-working {
-    background-color: black;
+    background-color: grey;
 }
 
 .panel-relation-working {
-    border-color: black;
+    border-color: grey;
 }
 
 .color-working {
-    color: red;
+    color: grey;
 }
+
 .background-relation-confidential {
-    background-color: black;
+    background-color: blue;
 }
 
 .panel-relation-confidential {
-    border-color: black;
+    border-color: blue;
 }
 
 .color-confidential {
-    color: red;
+    color: blue;
 }
 
 
@@ -29,63 +30,63 @@
 }
 
 .background-relation-loyalty {
-    background-color: black;
-}
-
-.color-loyalty {
-    color: red;
+    background-color: maroon;
 }
 
 .panel-relation-loyalty {
-    border-color: black;
+    border-color: maroon;
+}
+
+.color-loyalty {
+    color: maroon;
 }
 
 
 .background-relation-trust{
-    background-color: black;
-}
-
-.color-trust {
-    color: red;
+    background-color: green;
 }
 
 .panel-relation-trust {
-    border-color: black;
+    border-color: green;
+}
+
+.color-trust {
+    color: green;
 }
 
 
 .background-relation-respect {
-    background-color: black;
-}
-
-.color-respect {
-    color: red;
+    background-color: purple;
 }
 
 .panel-relation-respect {
-    border-color: black;
+    border-color: purple;
+}
+
+.color-respect {
+    color: purple;
 }
 
 
 .background-relation-funny {
-    background-color: black;
+    background-color: #DAA520;
 }
 
 .panel-relation-funny {
-    border-color: black;
+    border-color: #DAA520;
 }
 
 .color-funny {
-    color: red;
+    color: #DAA520;
 }
 
 
 .background-relation-affection {
-    background-color: black;
+    background-color: red;
 }
 
 .panel-relation-affection {
-    border-color: black;
+    border-color: red;
 }
 
 .color-affection {
