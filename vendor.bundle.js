@@ -82692,7 +82692,7 @@ var /** @type {?} */ VERSION = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["
 
 var TranslateHttpLoader = (function () {
     function TranslateHttpLoader(http, prefix, suffix) {
-        if (prefix === void 0) { prefix = "/assets/i18n/"; }
+        if (prefix === void 0) { prefix = "/relacFront/assets/i18n/"; }
         if (suffix === void 0) { suffix = ".json"; }
         this.http = http;
         this.prefix = prefix;
