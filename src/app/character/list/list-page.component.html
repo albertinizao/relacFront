@@ -2,7 +2,7 @@
 
 
 
-<div class="col-md-12">
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
 	<div class="pull-right">
     <app-button *ngIf="game!=null" [button]="buttonHome"></app-button>
 		<app-button *ngIf="isLogged()" [button]="buttonNew"></app-button>
@@ -12,10 +12,10 @@
 
 <div class="text-center" style="widht:100%; display: block;margin: auto;">
   <div *ngFor="let character of characters" class="col-md-3 col-xs-6 character-padded">
-    <a [style.background]="toColor(character)" class="col-md-12 character-title character-link" href="#" [routerLink]="['character', character]"  routerLinkActive="active">{{character}}</a>
+    <a [style.background]="toColor(character)" class="col-md-12 col-sm-12 col-lg-12 col-xs-12 character-title character-link" href="#" [routerLink]="['character', character]"  routerLinkActive="active">{{character}}</a>
   </div>
 </div>
-<div class="col-md-12" style="height:10%;"></div>
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12" style="height:10%;"></div>
 
 
 <app-help-box [title]="'LIST.TITLE'"

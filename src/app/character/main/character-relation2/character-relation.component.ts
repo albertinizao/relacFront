@@ -10,7 +10,7 @@ import {TranslateService} from '@ngx-translate/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
-  selector: 'app-character-relation',
+  selector: 'app-character-relation2',
   templateUrl: './character-relation.component.html',
   styleUrls: ['./character-relation.component.css', '../../../generic/button/button.component.css']
 })

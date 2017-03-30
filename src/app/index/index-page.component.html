@@ -1,17 +1,21 @@
 <app-loading [loaded]=loaded></app-loading>
 <app-title [title]="'HEADER.INDEX.TITLE' | translate" [subtitle]="'HEADER.INDEX.SUBTITLE' | translate"></app-title>
 
-<div *ngIf="loaded" class="text-center" style="widht:100%; display: block;margin: auto;">
-  <div *ngFor="let game of games" class="col-md-3 col-xs-6 character-padded">
-    <a [style.background]="toColor(game)" class="col-md-12 character-title character-link" href="#" [routerLink]="['game', game]"  routerLinkActive="active">{{game}}</a>
+<div *ngIf="loaded" class="col-md-12 col-sm-12 col-lg-12 col-xs-12 col-sm-12 col-lg-12 col-xs-12">
+  <div *ngIf="loaded" class="text-center" style="widht:100%; display: block;margin: auto;">
+    <div *ngFor="let game of games" class="col-md-3 col-xs-6 character-padded">
+      <a [style.background]="toColor(game)" class="col-md-12 col-sm-12 col-lg-12 col-xs-12 character-title character-link" href="#" [routerLink]="['game', game]"  routerLinkActive="active">{{game}}</a>
+    </div>
   </div>
 </div>
+<div *ngIf="loaded"  class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
 <app-help-box *ngIf="loaded"  [title]="'GAME.TITLE'"
   [paragraphs]="['GAME.MESSAGE']"></app-help-box>
+</div>
 
-<div *ngIf="loaded"  class="col-md-12" style="height:10%;"></div>
+<div *ngIf="loaded"  class="col-md-12 col-sm-12 col-lg-12 col-xs-12" style="height:10%;"></div>
 
 
-<div *ngIf="loaded"  class="col-md-12">
+<div *ngIf="loaded"  class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
   <app-list-page></app-list-page>
 </div>

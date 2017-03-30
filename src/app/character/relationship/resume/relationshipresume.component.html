@@ -3,7 +3,7 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">
 		<div class="row">
-			<div class="col-md-8 brillo">
+			<div class="col-md-8 col-sm-8 col-lg-8 col-xs-8 brillo">
 				<h3 *ngIf="name" class="panel-title">
 					<a [routerLink]="['relationship', name]"
 						routerLinkActive="active" class="menu-element"><span
@@ -11,7 +11,7 @@
 
 				</h3>
 			</div>
-			<div *ngIf="relation && relation.date" class="col-md-4 text-right">{{relation.date
+			<div *ngIf="relation && relation.date" class="col-md-4 col-sm-4 col-lg-4 col-xs-4 text-right">{{relation.date
 				| date:'medium'}}</div>
 		</div>
 

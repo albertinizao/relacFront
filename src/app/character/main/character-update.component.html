@@ -1,6 +1,6 @@
 <app-title [title]="'HEADER.NEWCHARACTER.TITLE' | translate" [subtitle]="'HEADER.NEWCHARACTER.SUBTITLE' | translate"></app-title>
 
-<div class="col-md-12">
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
 	<div class="pull-right">
 		<app-button [button]="buttonHome"></app-button>
   	<app-button [button]="buttonCancel"></app-button>
@@ -10,30 +10,30 @@
 	</div>
 </div>
 
-  <div class="col-md-12">
-    <div class="col-md-3">
+  <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
       <h2 class="text-center">{{'NEWCHARACTER.NEW' | translate}}</h2>
       <h2><input class="nameBox"  [(ngModel)]="character.name" type="text" autofocus="on" required="on" (keyup.enter)="save()"></h2>
       <div *ngIf="!character.name && validated"  class="alert alert-dismissible alert-danger">
         {{'FIELD.MANDATORY' | translate}}
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
     </div>
   </div>
-  <div class="col-md-12">
-    <div class="col-md-3">
+  <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
         <h2 class="text-center">{{'GENERIC.GAME' | translate}}</h2>
         <h2><input auto-complete [source]="suggestedGames" class="nameBox"  [(ngModel)]="character.game" type="text" required="pff" [disabled]="gameGiven" (keyup.enter)="save()"></h2>
         <div *ngIf="character.game=='null' && validated"  class="alert alert-dismissible alert-danger">
           {{'FIELD.INVALID' | translate}}
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
     </div>
   </div>
 

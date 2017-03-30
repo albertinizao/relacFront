@@ -27,7 +27,7 @@ import { RelationshipUpdateComponent } from './character/relationship/relationsh
 import { ButtonComponent } from './generic/button/button.component';
 import { HelpBoxComponent } from './generic/helpBox/helpBox.component';
 import { LoadingComponent } from './generic/loading/loading.component';
-import { CharacterRelationComponent } from "./character/main/character-relation/character-relation.component";
+import { CharacterRelationComponent } from "./character/relationship/character-relation/character-relation.component";
 import { CharacterUpdateComponent } from "./character/main/character-update.component";
 import { ListPageComponent } from "./character/list/list-page.component";
 import { IndexPageComponent } from "./index/index-page.component";

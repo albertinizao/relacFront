@@ -1,0 +1,26 @@
+<app-title [title]="titleMessage" [subtitle]="'HEADER.NEWRELATION.SUBTITLE' | translate:subtitleMessage"></app-title>
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+	<div class="pull-right">
+		<app-button [button]="buttonHome"></app-button>
+		<app-button *ngIf="buttonGame" [button]="buttonGame"></app-button>
+  	<app-button [button]="buttonCancel"></app-button>
+  <a *ngIf="buttonSave"
+  	class='btn btn-primary black-background white'
+  	[ngClass]="buttonSave.getStyle()" (click)="save()" > {{buttonSave?.message | translate}}</a>
+	</div>
+</div>
+
+<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
+</div>
+<div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
+  <h2 class="text-center">{{'NEWRELATION.NEW' | translate}}</h2>
+  <h2><input class="nameBox"  [(ngModel)]="newName" type="text" autofocus="on" required="on" (keyup.enter)="save()"></h2>
+  <div *ngIf="!newName && validated"  class="alert alert-dismissible alert-danger">
+    {{'FIELD.MANDATORY' | translate}}
+  </div>
+</div>
+<div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
+</div>
+
+<app-help-box [title]="'NEWRELATION.TITLE'"
+  [paragraphs]="['NEWRELATION.MESSAGE']"></app-help-box>

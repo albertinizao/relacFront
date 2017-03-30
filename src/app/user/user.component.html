@@ -1,6 +1,6 @@
 <app-title [title]="'HEADER.USER.TITLE' | translate" [subtitle]="'HEADER.USER.SUBTITLE' | translate"></app-title>
 
-<div class="col-md-12">
+<div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
 	<div class="pull-right">
 		<app-button [button]="buttonHome"></app-button>
   	<app-button [button]="buttonCancel"></app-button>
@@ -9,22 +9,22 @@
   	[ngClass]="buttonSave.getStyle()" (click)="save()" > {{buttonSave?.message | translate}}</a>
 	</div>
 </div>
-  <div class="col-md-12">
-    <div class="col-md-3">
+  <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
       <h2 class="text-center">{{ 'USER.USERNAME' | translate}}</h2>
       <h2><input class="nameBox"  [(ngModel)]="username" type="text" autofocus="on" required="on" (keyup.enter)="save()"></h2>
       <div *ngIf="!username && validated"  class="alert alert-dismissible alert-danger">
         {{'FIELD.MANDATORY' | translate}}
       </div>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3"></div>
   </div>
-  <div class="col-md-12">
-    <div class="col-md-3">
+  <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+    <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6 col-sm-6 col-lg-6 col-xs-6">
       <h2 class="text-center">{{ 'USER.PASSWORD' | translate}}</h2>
       <h2><input class="nameBox"  [(ngModel)]="password" type="password" autofocus="on" required="on" (keyup.enter)="save()"></h2>
       <div *ngIf="!password && validated"  class="alert alert-dismissible alert-danger">
@@ -34,7 +34,7 @@
         {{'FIELD.LENGTH' | translate:minLength}}
       </div>
     </div>
-    <div class="col-md-3"></div>
+    <div class="col-md-3 col-sm-3 col-lg-3 col-xs-3"></div>
   </div>
 
   <app-help-box [title]="'USER.TITLE'"
