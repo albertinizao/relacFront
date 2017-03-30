@@ -584,7 +584,7 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__oAuth_canActivateGuard__ = __webpack_require__(510);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__menu_menu_component__ = __webpack_require__(509);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__character_main_maincharacter_component__ = __webpack_require__(489);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__character_main_maincharacter_component__ = __webpack_require__(488);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__character_relationship_relation_bar_relation_bar_component__ = __webpack_require__(490);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__character_relationship_relation_single_relation_single_component__ = __webpack_require__(492);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__character_relationship_relation_single_relation_single_update_component__ = __webpack_require__(491);
@@ -599,8 +599,8 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__generic_button_button_component__ = __webpack_require__(501);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__generic_helpBox_helpBox_component__ = __webpack_require__(503);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__generic_loading_loading_component__ = __webpack_require__(504);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__character_main_character_relation_character_relation_component__ = __webpack_require__(487);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__character_main_character_update_component__ = __webpack_require__(488);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__character_relationship_character_relation_character_relation_component__ = __webpack_require__(489);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__character_main_character_update_component__ = __webpack_require__(487);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__character_list_list_page_component__ = __webpack_require__(486);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__index_index_page_component__ = __webpack_require__(506);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__login_login_component__ = __webpack_require__(507);
@@ -679,7 +679,7 @@ var appRoutes = [
     { path: 'game/:game', component: __WEBPACK_IMPORTED_MODULE_29__character_list_list_page_component__["a" /* ListPageComponent */] },
     { path: 'game/:game/new', component: __WEBPACK_IMPORTED_MODULE_28__character_main_character_update_component__["a" /* CharacterUpdateComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__oAuth_canActivateGuard__["a" /* CanActivateViaOAuthGuard */]] },
     { path: 'game/:game/character/:characterName', component: __WEBPACK_IMPORTED_MODULE_12__character_main_maincharacter_component__["a" /* MainCharacterComponent */] },
-    { path: 'game/:game/character/:characterName/new', component: __WEBPACK_IMPORTED_MODULE_27__character_main_character_relation_character_relation_component__["a" /* CharacterRelationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__oAuth_canActivateGuard__["a" /* CanActivateViaOAuthGuard */]] },
+    { path: 'game/:game/character/:characterName/new', component: __WEBPACK_IMPORTED_MODULE_27__character_relationship_character_relation_character_relation_component__["a" /* CharacterRelationComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__oAuth_canActivateGuard__["a" /* CanActivateViaOAuthGuard */]] },
     { path: 'game/:game/character/:characterName/relationship/:other', component: __WEBPACK_IMPORTED_MODULE_21__character_relationship_relationship_relationship_component__["a" /* RelationshipComponent */] },
     { path: 'game/:game/character/:characterName/relationship/:other/new', component: __WEBPACK_IMPORTED_MODULE_23__character_relationship_relationship_relationship_update_component__["a" /* RelationshipUpdateComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_9__oAuth_canActivateGuard__["a" /* CanActivateViaOAuthGuard */]] }
 ];
@@ -711,7 +711,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_17__character_relationship_relation_relation_update_component__["a" /* RelationUpdateComponent */],
             __WEBPACK_IMPORTED_MODULE_15__character_relationship_relation_single_relation_single_update_component__["a" /* RelationSingleUpdateComponent */],
             __WEBPACK_IMPORTED_MODULE_20__character_relationship_resume_relationshipresume_update_component__["a" /* RelationshipResumeUpdateComponent */],
-            __WEBPACK_IMPORTED_MODULE_27__character_main_character_relation_character_relation_component__["a" /* CharacterRelationComponent */],
+            __WEBPACK_IMPORTED_MODULE_27__character_relationship_character_relation_character_relation_component__["a" /* CharacterRelationComponent */],
             __WEBPACK_IMPORTED_MODULE_28__character_main_character_update_component__["a" /* CharacterUpdateComponent */],
             __WEBPACK_IMPORTED_MODULE_29__character_list_list_page_component__["a" /* ListPageComponent */],
             __WEBPACK_IMPORTED_MODULE_31__login_login_component__["a" /* LoginComponent */],
@@ -895,112 +895,6 @@ var _a, _b, _c, _d;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generic_button_button__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_relation_service__ = __webpack_require__(145);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_flash_messages__ = __webpack_require__(75);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular2_flash_messages__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CharacterRelationComponent; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-
-
-var CharacterRelationComponent = (function () {
-    function CharacterRelationComponent(route, relationService, router, translateService, flashMessagesService) {
-        var _this = this;
-        this.route = route;
-        this.relationService = relationService;
-        this.router = router;
-        this.translateService = translateService;
-        this.flashMessagesService = flashMessagesService;
-        this.validated = false;
-        this.onSuccess = function (response) {
-            var message;
-            if (response) {
-                _this.translateService.get('MESSAGES.SAVE.CORRECT').subscribe(function (m) { return message = m; });
-                _this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000 });
-                _this.router.navigateByUrl(_this.buttonSave.routerLink[0] + '/' + _this.newName);
-            }
-        };
-        this.onFailure = function (error) {
-            var message;
-            try {
-                _this.translateService.get('MESSAGES.' + error.status).subscribe(function (m) { return message = m; });
-            }
-            catch (errorNew) {
-                _this.translateService.get('MESSAGES.SAVE.INCORRECT').subscribe(function (m) { return message = m; });
-            }
-            _this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-danger', timeout: 10000 });
-        };
-    }
-    CharacterRelationComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.route.params.subscribe(function (param) {
-            _this.ownerName = param['characterName'];
-            _this.game = param['game'];
-        });
-        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('BUTTON.HOME', 'home', null, ['/'], null);
-        if (this.game && this.game != 'null') {
-            this.buttonGame = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('' + this.game, 'book', null, ['/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_GAME + '/' + this.game], null);
-        }
-        this.buttonCancel = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('BUTTON.CANCEL', 'remove', null, ['/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_GAME + '/' + this.game + '/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_CHARACTER + '/' + this.ownerName], null);
-        this.buttonSave = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('BUTTON.SAVE', 'save', null, ['/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_GAME + '/' + this.game + '/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_CHARACTER + '/' + this.ownerName + '/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_RELATIONSHIP], this.save);
-        this.translateService.get('HEADER.NEWRELATION.TITLE', { character: this.ownerName }).subscribe(function (m) { return _this.titleMessage = m; });
-        this.subtitleMessage = { character: this.ownerName };
-    };
-    CharacterRelationComponent.prototype.save = function () {
-        if (this.newName) {
-            this.relationService.createRelationWith(this.ownerName, this.newName)
-                .subscribe(this.onSuccess, this.onFailure);
-        }
-        this.validated = true;
-    };
-    CharacterRelationComponent.prototype.buildRouterLink = function () {
-        if (this.newName) {
-            return ['../', 'relationship', this.newName];
-        }
-        else {
-            return ['../', 'relationship'];
-        }
-    };
-    return CharacterRelationComponent;
-}());
-CharacterRelationComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-        selector: 'app-character-relation',
-        template: __webpack_require__(603),
-        styles: [__webpack_require__(580), __webpack_require__(76)]
-    }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_relation_service__["a" /* RelationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_relation_service__["a" /* RelationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7_angular2_flash_messages__["FlashMessagesService"]) === "function" && _e || Object])
-], CharacterRelationComponent);
-
-var _a, _b, _c, _d, _e;
-//# sourceMappingURL=/home/acebrian/workspace2/relacfrontgithub/relacFront/src/character-relation.component.js.map
-
-/***/ }),
-
-/***/ 488:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_character_service__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_game_service__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__generic_button_button__ = __webpack_require__(46);
@@ -1115,8 +1009,8 @@ var CharacterUpdateComponent = (function () {
 CharacterUpdateComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Component"])({
         selector: 'app-character-update',
-        template: __webpack_require__(604),
-        styles: [__webpack_require__(581), __webpack_require__(76)]
+        template: __webpack_require__(603),
+        styles: [__webpack_require__(580), __webpack_require__(76)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__services_game_service__["a" /* GameService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_game_service__["a" /* GameService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__services_character_service__["a" /* CharacterService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_character_service__["a" /* CharacterService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_9__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__ngx_translate_core__["c" /* TranslateService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10_angular2_flash_messages__["FlashMessagesService"]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_7__services_character_selected_service__["a" /* CharacterSelectedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_character_selected_service__["a" /* CharacterSelectedService */]) === "function" && _g || Object])
 ], CharacterUpdateComponent);
@@ -1126,7 +1020,7 @@ var _a, _b, _c, _d, _e, _f, _g;
 
 /***/ }),
 
-/***/ 489:
+/***/ 488:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1202,14 +1096,120 @@ var MainCharacterComponent = (function () {
 MainCharacterComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
         selector: 'app-maincharacter',
-        template: __webpack_require__(605),
-        styles: [__webpack_require__(582)]
+        template: __webpack_require__(604),
+        styles: [__webpack_require__(581)]
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__services_character_selected_service__["a" /* CharacterSelectedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__services_character_selected_service__["a" /* CharacterSelectedService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_7__services_character_service__["a" /* CharacterService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_character_service__["a" /* CharacterService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* ActivatedRoute */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_5__angular_common__["Location"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_common__["Location"]) === "function" && _d || Object])
 ], MainCharacterComponent);
 
 var _a, _b, _c, _d;
 //# sourceMappingURL=/home/acebrian/workspace2/relacfrontgithub/relacFront/src/maincharacter.component.js.map
+
+/***/ }),
+
+/***/ 489:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__generic_button_button__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_switchMap__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_relation_service__ = __webpack_require__(145);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_flash_messages__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular2_flash_messages__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CharacterRelationComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+var CharacterRelationComponent = (function () {
+    function CharacterRelationComponent(route, relationService, router, translateService, flashMessagesService) {
+        var _this = this;
+        this.route = route;
+        this.relationService = relationService;
+        this.router = router;
+        this.translateService = translateService;
+        this.flashMessagesService = flashMessagesService;
+        this.validated = false;
+        this.onSuccess = function (response) {
+            var message;
+            if (response) {
+                _this.translateService.get('MESSAGES.SAVE.CORRECT').subscribe(function (m) { return message = m; });
+                _this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000 });
+                _this.router.navigateByUrl(_this.buttonSave.routerLink[0] + '/' + _this.newName);
+            }
+        };
+        this.onFailure = function (error) {
+            var message;
+            try {
+                _this.translateService.get('MESSAGES.' + error.status).subscribe(function (m) { return message = m; });
+            }
+            catch (errorNew) {
+                _this.translateService.get('MESSAGES.SAVE.INCORRECT').subscribe(function (m) { return message = m; });
+            }
+            _this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-danger', timeout: 10000 });
+        };
+    }
+    CharacterRelationComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.subscribe(function (param) {
+            _this.ownerName = param['characterName'];
+            _this.game = param['game'];
+        });
+        this.buttonHome = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('BUTTON.HOME', 'home', null, ['/'], null);
+        if (this.game && this.game != 'null') {
+            this.buttonGame = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('' + this.game, 'book', null, ['/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_GAME + '/' + this.game], null);
+        }
+        this.buttonCancel = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('BUTTON.CANCEL', 'remove', null, ['/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_GAME + '/' + this.game + '/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_CHARACTER + '/' + this.ownerName], null);
+        this.buttonSave = new __WEBPACK_IMPORTED_MODULE_0__generic_button_button__["a" /* Button */]('BUTTON.SAVE', 'save', null, ['/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_GAME + '/' + this.game + '/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_CHARACTER + '/' + this.ownerName + '/' + __WEBPACK_IMPORTED_MODULE_5__app_component__["b" /* AppSettings */].API_RELATIONSHIP], this.save);
+        this.translateService.get('HEADER.NEWRELATION.TITLE', { character: this.ownerName }).subscribe(function (m) { return _this.titleMessage = m; });
+        this.subtitleMessage = { character: this.ownerName };
+    };
+    CharacterRelationComponent.prototype.save = function () {
+        if (this.newName) {
+            this.relationService.createRelationWith(this.ownerName, this.newName)
+                .subscribe(this.onSuccess, this.onFailure);
+        }
+        this.validated = true;
+    };
+    CharacterRelationComponent.prototype.buildRouterLink = function () {
+        if (this.newName) {
+            return ['../', 'relationship', this.newName];
+        }
+        else {
+            return ['../', 'relationship'];
+        }
+    };
+    return CharacterRelationComponent;
+}());
+CharacterRelationComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
+        selector: 'app-character-relation',
+        template: __webpack_require__(605),
+        styles: [__webpack_require__(582), __webpack_require__(76)]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["c" /* ActivatedRoute */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4__services_relation_service__["a" /* RelationService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_relation_service__["a" /* RelationService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7_angular2_flash_messages__["FlashMessagesService"]) === "function" && _e || Object])
+], CharacterRelationComponent);
+
+var _a, _b, _c, _d, _e;
+//# sourceMappingURL=/home/acebrian/workspace2/relacfrontgithub/relacFront/src/character-relation.component.js.map
 
 /***/ }),
 
@@ -2646,7 +2646,7 @@ exports = module.exports = __webpack_require__(6)();
 
 
 // module
-exports.push([module.i, ".nameBox{\n  width:100%;\n}\n", ""]);
+exports.push([module.i, ".nameBox{\n  width:100%;\n}\n.superBox{\n  width:100%;\n  margin-bottom: 90%;\n}\n", ""]);
 
 // exports
 
@@ -2664,7 +2664,7 @@ exports = module.exports = __webpack_require__(6)();
 
 
 // module
-exports.push([module.i, ".nameBox{\n  width:100%;\n}\n.superBox{\n  width:100%;\n  margin-bottom: 90%;\n}\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -2682,7 +2682,7 @@ exports = module.exports = __webpack_require__(6)();
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".nameBox{\n  width:100%;\n}\n", ""]);
 
 // exports
 
@@ -2857,35 +2857,35 @@ module.exports = module.exports.toString();
 /***/ 601:
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"row affix-row\">\n\t<div class=\"col-sm-3 col-md-2 affix-sidebar\">\n\t\t<app-menu></app-menu>\n\t</div>\n\t<div class=\"col-sm-9 col-md-10 affix-content\">\n    <div class=\"row affix-row\">\n      <div class=\"col-md-5\">\n        <h1>{{ 'HOME.TITLE' | translate}}</h1>\n      </div>\n      <div class=\"col-md-7\">\n          <my-login></my-login>\n      </div>\n    </div>\n\t\t<router-outlet></router-outlet>\n\t</div>\n</div>\n<div class=\"topcorner\">\n  <flash-messages></flash-messages>\n</div>\n"
+module.exports = "\n<div class=\"row affix-row\">\n\t<div class=\"col-sm-3 col-md-2 affix-sidebar\">\n\t\t<app-menu></app-menu>\n\t</div>\n\t<div class=\"col-sm-9 col-md-10 affix-content\">\n    <div class=\"row affix-row\">\n      <div class=\"col-md-5 col-sm-5 col-lg-5 col-xs-5\">\n        <h1>{{ 'HOME.TITLE' | translate}}</h1>\n      </div>\n      <div class=\"col-md-7 col-sm-7 col-lg-7 col-xs-7\">\n          <my-login></my-login>\n      </div>\n    </div>\n\t\t<router-outlet></router-outlet>\n\t</div>\n</div>\n<div class=\"topcorner\">\n  <flash-messages></flash-messages>\n</div>\n"
 
 /***/ }),
 
 /***/ 602:
 /***/ (function(module, exports) {
 
-module.exports = "<app-title [title]=\"getTittle()\" [subtitle]=\"getSubtittle()\"></app-title>\n\n\n\n<div class=\"col-md-12\">\n\t<div class=\"pull-right\">\n    <app-button *ngIf=\"game!=null\" [button]=\"buttonHome\"></app-button>\n\t\t<app-button *ngIf=\"isLogged()\" [button]=\"buttonNew\"></app-button>\n\t\t<app-button *ngIf=\"!isLogged()\" [button]=\"buttonNewNotLogged\"></app-button>\n\t</div>\n</div>\n\n<div class=\"text-center\" style=\"widht:100%; display: block;margin: auto;\">\n  <div *ngFor=\"let character of characters\" class=\"col-md-3 col-xs-6 character-padded\">\n    <a [style.background]=\"toColor(character)\" class=\"col-md-12 character-title character-link\" href=\"#\" [routerLink]=\"['character', character]\"  routerLinkActive=\"active\">{{character}}</a>\n  </div>\n</div>\n<div class=\"col-md-12\" style=\"height:10%;\"></div>\n\n\n<app-help-box [title]=\"'LIST.TITLE'\"\n  [paragraphs]=\"['LIST.MESSAGE']\"></app-help-box>\n"
+module.exports = "<app-title [title]=\"getTittle()\" [subtitle]=\"getSubtittle()\"></app-title>\n\n\n\n<div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n\t<div class=\"pull-right\">\n    <app-button *ngIf=\"game!=null\" [button]=\"buttonHome\"></app-button>\n\t\t<app-button *ngIf=\"isLogged()\" [button]=\"buttonNew\"></app-button>\n\t\t<app-button *ngIf=\"!isLogged()\" [button]=\"buttonNewNotLogged\"></app-button>\n\t</div>\n</div>\n\n<div class=\"text-center\" style=\"widht:100%; display: block;margin: auto;\">\n  <div *ngFor=\"let character of characters\" class=\"col-md-3 col-xs-6 character-padded\">\n    <a [style.background]=\"toColor(character)\" class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12 character-title character-link\" href=\"#\" [routerLink]=\"['character', character]\"  routerLinkActive=\"active\">{{character}}</a>\n  </div>\n</div>\n<div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\" style=\"height:10%;\"></div>\n\n\n<app-help-box [title]=\"'LIST.TITLE'\"\n  [paragraphs]=\"['LIST.MESSAGE']\"></app-help-box>\n"
 
 /***/ }),
 
 /***/ 603:
 /***/ (function(module, exports) {
 
-module.exports = "<app-title [title]=\"titleMessage\" [subtitle]=\"'HEADER.NEWRELATION.SUBTITLE' | translate:subtitleMessage\"></app-title>\n<div class=\"col-md-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n\t\t<app-button *ngIf=\"buttonGame\" [button]=\"buttonGame\"></app-button>\n  \t<app-button [button]=\"buttonCancel\"></app-button>\n  <a *ngIf=\"buttonSave\"\n  \tclass='btn btn-primary black-background white'\n  \t[ngClass]=\"buttonSave.getStyle()\" (click)=\"save()\" > {{buttonSave?.message | translate}}</a>\n\t</div>\n</div>\n\n<div class=\"col-md-3\">\n</div>\n<div class=\"col-md-6\">\n  <h2 class=\"text-center\">{{'NEWRELATION.NEW' | translate}}</h2>\n  <h2><input class=\"nameBox\"  [(ngModel)]=\"newName\" type=\"text\" autofocus=\"on\" required=\"on\" (keyup.enter)=\"save()\"></h2>\n  <div *ngIf=\"!newName && validated\"  class=\"alert alert-dismissible alert-danger\">\n    {{'FIELD.MANDATORY' | translate}}\n  </div>\n</div>\n<div class=\"col-md-3\">\n</div>\n\n<app-help-box [title]=\"'NEWRELATION.TITLE'\"\n  [paragraphs]=\"['NEWRELATION.MESSAGE']\"></app-help-box>\n"
+module.exports = "<app-title [title]=\"'HEADER.NEWCHARACTER.TITLE' | translate\" [subtitle]=\"'HEADER.NEWCHARACTER.SUBTITLE' | translate\"></app-title>\n\n<div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n  \t<app-button [button]=\"buttonCancel\"></app-button>\n  <a\n  \tclass='btn btn-primary black-background white'\n  \t[ngClass]=\"buttonSave.getStyle()\" (click)=\"save()\" > {{buttonSave.message | translate}}</a>\n\t</div>\n</div>\n\n  <div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n    <div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3\">\n    </div>\n    <div class=\"col-md-6 col-sm-6 col-lg-6 col-xs-6\">\n      <h2 class=\"text-center\">{{'NEWCHARACTER.NEW' | translate}}</h2>\n      <h2><input class=\"nameBox\"  [(ngModel)]=\"character.name\" type=\"text\" autofocus=\"on\" required=\"on\" (keyup.enter)=\"save()\"></h2>\n      <div *ngIf=\"!character.name && validated\"  class=\"alert alert-dismissible alert-danger\">\n        {{'FIELD.MANDATORY' | translate}}\n      </div>\n    </div>\n    <div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3\">\n    </div>\n  </div>\n  <div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n    <div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3\">\n    </div>\n    <div class=\"col-md-6 col-sm-6 col-lg-6 col-xs-6\">\n        <h2 class=\"text-center\">{{'GENERIC.GAME' | translate}}</h2>\n        <h2><input auto-complete [source]=\"suggestedGames\" class=\"nameBox\"  [(ngModel)]=\"character.game\" type=\"text\" required=\"pff\" [disabled]=\"gameGiven\" (keyup.enter)=\"save()\"></h2>\n        <div *ngIf=\"character.game=='null' && validated\"  class=\"alert alert-dismissible alert-danger\">\n          {{'FIELD.INVALID' | translate}}\n        </div>\n    </div>\n    <div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3\">\n    </div>\n  </div>\n\n<app-help-box [title]=\"'NEWCHARACTER.TITLE'\"\n  [paragraphs]=\"['NEWCHARACTER.MESSAGE']\"></app-help-box>\n"
 
 /***/ }),
 
 /***/ 604:
 /***/ (function(module, exports) {
 
-module.exports = "<app-title [title]=\"'HEADER.NEWCHARACTER.TITLE' | translate\" [subtitle]=\"'HEADER.NEWCHARACTER.SUBTITLE' | translate\"></app-title>\n\n<div class=\"col-md-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n  \t<app-button [button]=\"buttonCancel\"></app-button>\n  <a\n  \tclass='btn btn-primary black-background white'\n  \t[ngClass]=\"buttonSave.getStyle()\" (click)=\"save()\" > {{buttonSave.message | translate}}</a>\n\t</div>\n</div>\n\n  <div class=\"col-md-12\">\n    <div class=\"col-md-3\">\n    </div>\n    <div class=\"col-md-6\">\n      <h2 class=\"text-center\">{{'NEWCHARACTER.NEW' | translate}}</h2>\n      <h2><input class=\"nameBox\"  [(ngModel)]=\"character.name\" type=\"text\" autofocus=\"on\" required=\"on\" (keyup.enter)=\"save()\"></h2>\n      <div *ngIf=\"!character.name && validated\"  class=\"alert alert-dismissible alert-danger\">\n        {{'FIELD.MANDATORY' | translate}}\n      </div>\n    </div>\n    <div class=\"col-md-3\">\n    </div>\n  </div>\n  <div class=\"col-md-12\">\n    <div class=\"col-md-3\">\n    </div>\n    <div class=\"col-md-6\">\n        <h2 class=\"text-center\">{{'GENERIC.GAME' | translate}}</h2>\n        <h2><input auto-complete [source]=\"suggestedGames\" class=\"nameBox\"  [(ngModel)]=\"character.game\" type=\"text\" required=\"pff\" [disabled]=\"gameGiven\" (keyup.enter)=\"save()\"></h2>\n        <div *ngIf=\"character.game=='null' && validated\"  class=\"alert alert-dismissible alert-danger\">\n          {{'FIELD.INVALID' | translate}}\n        </div>\n    </div>\n    <div class=\"col-md-3\">\n    </div>\n  </div>\n\n<app-help-box [title]=\"'NEWCHARACTER.TITLE'\"\n  [paragraphs]=\"['NEWCHARACTER.MESSAGE']\"></app-help-box>\n"
+module.exports = "<app-loading [loaded]=loaded></app-loading>\n<app-title [title]=\"character?.name\" [subtitle]=\"'HEADER.CHARACTER.SUBTITLE' | translate:subtitleParam\"></app-title>\n\n<div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n\t\t<app-button *ngIf=\"game && game!='null'\" [button]=\"buttonGame\"></app-button>\n\t\t<app-button *ngIf=\"owner && isOwner\" [button]=\"buttonNew\"></app-button>\n\t\t<app-button *ngIf=\"owner && !isOwner\" [button]=\"buttonNewNotOwner\"></app-button>\n\t</div>\n</div>\n\n<div\n\tclass=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 toppad\"\n\t*ngFor=\"let relationship of character?.relationships\">\n\t<app-relationship-resume [relation]=\"relationship?.relation[0]\"\n\t\t[name]=\"relationship?.characterName\"></app-relationship-resume>\n</div>\n\n<app-help-box *ngIf=\"loaded\"  [title]=\"'CHARACTER.TITLE'\"\n  [paragraphs]=\"['CHARACTER.MESSAGE1'\n    ,'CHARACTER.MESSAGE2']\"></app-help-box>\n<app-relation-help></app-relation-help>\n"
 
 /***/ }),
 
 /***/ 605:
 /***/ (function(module, exports) {
 
-module.exports = "<app-loading [loaded]=loaded></app-loading>\n<app-title [title]=\"character?.name\" [subtitle]=\"'HEADER.CHARACTER.SUBTITLE' | translate:subtitleParam\"></app-title>\n\n<div class=\"col-md-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n\t\t<app-button *ngIf=\"game && game!='null'\" [button]=\"buttonGame\"></app-button>\n\t\t<app-button *ngIf=\"owner && isOwner\" [button]=\"buttonNew\"></app-button>\n\t\t<app-button *ngIf=\"owner && !isOwner\" [button]=\"buttonNewNotOwner\"></app-button>\n\t</div>\n</div>\n\n<div\n\tclass=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 toppad\"\n\t*ngFor=\"let relationship of character?.relationships\">\n\t<app-relationship-resume [relation]=\"relationship?.relation[0]\"\n\t\t[name]=\"relationship?.characterName\"></app-relationship-resume>\n</div>\n\n<app-help-box *ngIf=\"loaded\"  [title]=\"'CHARACTER.TITLE'\"\n  [paragraphs]=\"['CHARACTER.MESSAGE1'\n    ,'CHARACTER.MESSAGE2']\"></app-help-box>\n<app-relation-help></app-relation-help>\n"
+module.exports = "<app-title [title]=\"titleMessage\" [subtitle]=\"'HEADER.NEWRELATION.SUBTITLE' | translate:subtitleMessage\"></app-title>\n<div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n\t\t<app-button *ngIf=\"buttonGame\" [button]=\"buttonGame\"></app-button>\n  \t<app-button [button]=\"buttonCancel\"></app-button>\n  <a *ngIf=\"buttonSave\"\n  \tclass='btn btn-primary black-background white'\n  \t[ngClass]=\"buttonSave.getStyle()\" (click)=\"save()\" > {{buttonSave?.message | translate}}</a>\n\t</div>\n</div>\n\n<div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3\">\n</div>\n<div class=\"col-md-6 col-sm-6 col-lg-6 col-xs-6\">\n  <h2 class=\"text-center\">{{'NEWRELATION.NEW' | translate}}</h2>\n  <h2><input class=\"nameBox\"  [(ngModel)]=\"newName\" type=\"text\" autofocus=\"on\" required=\"on\" (keyup.enter)=\"save()\"></h2>\n  <div *ngIf=\"!newName && validated\"  class=\"alert alert-dismissible alert-danger\">\n    {{'FIELD.MANDATORY' | translate}}\n  </div>\n</div>\n<div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3\">\n</div>\n\n<app-help-box [title]=\"'NEWRELATION.TITLE'\"\n  [paragraphs]=\"['NEWRELATION.MESSAGE']\"></app-help-box>\n"
 
 /***/ }),
 
@@ -2913,7 +2913,7 @@ module.exports = "\n<div class=\"col-xs-6 col-sm-3 col-md-4 col-lg-3 col-xl-2 co
 /***/ 609:
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"row row-center\">\n\t<app-relation-single-update [value]=\"(relation?.working)\" [name]=\"'working'\" (notify)=\"change($event,'working')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.confidential)\"\n\t\t[name]=\"'confidential'\" (notify)=\"change($event,'confidential')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.loyalty)\" [name]=\"'loyalty'\" (notify)=\"change($event,'loyalty')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.trust)\" [name]=\"'trust'\" (notify)=\"change($event,'trust')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.respect)\" [name]=\"'respect'\" (notify)=\"change($event,'respect')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.funny)\" [name]=\"'funny'\" (notify)=\"change($event,'funny')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.affection)\" [name]=\"'affection'\" (notify)=\"change($event,'affection')\"></app-relation-single-update>\n</div>\n\n<div\n\tclass=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-center\"\n\tstyle=\"padding-left: 10%; padding-right: 10%;\">\n\t<app-relation-bar [value]=\"(relation?.working)\" [name]=\"'working'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.confidential)\" [name]=\"'confidential'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.loyalty)\" [name]=\"'loyalty'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.trust)\" [name]=\"'trust'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.respect)\" [name]=\"'respect'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.funny)\" [name]=\"'funny'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.affection)\" [name]=\"'affection'\"></app-relation-bar>\n</div>\n"
+module.exports = "\n<div class=\"row row-center\">\n\t<app-relation-single-update [value]=\"(relation?.working)\" [name]=\"'working'\" (notify)=\"change($event,'working')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.confidential)\"\n\t\t[name]=\"'confidential'\" (notify)=\"change($event,'confidential')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.loyalty)\" [name]=\"'loyalty'\" (notify)=\"change($event,'loyalty')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.trust)\" [name]=\"'trust'\" (notify)=\"change($event,'trust')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.respect)\" [name]=\"'respect'\" (notify)=\"change($event,'respect')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.funny)\" [name]=\"'funny'\" (notify)=\"change($event,'funny')\"></app-relation-single-update>\n\t<app-relation-single-update [value]=\"(relation?.affection)\" [name]=\"'affection'\" (notify)=\"change($event,'affection')\"></app-relation-single-update>\n</div>\n\n<div\n\tclass=\"col-xs-12 col-sm-12 col-md-12 col-sm-12 col-lg-12 col-xs-12 col-lg-12 col-xl-12 col-center\"\n\tstyle=\"padding-left: 10%; padding-right: 10%;\">\n\t<app-relation-bar [value]=\"(relation?.working)\" [name]=\"'working'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.confidential)\" [name]=\"'confidential'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.loyalty)\" [name]=\"'loyalty'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.trust)\" [name]=\"'trust'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.respect)\" [name]=\"'respect'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.funny)\" [name]=\"'funny'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.affection)\" [name]=\"'affection'\"></app-relation-bar>\n</div>\n"
 
 /***/ }),
 
@@ -2942,42 +2942,42 @@ var Relation = (function () {
 /***/ 610:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row row-center\">\n\t<app-relation-single [value]=\"(relation?.working)\" [name]=\"'working'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.confidential)\"\n\t\t[name]=\"'confidential'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.loyalty)\" [name]=\"'loyalty'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.trust)\" [name]=\"'trust'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.respect)\" [name]=\"'respect'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.funny)\" [name]=\"'funny'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.affection)\" [name]=\"'affection'\"></app-relation-single>\n</div>\n\n<div\n\tclass=\"col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-center\"\n\tstyle=\"padding-left: 10%; padding-right: 10%;\">\n\t<app-relation-bar [value]=\"(relation?.working)\" [name]=\"'working'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.confidential)\" [name]=\"'confidential'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.loyalty)\" [name]=\"'loyalty'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.trust)\" [name]=\"'trust'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.respect)\" [name]=\"'respect'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.funny)\" [name]=\"'funny'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.affection)\" [name]=\"'affection'\"></app-relation-bar>\n</div>\n"
+module.exports = "<div class=\"row row-center\">\n\t<app-relation-single [value]=\"(relation?.working)\" [name]=\"'working'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.confidential)\"\n\t\t[name]=\"'confidential'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.loyalty)\" [name]=\"'loyalty'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.trust)\" [name]=\"'trust'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.respect)\" [name]=\"'respect'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.funny)\" [name]=\"'funny'\"></app-relation-single>\n\t<app-relation-single [value]=\"(relation?.affection)\" [name]=\"'affection'\"></app-relation-single>\n</div>\n\n<div\n\tclass=\"col-xs-12 col-sm-12 col-md-12 col-sm-12 col-lg-12 col-xs-12 col-lg-12 col-xl-12 col-center\"\n\tstyle=\"padding-left: 10%; padding-right: 10%;\">\n\t<app-relation-bar [value]=\"(relation?.working)\" [name]=\"'working'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.confidential)\" [name]=\"'confidential'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.loyalty)\" [name]=\"'loyalty'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.trust)\" [name]=\"'trust'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.respect)\" [name]=\"'respect'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.funny)\" [name]=\"'funny'\"></app-relation-bar>\n\t<app-relation-bar [value]=\"(relation?.affection)\" [name]=\"'affection'\"></app-relation-bar>\n</div>\n"
 
 /***/ }),
 
 /***/ 611:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-12\">\n  <div class=\"well well-lg helpBox\">\n    <p *ngFor=\"let message of messages\">\n      <b class=\"color-{{message[0]}}\">- {{message[1].charAt(0).toUpperCase() + message[1].substr(1).toLowerCase()}}:</b> {{message[2]}}\n    </p>\n  </div>\n</div>\n"
+module.exports = "<div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n  <div class=\"well helpBox\">\n    <p *ngFor=\"let message of messages\">\n      <b class=\"color-{{message[0]}}\">- {{message[1].charAt(0).toUpperCase() + message[1].substr(1).toLowerCase()}}:</b> {{message[2]}}\n    </p>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 612:
 /***/ (function(module, exports) {
 
-module.exports = "  <app-title [title]=\"'HEADER.NEWRELATIONSHIP.TITLE' | translate:titleParam\" [subtitle]=\"'HEADER.NEWRELATIONSHIP.SUBTITLE' | translate:subtitleParam\"></app-title>\n\n<div class=\"col-md-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n  \t<app-button *ngIf=\"buttonGame\" [button]=\"buttonGame\"></app-button>\n  \t<app-button [button]=\"buttonCharacter\"></app-button>\n  \t<app-button [button]=\"buttonCancel\"></app-button>\n  <a\n  \tclass='btn btn-primary black-background white'\n  \t[ngClass]=\"buttonSave.getStyle()\" (click)=\"save($event)\" > {{buttonSave.message | translate}}</a>\n\t</div>\n</div>\n<div class=\"col-xs-0 col-sm-0 col-md-3 col-lg-3\"></div>\n<div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 toppad\">\n\t<app-relationship-resume-update [relation]=\"relation\" [name]=\"\"></app-relationship-resume-update>\n</div>\n<div class=\"col-xs-0 col-sm-0 col-md-3 col-lg-3\"></div>\n\n<app-help-box [title]=\"'NEWRELATIONSHIP.TITLE'\"\n  [paragraphs]=\"['NEWRELATIONSHIP.MESSAGE']\"></app-help-box>\n\n  <app-relation-help></app-relation-help>\n"
+module.exports = "  <app-title [title]=\"'HEADER.NEWRELATIONSHIP.TITLE' | translate:titleParam\" [subtitle]=\"'HEADER.NEWRELATIONSHIP.SUBTITLE' | translate:subtitleParam\"></app-title>\n\n<div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n  \t<app-button *ngIf=\"buttonGame\" [button]=\"buttonGame\"></app-button>\n  \t<app-button [button]=\"buttonCharacter\"></app-button>\n  \t<app-button [button]=\"buttonCancel\"></app-button>\n  <a\n  \tclass='btn btn-primary black-background white'\n  \t[ngClass]=\"buttonSave.getStyle()\" (click)=\"save($event)\" > {{buttonSave.message | translate}}</a>\n\t</div>\n</div>\n<div class=\"col-xs-0 col-sm-0 col-md-3 col-lg-3\"></div>\n<div class=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 toppad\">\n\t<app-relationship-resume-update [relation]=\"relation\" [name]=\"\"></app-relationship-resume-update>\n</div>\n<div class=\"col-xs-0 col-sm-0 col-md-3 col-lg-3\"></div>\n\n<app-help-box [title]=\"'NEWRELATIONSHIP.TITLE'\"\n  [paragraphs]=\"['NEWRELATIONSHIP.MESSAGE']\"></app-help-box>\n\n  <app-relation-help></app-relation-help>\n"
 
 /***/ }),
 
 /***/ 613:
 /***/ (function(module, exports) {
 
-module.exports = "<app-loading [loaded]=\"loaded && (nowLoaded===0 || nowLoaded===toLoad)\"></app-loading>\n<app-title [title]=\"titleMessage\" [subtitle]=\"subtitleMessage\"></app-title>\n<div class=\"col-md-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n\t\t<app-button *ngIf=\"buttonGame\" [button]=\"buttonGame\"></app-button>\n  \t<app-button [button]=\"buttonCharacter\"></app-button>\n\t\t<app-button *ngIf=\"characterSelectedService.characterIsOwn()\" [button]=\"buttonNew\"></app-button>\n\t\t<app-button *ngIf=\"!characterSelectedService.characterIsOwn()\" [button]=\"buttonNewNotOwner\"></app-button>\n\t</div>\n</div>\n\n<div style=\"margin-top:30px;\">\n  <app-chart *ngIf=\"nowLoaded>0 && nowLoaded===toLoad\" [lineChartData]=\"lineChartData\" [lineChartLabels]=\"lineChartLabels\"></app-chart>\n</div>\n\n<div\n\tclass=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 toppad\"\n\t*ngFor=\"let relation of relations\">\n\t<app-relationship-resume [relation]=\"relation\" [name]=\"\"></app-relationship-resume>\n</div>\n\n<app-help-box [title]=\"'RELATIONSHIP.TITLE'\"\n  [paragraphs]=\"['RELATIONSHIP.MESSAGE']\"></app-help-box>\n<app-relation-help></app-relation-help>\n"
+module.exports = "<app-loading [loaded]=\"loaded && (nowLoaded===0 || nowLoaded===toLoad)\"></app-loading>\n<app-title [title]=\"titleMessage\" [subtitle]=\"subtitleMessage\"></app-title>\n<div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n\t\t<app-button *ngIf=\"buttonGame\" [button]=\"buttonGame\"></app-button>\n  \t<app-button [button]=\"buttonCharacter\"></app-button>\n\t\t<app-button *ngIf=\"characterSelectedService.characterIsOwn()\" [button]=\"buttonNew\"></app-button>\n\t\t<app-button *ngIf=\"!characterSelectedService.characterIsOwn()\" [button]=\"buttonNewNotOwner\"></app-button>\n\t</div>\n</div>\n\n<div style=\"margin-top:30px;\">\n  <app-chart *ngIf=\"nowLoaded>0 && nowLoaded===toLoad\" [lineChartData]=\"lineChartData\" [lineChartLabels]=\"lineChartLabels\"></app-chart>\n</div>\n\n<div\n\tclass=\"col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 toppad\"\n\t*ngFor=\"let relation of relations\">\n\t<app-relationship-resume [relation]=\"relation\" [name]=\"\"></app-relationship-resume>\n</div>\n\n<app-help-box [title]=\"'RELATIONSHIP.TITLE'\"\n  [paragraphs]=\"['RELATIONSHIP.MESSAGE']\"></app-help-box>\n<app-relation-help></app-relation-help>\n"
 
 /***/ }),
 
 /***/ 614:
 /***/ (function(module, exports) {
 
-module.exports = "\n\n\n<div class=\"panel panel-primary\">\n\t<div class=\"panel-heading\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8 brillo\">\n\t\t\t\t<h3 *ngIf=\"name\" class=\"panel-title\">\n\t\t\t\t\t<a [routerLink]=\"['relationship', name]\"\n\t\t\t\t\t\trouterLinkActive=\"active\" class=\"menu-element\"><span\n\t\t\t\t\t\tclass=\"fa fa-address-card\"></span> {{name}}</a>\n\n\t\t\t\t</h3>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-4 text-right\">{{relation.date\n\t\t\t\t| date:'medium'}}</div>\n\t\t</div>\n\n\t</div>\n\t<div class=\"panel-body\">\n\t\t<div class=\"row row-centered\">\n\t\t\t<app-relation-update [relation]=\"relation\"></app-relation-update>\n\t\t</div>\n\n\t</div>\n</div>\n"
+module.exports = "\n\n\n<div class=\"panel panel-primary\">\n\t<div class=\"panel-heading\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8 brillo\">\n\t\t\t\t<h3 *ngIf=\"name\" class=\"panel-title\">\n\t\t\t\t\t<a [routerLink]=\"['relationship', name]\"\n\t\t\t\t\t\trouterLinkActive=\"active\" class=\"menu-element\"><span\n\t\t\t\t\t\tclass=\"fa fa-address-card\"></span> {{name}}</a>\n\n\t\t\t\t</h3>\n\t\t\t</div>\n\t\t\t<div class=\"col-md-4 col-sm-4 col-lg-4 col-xs-4 text-right\">{{relation.date\n\t\t\t\t| date:'medium'}}</div>\n\t\t</div>\n\n\t</div>\n\t<div class=\"panel-body\">\n\t\t<div class=\"row row-centered\">\n\t\t\t<app-relation-update [relation]=\"relation\"></app-relation-update>\n\t\t</div>\n\n\t</div>\n</div>\n"
 
 /***/ }),
 
 /***/ 615:
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<div class=\"panel panel-primary\">\n\t<div class=\"panel-heading\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8 brillo\">\n\t\t\t\t<h3 *ngIf=\"name\" class=\"panel-title\">\n\t\t\t\t\t<a [routerLink]=\"['relationship', name]\"\n\t\t\t\t\t\trouterLinkActive=\"active\" class=\"menu-element\"><span\n\t\t\t\t\t\tclass=\"fa fa-address-card\"></span> {{name}}</a>\n\n\t\t\t\t</h3>\n\t\t\t</div>\n\t\t\t<div *ngIf=\"relation && relation.date\" class=\"col-md-4 text-right\">{{relation.date\n\t\t\t\t| date:'medium'}}</div>\n\t\t</div>\n\n\t</div>\n\t<div class=\"panel-body\">\n\t\t<div class=\"row row-centered\">\n\t\t\t<app-relation [relation]=\"relation\"></app-relation>\n\t\t</div>\n\n\t</div>\n</div>\n"
+module.exports = "\n\n<div class=\"panel panel-primary\">\n\t<div class=\"panel-heading\">\n\t\t<div class=\"row\">\n\t\t\t<div class=\"col-md-8 col-sm-8 col-lg-8 col-xs-8 brillo\">\n\t\t\t\t<h3 *ngIf=\"name\" class=\"panel-title\">\n\t\t\t\t\t<a [routerLink]=\"['relationship', name]\"\n\t\t\t\t\t\trouterLinkActive=\"active\" class=\"menu-element\"><span\n\t\t\t\t\t\tclass=\"fa fa-address-card\"></span> {{name}}</a>\n\n\t\t\t\t</h3>\n\t\t\t</div>\n\t\t\t<div *ngIf=\"relation && relation.date\" class=\"col-md-4 col-sm-4 col-lg-4 col-xs-4 text-right\">{{relation.date\n\t\t\t\t| date:'medium'}}</div>\n\t\t</div>\n\n\t</div>\n\t<div class=\"panel-body\">\n\t\t<div class=\"row row-centered\">\n\t\t\t<app-relation [relation]=\"relation\"></app-relation>\n\t\t</div>\n\n\t</div>\n</div>\n"
 
 /***/ }),
 
@@ -2998,14 +2998,14 @@ module.exports = "<a *ngIf=\"button?.routerLink && button?.access\" href=\"#\" [
 /***/ 618:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div style=\"display: block;\">\n    <canvas baseChart width=\"400\" height=\"175\"\n                [datasets]=\"lineChartData\"\n                [labels]=\"lineChartLabels\"\n                [options]=\"lineChartOptions\"\n                [colors]=\"lineChartColors\"\n                [legend]=\"lineChartLegend\"\n                [chartType]=\"lineChartType\"\n                (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"chartClicked($event)\"></canvas>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n    <div style=\"display: block;\">\n    <canvas baseChart width=\"400\" height=\"175\"\n                [datasets]=\"lineChartData\"\n                [labels]=\"lineChartLabels\"\n                [options]=\"lineChartOptions\"\n                [colors]=\"lineChartColors\"\n                [legend]=\"lineChartLegend\"\n                [chartType]=\"lineChartType\"\n                (chartHover)=\"chartHovered($event)\"\n                (chartClick)=\"chartClicked($event)\"></canvas>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
 /***/ 619:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"col-md-12\">\n  <div class=\"well well-lg helpBox\">\n    <b *ngIf=\"title\">{{'HELP.'+title | translate}}</b>\n    <p>\n    <span *ngFor=\"let paragraph of paragraphs\" >{{'HELP.'+paragraph | translate}}</span>\n    </p>\n  </div>\n</div>\n"
+module.exports = "<div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n  <div class=\"well helpBox\">\n    <b *ngIf=\"title\">{{'HELP.'+title | translate}}</b>\n    <p>\n    <span *ngFor=\"let paragraph of paragraphs\" >{{'HELP.'+paragraph | translate}}</span>\n    </p>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -3132,7 +3132,7 @@ module.exports = "<div class = \"page-header\">\n   <h1>\n      <span>{{title}}<
 /***/ 622:
 /***/ (function(module, exports) {
 
-module.exports = "<app-loading [loaded]=loaded></app-loading>\n<app-title [title]=\"'HEADER.INDEX.TITLE' | translate\" [subtitle]=\"'HEADER.INDEX.SUBTITLE' | translate\"></app-title>\n\n<div *ngIf=\"loaded\" class=\"text-center\" style=\"widht:100%; display: block;margin: auto;\">\n  <div *ngFor=\"let game of games\" class=\"col-md-3 col-xs-6 character-padded\">\n    <a [style.background]=\"toColor(game)\" class=\"col-md-12 character-title character-link\" href=\"#\" [routerLink]=\"['game', game]\"  routerLinkActive=\"active\">{{game}}</a>\n  </div>\n</div>\n<app-help-box *ngIf=\"loaded\"  [title]=\"'GAME.TITLE'\"\n  [paragraphs]=\"['GAME.MESSAGE']\"></app-help-box>\n\n<div *ngIf=\"loaded\"  class=\"col-md-12\" style=\"height:10%;\"></div>\n\n\n<div *ngIf=\"loaded\"  class=\"col-md-12\">\n  <app-list-page></app-list-page>\n</div>\n"
+module.exports = "<app-loading [loaded]=loaded></app-loading>\n<app-title [title]=\"'HEADER.INDEX.TITLE' | translate\" [subtitle]=\"'HEADER.INDEX.SUBTITLE' | translate\"></app-title>\n\n<div *ngIf=\"loaded\" class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12 col-sm-12 col-lg-12 col-xs-12\">\n  <div *ngIf=\"loaded\" class=\"text-center\" style=\"widht:100%; display: block;margin: auto;\">\n    <div *ngFor=\"let game of games\" class=\"col-md-3 col-xs-6 character-padded\">\n      <a [style.background]=\"toColor(game)\" class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12 character-title character-link\" href=\"#\" [routerLink]=\"['game', game]\"  routerLinkActive=\"active\">{{game}}</a>\n    </div>\n  </div>\n</div>\n<div *ngIf=\"loaded\"  class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n<app-help-box *ngIf=\"loaded\"  [title]=\"'GAME.TITLE'\"\n  [paragraphs]=\"['GAME.MESSAGE']\"></app-help-box>\n</div>\n\n<div *ngIf=\"loaded\"  class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\" style=\"height:10%;\"></div>\n\n\n<div *ngIf=\"loaded\"  class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n  <app-list-page></app-list-page>\n</div>\n"
 
 /***/ }),
 
@@ -3153,7 +3153,7 @@ module.exports = "\n<div class=\"sidebar-nav\">\n\t<div class=\"navbar navbar-de
 /***/ 625:
 /***/ (function(module, exports) {
 
-module.exports = "<app-title [title]=\"'HEADER.USER.TITLE' | translate\" [subtitle]=\"'HEADER.USER.SUBTITLE' | translate\"></app-title>\n\n<div class=\"col-md-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n  \t<app-button [button]=\"buttonCancel\"></app-button>\n  <a\n  \tclass='btn btn-primary black-background white'\n  \t[ngClass]=\"buttonSave.getStyle()\" (click)=\"save()\" > {{buttonSave?.message | translate}}</a>\n\t</div>\n</div>\n  <div class=\"col-md-12\">\n    <div class=\"col-md-3\">\n    </div>\n    <div class=\"col-md-6\">\n      <h2 class=\"text-center\">{{ 'USER.USERNAME' | translate}}</h2>\n      <h2><input class=\"nameBox\"  [(ngModel)]=\"username\" type=\"text\" autofocus=\"on\" required=\"on\" (keyup.enter)=\"save()\"></h2>\n      <div *ngIf=\"!username && validated\"  class=\"alert alert-dismissible alert-danger\">\n        {{'FIELD.MANDATORY' | translate}}\n      </div>\n    </div>\n    <div class=\"col-md-3\"></div>\n  </div>\n  <div class=\"col-md-12\">\n    <div class=\"col-md-3\">\n    </div>\n    <div class=\"col-md-6\">\n      <h2 class=\"text-center\">{{ 'USER.PASSWORD' | translate}}</h2>\n      <h2><input class=\"nameBox\"  [(ngModel)]=\"password\" type=\"password\" autofocus=\"on\" required=\"on\" (keyup.enter)=\"save()\"></h2>\n      <div *ngIf=\"!password && validated\"  class=\"alert alert-dismissible alert-danger\">\n        {{'FIELD.MANDATORY' | translate}}\n      </div>\n      <div *ngIf=\"password && password.length<=4 && validated\"  class=\"alert alert-dismissible alert-danger\">\n        {{'FIELD.LENGTH' | translate:minLength}}\n      </div>\n    </div>\n    <div class=\"col-md-3\"></div>\n  </div>\n\n  <app-help-box [title]=\"'USER.TITLE'\"\n    [paragraphs]=\"['USER.MESSAGE1','USER.MESSAGE2']\"></app-help-box>\n"
+module.exports = "<app-title [title]=\"'HEADER.USER.TITLE' | translate\" [subtitle]=\"'HEADER.USER.SUBTITLE' | translate\"></app-title>\n\n<div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n\t<div class=\"pull-right\">\n\t\t<app-button [button]=\"buttonHome\"></app-button>\n  \t<app-button [button]=\"buttonCancel\"></app-button>\n  <a\n  \tclass='btn btn-primary black-background white'\n  \t[ngClass]=\"buttonSave.getStyle()\" (click)=\"save()\" > {{buttonSave?.message | translate}}</a>\n\t</div>\n</div>\n  <div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n    <div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3\">\n    </div>\n    <div class=\"col-md-6 col-sm-6 col-lg-6 col-xs-6\">\n      <h2 class=\"text-center\">{{ 'USER.USERNAME' | translate}}</h2>\n      <h2><input class=\"nameBox\"  [(ngModel)]=\"username\" type=\"text\" autofocus=\"on\" required=\"on\" (keyup.enter)=\"save()\"></h2>\n      <div *ngIf=\"!username && validated\"  class=\"alert alert-dismissible alert-danger\">\n        {{'FIELD.MANDATORY' | translate}}\n      </div>\n    </div>\n    <div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3\"></div>\n  </div>\n  <div class=\"col-md-12 col-sm-12 col-lg-12 col-xs-12\">\n    <div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3\">\n    </div>\n    <div class=\"col-md-6 col-sm-6 col-lg-6 col-xs-6\">\n      <h2 class=\"text-center\">{{ 'USER.PASSWORD' | translate}}</h2>\n      <h2><input class=\"nameBox\"  [(ngModel)]=\"password\" type=\"password\" autofocus=\"on\" required=\"on\" (keyup.enter)=\"save()\"></h2>\n      <div *ngIf=\"!password && validated\"  class=\"alert alert-dismissible alert-danger\">\n        {{'FIELD.MANDATORY' | translate}}\n      </div>\n      <div *ngIf=\"password && password.length<=4 && validated\"  class=\"alert alert-dismissible alert-danger\">\n        {{'FIELD.LENGTH' | translate:minLength}}\n      </div>\n    </div>\n    <div class=\"col-md-3 col-sm-3 col-lg-3 col-xs-3\"></div>\n  </div>\n\n  <app-help-box [title]=\"'USER.TITLE'\"\n    [paragraphs]=\"['USER.MESSAGE1','USER.MESSAGE2']\"></app-help-box>\n"
 
 /***/ }),
 
