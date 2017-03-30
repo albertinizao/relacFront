@@ -51,6 +51,10 @@ export class LoginComponent {
    this.loginDisabled=false;
  }
 
+register() {
+  this.router.navigateByUrl('user');
+}
+
  onSuccess = (token) => {
      if(token ) {
          //Store the token in the db
@@ -58,7 +62,7 @@ export class LoginComponent {
          localStorage.setItem("username",this.user);
          let message;
          this.translateService.get('MESSAGES.LOGIN.CORRECT',{username:this.user}).subscribe(m=>message=m);
-         this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
+         this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 5000  } );
          this.welcome={user:localStorage.getItem("username")};
          this.reload();
      } else {
@@ -71,7 +75,7 @@ export class LoginComponent {
    this.password="";
    let message;
    this.translateService.get('MESSAGES.LOGIN.INVALID').subscribe(m=>message=m);
-   this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-danger', timeout: 10000  } );
+   this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-danger', timeout: 5000  } );
  }
 
  public isLogged():boolean{
@@ -87,7 +91,7 @@ export class LoginComponent {
    localStorage.removeItem("token");
    let message;
    this.translateService.get('MESSAGES.LOGIN.LOGOUT').subscribe(m=>message=m);
-   this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 10000  } );
+   this.flashMessagesService.show(message, { cssClass: 'alert alert-dismissible alert-success', timeout: 5000  } );
    this.reload();
   //  location.reload();
  }

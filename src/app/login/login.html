@@ -3,15 +3,15 @@
   <form *ngIf="!isLogged()" class="form-inline">
     <div class="form-group">
       <label for="user">{{ 'USER.USERNAME' | translate}}:</label>
-      <input type="text" [(ngModel)]="user" name="user" class="form-control" id="user" disabled="{{loginDisabled}}">
+      <input type="text" [(ngModel)]="user" name="user" class="form-control" id="user" disabled="{{loginDisabled}}" (keyup.enter)="login()">
     </div>
     <div class="form-group">
       <label for="pwd">{{ 'USER.PASSWORD' | translate}}:</label>
-      <input type="password" class="form-control" name="password"  [(ngModel)]="password"  id="pwd" disabled="{{loginDisabled}}">
+      <input type="password" class="form-control" name="password"  [(ngModel)]="password"  id="pwd" disabled="{{loginDisabled}}" (keyup.enter)="login()">
     </div>
     <a (click)="login()"  *ngIf="!loginDisabled"
     	class='btn btn-primary black-background white' style="top-margin=50px;margin-top: 12px;" ><i class="fa fa-sign-in" aria-hidden="true"></i> {{ 'BUTTON.LOGIN' | translate}}</a>
-    <a *ngIf="!loginDisabled" href="/user"
+    <a *ngIf="!loginDisabled" (click)="register()"
     	class='btn btn-primary black-background white' style="top-margin=50px;margin-top: 12px;" ><i class="fa fa-user-plus" aria-hidden="true"></i> {{ 'BUTTON.REGISTER' | translate}}</a>
   </form>
   <div *ngIf="isLogged()" class="top-margin-2 pull-right">

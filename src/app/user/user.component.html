@@ -14,7 +14,7 @@
     </div>
     <div class="col-md-6">
       <h2 class="text-center">{{ 'USER.USERNAME' | translate}}</h2>
-      <h2><input class="nameBox"  [(ngModel)]="username" type="text" autofocus="on" required="on"></h2>
+      <h2><input class="nameBox"  [(ngModel)]="username" type="text" autofocus="on" required="on" (keyup.enter)="save()"></h2>
       <div *ngIf="!username && validated"  class="alert alert-dismissible alert-danger">
         {{'FIELD.MANDATORY' | translate}}
       </div>
@@ -26,7 +26,7 @@
     </div>
     <div class="col-md-6">
       <h2 class="text-center">{{ 'USER.PASSWORD' | translate}}</h2>
-      <h2><input class="nameBox"  [(ngModel)]="password" type="password" autofocus="on" required="on"></h2>
+      <h2><input class="nameBox"  [(ngModel)]="password" type="password" autofocus="on" required="on" (keyup.enter)="save()"></h2>
       <div *ngIf="!password && validated"  class="alert alert-dismissible alert-danger">
         {{'FIELD.MANDATORY' | translate}}
       </div>
